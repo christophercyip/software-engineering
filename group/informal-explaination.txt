@@ -15,3 +15,7 @@ Components:
     1. Application on Android phone that the user interacts with.
     2. Basic "power-point" program on computer (support for text and picture placement on slides).
     3. Interface mechanism between Android phone and computer running presentation.
+
+/*
+ * This comment was added by me (Luis) to check if I got the hang of GitHub.
+ */
