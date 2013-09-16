@@ -27,13 +27,13 @@ Dr. Pruski
 
                                 Project Proposal
     The goal of this software engineering project is to facilitate the management of presentations through the use 
-of a simple application on an Android smart phone and to create an application where users can build powerpoint-like 
-presentations that can be controlled by these Android phones. The phone will act as a simple and effective control 
+of a simple application on an Android smart phone.  We will create a desktop application where users can build powerpoint-like 
+presentations that can be controlled by these Android phones. The phone will act as a simple and effective control device
 for the presentation. It will allow the user to easily “connect” to a presentation so that it can perform a variety 
-of tasks such as: using the phone to act as “laser pointer”, to draw, to change slides and scroll by swiping phone, 
-and to zoom in/out on current slide. 
-	The project will have three main components: an application on Android phone, a basic “power-point” program on 
-computer, and a server which will facilitate communication between the smart phone and the compute program.
+of tasks such as: using the phone to act as “laser pointer”, draw on slides during a presentation, change slides and scroll by swiping phone screen, 
+and zoom in/out on current slide. 
+	The project will have three main components: an application on Android phone, a basic “power-point” program on a desktop
+computer, and a server which will facilitate communication between the smart phone and the desktop computer program.
     Below is a simple diagram showing the relationship between the 3 components:
     
         "Power-Point" App on Computer <----> Server acting as interface <----> Android Presentation App
