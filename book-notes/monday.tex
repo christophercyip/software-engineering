@@ -1,0 +1,265 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1.5 in, bottom = 1 in ,left = 1 in, right = 1in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{0pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+
+\newcommand{\natnums}{{\mathbb N}}
+\newcommand{\algnums}{{\mathbb A}}
+\newcommand{\rationals}{{\mathbb Q}}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\unorm}[1]{{\left|\left|#1\right|\right|_u}}
+\newcommand{\scriptR}{\mathcal{R}}
+\newcommand{\scriptP}{\mathcal{P}}
+\newcommand{\taggedP}{\dot{\mathcal{P}}}
+\newcommand{\scriptQ}{\mathcal{Q}}
+\newcommand{\taggedQ}{\dot{\mathcal{Q}}}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=Octave,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+\begin{document}
+
+\setcounter{section}{2}
+\section{Agile Software Development.}
+
+Rapid-delivery of software is essential for some business environments.  
+
+IBM introduced incremental development in 1980s (p57)
+
+\textbf{Fundamental Characteristics of rapid software development:}
+    \begin{enumerate}
+        \item processes of specification, design, and implementation are interleaved.
+        No detailed system specification, and design documentation is minimalized, or automatically generated
+    \item The system is developed in a series of versions.
+    \item UI developed often with interactive development that allows quick design/drawing
+    \end{enumerate}
+
+\subsection{Agile methods}
+
+Agile methods intended to deliver software quickly to users.
+
+\textbf{Agile Philosophy}
+\begin{enumerate}
+    \item Individuals and interactions over processes and tools
+    \item Working software over comprehensive documentation
+    \item Customer collaboration over contract negotiotion
+    \item Responding to change over following a plan
+    \item For the above, items on the left are valued more that on the right.
+\end{enumerate}
+
+\textbf{Successful areas for agile development}
+\begin{enumerate}
+    \item small or medium-sized products for sale.
+    \item Custom system development within an organization, few external rules.
+\end{enumerate}
+
+Agile focus on small teams makes scaling more difficult.
+
+\textbf{Diffuculties with agile development}
+\begin{enumerate}
+    \item Customer involvement is sometimes difficult to achieve.
+    \item Team members may not have suitable perosnality.
+    \item Prioritizing changes can be difficult
+    \item Maintaining simplicity requires extra work.
+    \item Challenges adapting culture.
+    \item Writing contracts can be difficult for products.
+\end{enumerate}
+
+Two big questions: Are agile-developed systems maintainable, and can agile methods be effectively used for evolving a system in response to customer change requests.
+
+Formal documentation in practice often not kept up to date.  Some agilers argue documentation is a waste of time.
+
+\subsection{Plan-driven and agile development}
+
+
+\subsection{Extreme programming (XP)}
+
+So called for pushing iterative development to "extreme" levels.  
+
+Requirements are expressed as scenarios (or "user stories").
+
+Utilizes pair programming and tests written before actual code
+
+\begin{enumerate}
+    \item Incremental development supported through small, frequent releases of system.
+    \item Continuous customer involvement
+    \item Emphasis on people, not process, collective ownership of system code.
+    \item Change embraced through regular system releases to customers and test-first development.
+    \item Maintain simplicity by constant refactoring.
+\end{enumerate}
+
+"Spikes" used to design system architecture or develop system documentation.  No code is written.
+
+Tries to fight against bloated system design by constant refactoring.
+
+\textbf{Key features to testing in XP are:}
+\begin{enumerate}
+    \item test-first development
+    \item incremental test development from scenarios
+    \item user involvement in the thest development and validation
+    \item use of automated testing frameworks
+\end{enumerate}
+
+Customer should have a role in the testing process to help develop acceptance tests for stories.
+This is sometimes a major difficulty.
+
+Testing is is incremental, just like the development.
+
+\textbf{Reasons why test-first doesn't catch everything}
+\begin{enumerate}
+    \item Programmer prefer programming to testing and may take shortcuts.
+    \item Certain tests are difficult to write incrementally.
+    \item Difficult to judge completeness of a set of tests.
+\end{enumerate}
+
+\textbf{Pair Programming}
+
+\textbf{Pair programming advantages}
+\begin{enumerate}
+    \item Supports collective ownership and responsibility for the system.
+    \item Acts as informal review process.
+    \item Helps support refactoring.
+\end{enumerate}
+
+\subsection{Agile project management}
+Project management is often plan-drive.  Needs to be adapted for agile methods.
+
+Scrum approach is agile that focuses on managing iterative development, instead of technical approaches to agile software engineering.
+
+Three general phases
+\begin{enumerate}
+    \item Outline/planning phase
+    \item Series of sprint cycles where each cycle develops an increment of the system.  Includes assess, select, develop, review.
+    \item Project closure. 
+\end{enumerate}
+
+Key characteristics:
+\begin{enumerate}
+    \item Sprints are fixed lenght (2-4 weeks).  Correspond to development of a release of system in XP.
+    \item Starting point for planning is the product backlog
+    \item Selection phase involves all project team and customer to select features and functionality to develop.
+    \item During development, team organizes and develops software.  Generally kept separate from customer.
+    \item Review: present to stakeholders and start new sprint.
+\end{enumerate}
+
+"Stand-up" meetings to assess current progress.  Scrum designed with co-located teams in mind.
+
+\subsection{Scaling agile methods}
+\textbf{Large vs Small software development}
+\begin{enumerate}
+    \item Large systems are often collections of separate systems, difficult for one person to have grasp on entire project.
+    \item Large systems are brownfield systems, interact with a number of existing systems.  Requirements are often inflexible.
+    \item For larger systems, a significant amount of time is spent on system configuration, rather than original development.
+    \item Large systems constrained by external rules.
+    \item Longprocurement and development time for large systems.
+    \item Diverse set of stakeholder on larger systems.
+\end{enumerate}
+
+Two different perspectives for scaling agile: "Scale Up," using agile to develop systems that cannot be done with a small team, vs "Scaling out,", how can agile methods be introduced across a large organization with lots of experience.
+
+Some ways to use agile in large communities:
+\begin{enumerate}
+    \item Not possible to only focus on code.  More time needed to do up-front design and system documentation.
+    \item Need to have cross-team communication handled.
+    \item Continuous integration with the entire system.
+\end{enumerate}
+
+\section{Requirements Engineering}
+Requirements engineering is process of finding out, analyzing, documenting and checking the needed services for a system is requirements engineering.
+
+User requirements are natural language plus diagram statements of what services the system is expected to provide, and operating constraints.
+
+System requirements are detailed descriptions of the software system's functions, services, and operational constraints.  Sometimes called a functional specification.
+
+Different readers use requirements in different ways.
+\subsection{Functional and non-functional requirements}
+\textbf{Functional requirements} are statements of services the system should provide, how the system should react to particular inputs, and how the system should behave in certain situations.
+
+Should be both complete and consistent.  Complete - all services required by the user should be defined.  Consistent - requirements shall not havbe contradictory definitions.
+
+\textbf{Non-functional requirements} are constraints on the services or functions offered by the system.  Including: timing constraints, constraints on the development process, constraints imposed by standards.  Often, these apply to system as a whole, reather than individual system features or services.
+
+Might relate to system properties like reliability, response time, store occupancy, as well as I/O capabilities and data representations.
+
+Can also come from:
+\begin{enumerate}
+    \item Product requirements.  Includes performance requirements on speed of system, memory requirements, reliability measurements, securty, usability.
+    \item Organizational requirements.  Broad system requirements derived from policies and procedures in the customer's and developer's organization.
+    \item External requirements.  Covers all requirements that are derived from factors external to the system and its development process.
+\end{enumerate}
+\subsection{The software requirements document}
+\subsection{Requirements specification}
+\subsection{Requirements engineering processes}
+\subsection{Requirements elicitation and analysis}
+\subsection{Requirements validation}
+\subsection{Requirements management}
+
+\end{document}
