@@ -1,0 +1,40 @@
+/* Informal explaination of our group project.
+ * TODO: Expand this and write in complete sentences.
+*/
+
+
+What: A "program" that allows a user to use an Android phone to control a presentation.
+
+Functionality: The user should be able to:
+    1. Swipe phone to chage slides/scroll down on current slide.
+    2. Act as "laser pointer" on slide.
+    3. Draw on current slide (for example to circle a section of the slide).
+    4. Zoom in/out of current slide.
+
+Components:
+    1. Application on Android phone that the user interacts with.
+    2. Basic "power-point" program on computer (support for text and picture placement on slides).
+    3. Interface mechanism between Android phone and computer running presentation.
+
+/* ------------------------------------------------------------------------------------------------
+ * Below is what I have so far for the SW Engineering Project Proposal
+ */
+ 
+Luis, Nick , Chris , and Angel
+09/16/13
+COMP 465W
+Dr. Pruski
+
+                                Project Proposal
+    The goal of this software engineering project is to facilitate the management of presentations through the use 
+of a simple application on an Android smart phone.  We will create a desktop application where users can build powerpoint-like 
+presentations that can be controlled by these Android phones. The phone will act as a simple and effective control device
+for the presentation. It will allow the user to easily “connect” to a presentation so that it can perform a variety 
+of tasks such as: using the phone to act as “laser pointer”, draw on slides during a presentation, change slides and scroll by swiping phone screen, 
+and zoom in/out on current slide. 
+	The project will have three main components: an application on Android phone, a basic “power-point” program on a desktop
+computer, and a server which will facilitate communication between the smart phone and the desktop computer program.
+    Below is a simple diagram showing the relationship between the 3 components:
+    
+        "Power-Point" App on Computer <----> Server acting as interface <----> Android Presentation App
+
