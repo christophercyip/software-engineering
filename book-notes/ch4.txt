@@ -1,0 +1,149 @@
+4.1 Requirements Engineering
+
+
+Requirements engineering is process of finding out, analyzing, documenting and checking the needed services for a system is requirements engineering.
+User requirements are natural language plus diagram statements of what services the system is expected to provide, and operating constraints.
+
+System requirements are detailed descriptions of the software system's functions, services, and operational constraints.  Sometimes called a functional specification.
+
+Different readers use requirements in different ways.
+
+
+Functional and non-functional requirements
+Functional requirements 
+    Statements of services the system should provide, how the system should react to particular inputs, and how the system should behave in certain situations.
+
+Should be both complete and consistent.  Complete - all services required by the user should be defined.  Consistent - requirements shall not havbe contradictory definitions.
+
+Non-functional requirements
+    Constraints on the services or functions offered by the system.  Including: timing constraints, constraints on the development process, constraints imposed by standards.  Often, these apply to system as a whole, reather than individual system features or services.
+
+Might relate to system properties like reliability, response time, store occupancy, as well as I/O capabilities and data representations.
+
+Can also come from:
+    Product requirements.  Includes performance requirements on speed of system, memory requirements, reliability measurements, securty, usability.
+    Organizational requirements.  Broad system requirements derived from policies and procedures in the customer's and developer's organization.
+    External requirements.  Covers all requirements that are derived from factors external to the system and its development process.
+
+
+4.2 The software requirements document
+
+Users of the SRS:
+    system customers
+    managers
+    system engineers
+    system test engineers
+    system mainenance engineers
+
+Structure of an SRS
+    Preface
+    Introduction
+    Glossary
+    User requirements definition
+    System architecture
+    System requirements specification
+    System models
+    System evolution
+    Appendices
+    Index
+
+
+4.3 Requirements specification
+
+Requirements specification:
+    Process of writing down the user and system requirements in a requirements document.  Should be clear and easy to understand.
+User requirements:
+    Describe the functional and non-functional aspects of the software
+System requirements:
+    Expanded versions of the user requirements.  Not concerned with how the system should be designed or implemented.
+
+Natural language specification:
+    Used to write requirements for software, expressive, intuitive and universal - but possibly vague.
+    1. Invent standard format that all requirement definitions adhere to.
+    2. USe language consistently to distinguish between mandatory and desirable requirements.
+    3. Use text highlighting for key parts.
+    4. Do not assume the reader has any level of intelligence.
+    5. Try to associate a rationale with each user requirement when possible.
+
+Structured specifications
+    Structured natural language is a way of writing system requirements where the freedom of the requirements writer is limited and all requirements are written in a standard way.
+    Ensures uniformity.
+    Include the following:
+    1. description of the function/entity.
+    2. description of its inputs and where they come from.
+    3. description of outputs and where they go.
+    4. Information about the information that is needed for the computation or other entities in system that is being used.
+    5. description of action to be taken.
+    6. If functional approach, pre-condition and post-condition.
+    7. descriptiohn of the side-effects.
+
+
+4.4 Requirements engineering processes
+
+Recall requirements engineering includes 4 activities.  
+    1. Feasibility study
+    2. elicitation and analysis
+    3. specification
+    4. validation
+
+4.5 Requirements elicitation and analysis
+
+Requirements elicitation and analysis after feasibility study.
+Process of Requirements elicitaition and analysis:
+    1. Requirements discovery
+        Gathering information about the required system and existing systems, and distilling the user and system requirements.
+        Need to look at stakeholders, domain, related systems.
+    2. Tequirements classification and organization
+    3. Requirements Prioritization and negotiation
+    4. Requirements specification
+
+The above is an iterative process.  Can be difficult because:
+    Stakeholders might not know what they want
+    Stakeholders express requirements in a languate that engineers may not understand
+    Competing stakeholders may have conflicting requirements
+    Political factors may influence requirements
+    Economic and business environment is dynamic.
+
+Can use:
+    1. Interviewing
+    2. Scenarios 
+    3. Use cases
+    4. Ethnography - observational technique used to understand operational processes and help derive support requirements.
+
+4.6 Requirements validation
+    Process of checking that requirements actually define the system and the customer really wants it.
+    Important since errors in requirements document can be very expensive.
+    Different types of checks:
+    1. Validity checks
+        Need to check that a system is actually needed in the way defined.
+    2. Consistency checks - no conflicts between requirements
+    3. Realism checks - System needs to be doable
+    5. Verifiability, requirements need to be written so they are verifiable.
+
+Techniques to use:
+    1. Requirements reviews
+    2. Prototyping
+    3. Test-case generation
+
+4.7 Requirements management
+    Requirements for difficult problems are bound to be incomplete.
+    After use, change is inevitable:
+        1. Business and technical environment of the system changes after installation
+        2. People who pay are rarely the ones who play.
+        3. Large systems have diverse community of users.
+
+Planning is essential first stage in requirements management process.
+    1. Requirements identification
+    2. Change management process
+    3. Traceability policies - define the relationship between each requirement and between the requirements and the systm design.
+    4. Tool support
+        needed for Requirements storage
+                    Change management
+                    Traceability management
+
+Requirements change management
+    Advantage of change management is that all chage proposals are treated consistently
+    3 principal stages:
+        1. Problem analysis and change specification
+        2. Change analysis and costing
+        3. Change implementation
