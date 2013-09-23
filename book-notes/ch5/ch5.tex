@@ -1,0 +1,223 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1.5 in, bottom = 1.5 in ,left = 1.5 in, right = 1.5in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{0pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+
+\newcommand{\natnums}{{\mathbb N}}
+\newcommand{\algnums}{{\mathbb A}}
+\newcommand{\rationals}{{\mathbb Q}}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\unorm}[1]{{\left|\left|#1\right|\right|_u}}
+\newcommand{\scriptR}{\mathcal{R}}
+\newcommand{\scriptP}{\mathcal{P}}
+\newcommand{\taggedP}{\dot{\mathcal{P}}}
+\newcommand{\scriptQ}{\mathcal{Q}}
+\newcommand{\taggedQ}{\dot{\mathcal{Q}}}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=Octave,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\begin{document}
+ 
+\setcounter{section}{4}
+\section{System Modeling}
+System modeling is process of developing abstract models of a system, with each model presenting a different view of perspective of the system.
+
+Models are used during requirements engineering process to help derive requirements for a system, during design phase to describe system to implementation engineers, and after to document system structure and operation.
+
+Leaves out detail!!!  Model is an abstraction, rather than alternative representation.
+
+Different models can be used for different perspectives.  
+\begin{enumerate}
+    \item External perspective where you model the context or environment of system.
+    \item Interaction perspective where you model the interactions between a system and evironment, or between system components.
+    \item Structural perspective, model the organization of a system or the structure of the data processed.
+    \item Behavioral perspective, where you model the dynamic behavior of the system and how it responds to events.
+\end{enumerate}
+
+UML can be used to define models.  5 main diagram types:
+\begin{enumerate}
+    \item Activity diagrams, show activities involved in a process or in data processing.
+    \item Use case diagrams, show interactions between a system and its environment.
+    \item Sequence diagrams, show interactions between actors and the system and between system components.
+    \item Class diagrams, show object classes in the system and the association between them.
+    \item State diagrams, show how the system reacts to internal and external events.
+\end{enumerate}
+
+Graphical models are used to:
+
+\begin{enumerate}
+    \item Facilitate discussion about existing or proposed system.
+    \item Documentation of existing system.
+    \item Detailed system description used to generate system implementation.
+\end{enumerate}
+
+
+\subsection{Context models}
+Show the system boundaries within a software process.
+
+\subsection{Interaction models}
+Can include user interraction, interraction between the system being developed and other systems, or interractions between components of the system.  Two related approaches:
+\begin{enumerate}
+    \item Use case modeling (mostly used to model interactions between a system and external actors).
+    \item Sequence diagrams, used to model interactions between system components, although external agents may be included.
+\end{enumerate}
+
+\subsubsection{Use case modeling}
+Widely used to support requirements elicitation.
+Each use case represents a discrete task involving external interaction with a system.
+Give a failry simplistic overview
+
+\subsubsection{Sequence Diagrams}
+Sequence diagrams used to model interactions between actors and the objects in a system and the interactions between the objects themselves.
+Shows the sequence of interactions that take place during a particular use case.
+
+Don't need to include every interaction in the diagrams, unless being used for code generation.
+
+\subsection{Structural models}
+Display the organization of a system in terms of the components that make up that system and their relationships.
+
+\subsubsection{Class Diagrams}
+Used when developing OO system model to show the classes in a system and the association between the classes.
+Can use numbers to define how many objects are involved in the association.
+
+Class diagrams can look like "semantic data models" which show data entities, their associated attributes, and the relationship between the entities.
+Much like with database design models.
+
+\subsubsection{Generalization}
+Define the actors in a general way of a system, and represent using that.  Similiar to Java object inheritance.
+
+\subsubsection{Aggregation}
+Use a system model that aggregates attributes together under general terms/ ideas.
+
+
+
+\subsection{Behavioral models}
+
+Models of the dynamic behavior of the system as it is executing.  
+Show what is happening when a system responds to a stimulus from environment.
+Stymulus can come from:
+\begin{itemize}
+    \item Data.  data arrives that has to be proccessed.
+    \item Events. event occurs that triggers system processing.  Data may be involved with the event.
+\end{itemize}
+
+
+\subsubsection{Data-driven modeling}
+show the sequence of actions involved in processing input data and generating an associated output.
+Useful during the analysis of requirements as they can be used to show end-to-end processing in a system.
+Focus is on system functions and not system objects.
+
+\subsubsection{Event-driven modeling}
+Shows how a system respoonds to external and internal events.  Based on the assumption that a system has a finite number of states and that events may cause a transition from one state to another.
+Do not show flow of data within the system, but may include additional information on the computations carried out in each state.
+
+\subsection{Model-driven engineering}
+Approach to software development where models, rather than programs, are the principal outputs of the development process.
+
+Programs that execute on a hardware/software platform are then generated automatically from the models.  Potentially raises the level of abstraction in software engineering - no longer need to worry about programming language details or execution platform specifics.
+
+MDA focuses on the design and implementation stages of software development.
+MDE is concerned with all aspects of the software engineering process.  
+Thus, model-based requirements engineering, software processes for model-based development, and model-based testing are part of MDE, but not MDA.
+
+pros and cons:
+\begin{itemize}
+    \item Pros. Allows engineers to thing about systems at a high level of abstraction without concern for the details of their implementations.
+        High abstraction reduces likelyhood for errors, speeds up design and implementation, allows for creation of reusable, platform-independent application modles.
+        To adapt to new platform, only a translator is required.
+    \item Cons.  Abstractions supported by a model are not always the right abstractions for implementation.  
+        Platform independence is really only important for systems where the platform will become obsolete in the system's lifetime.
+        Ideas like requirements engineering, security and dependability, integration with legacy systems, and testing may be far more significant.
+\end{itemize}
+
+\subsubsection{Model-driven architecture}
+MDA is a model-focused approach to software design and implementation.  Models at different levels of abstraction are created.
+Recommends thre types of abstract system model to be produced:
+\begin{enumerate}
+    \item Computation independent model.  Models the important domain abstractions used in the system.
+    \item Platform independent model.  Models the operation of the system without reference to its implementation.
+    \item Platform specific model. Transformations of the platform-independent model with layers for platform specific implementation.
+\end{enumerate}
+
+\subsubsection{Executable UML}
+\textbf{Fundamental notion behind model-driven engineering is that completely automated transformation of models to code should be possible}
+
+Executable UML designed as a language for supporting and documenting software design, not as a programming language.  Three key model types:
+\begin{enumerate}
+    \item Domain models.  Identify the principle concerns in the system.
+    \item Class models.  Classes are defined, along with their attributes and operations.
+    \item State models.  State diagram is associated with each class and is used to describe lifecycle of the class.
+\end{enumerate}
+
+\end{document}
