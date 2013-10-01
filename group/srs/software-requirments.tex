@@ -9,7 +9,7 @@
 %\pagestyle{fancy}
 
 %set-up page dimentions
-\usepackage[top=1.5 in, bottom = 1.5 in ,left = 1.5 in, right = 1.5in]{geometry}
+\usepackage[top=1 in, bottom = 1 in ,left = 1.5 in, right = 1.5in]{geometry}
 
 \setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
 \setlength{\parindent}{12pt} % 0 pt  = indentation
@@ -103,7 +103,7 @@ This SRS covers the entirety of the \pd project.
 
 Todo or takeout
 
-\subsection{Intended Audience and Reading Suggestions}
+\subsection{Intended Audience} % and Reading Suggestions
 %<Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.>
 
 \begin{enumerate}
@@ -111,16 +111,25 @@ Todo or takeout
 \item Dr. Pruski
 \item Software Development Team
 \item Software Testing and Validation Team
-\item Marketing
+\item System Architect
 \end{enumerate}
 
-This SRS contains the Product Scope, Overall Description, External Interface Requirements, System Features, Non-Functional Requirements, and Other Requirements of the system. The end of the SRS will cover the terms used (Glossary), the models of various aspects of the system (Analysis Models), and aspects of the system to still be determined (To-Be Determined List).
-
+This SRS contains the Product Scope, Overall Description, External Interface Requirements, System Features, Non-Functional Requirements, and Other Requirements of the system. 
+The end of the SRS will cover the terms used (Glossary), the models of various aspects of the system (Analysis Models), and aspects of the system to still be determined (To-Be Determined List).
 
 \subsection{Product Scope}
 %<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.>
-The system will have 2 main components that interact with the user. The 1st component is a desktop application that will enable the user to create their own presentation and display it. The 2nd component is an Android application that will allow the presenter of the presentation (created via the 1st Component) to control the presentation. The presenter can scroll/flip through presentation slides, zoom in/out of the presentation, highlight text on the presentation, draw figures on the slides, and point to specific content (like a laser pointer) through a simple Android UI and gestures. 
-
+The system will have 2 main components that interact with the user. 
+The 1st component is a desktop application that will enable the user to create and display presentations. 
+The 2nd component is an Android application that will allow the presenter of the presentation (created via the 1st Component) to control the presentation. 
+The presenter will have the following capabilities through the android application:
+\begin{itemize}
+\item Scroll/flip through presentation slides
+\item Zoom in/out of the presentation
+\item Highlight text on the presentation
+\item Draw figures on the slides
+\item Point to specific content (like a laser pointer) through a simple Android UI and gestures
+\end{itemize}
 
 
 \subsection{References}
@@ -128,26 +137,58 @@ The system will have 2 main components that interact with the user. The 1st comp
 
 TODO but I don't think we have anything to refers to !!!
 
-
 \section{Overall Description}
 \subsection{Product Perspective}
-<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
+%<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
+The \pd is a new stand-alone system that does not depend on any other user systems.  
+The desktop application portion will target the Windows and Linux operating system environments.
+The mobile application will be targeted for Android mobile phones, specifically Luis' and Angel's phone.
 
-The 
+\begin{center}
+\includegraphics[scale=0.4, trim = 0 5 0 5 cm, clip]{ppd}
+\end{center}
 
 \subsection{Product Functions}
-<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
-\subsection{User Classes and Characteristics}
-<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>
-\subsection{Operating Environment}
-<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
-Design and Implementation Constraints
-<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
-\subsection{User Documentation}
-<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>
-\subsection{Assumptions and Dependencies}
-<List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
+%<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
+The desktop subsystem will perform the following functions:
+\begin{itemize}
+\item Build a new presentation
+\item Present previously built presentation
+\item Sync with mobile subsystem
+\item Interract with mobile subsystem
+\end{itemize}
 
+The mobile subsystem will provide the following functions:
+\begin{itemize}
+\item Sync with desktop subsystem
+\item Accept gesture input
+\item Interract with desktop subsystem
+\end{itemize}
+
+\subsection{User Classes and Characteristics}
+%<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>
+The user groups will include students or professors giving simple, quick, and effective presentations.
+
+\subsection{Operating Environment}
+%<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
+The hardware requirements for \pd are a Windows or Linux computer where a projector is compatible and Android mobile phone.
+The computer and phone used must have networking (HTTP or Bluetooth) capabilities.
+
+\subsection{Design and Implementation Constraints}
+%<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
+TODO: remove or add
+
+\subsection{User Documentation}
+%<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>
+User manual.\\
+Help section in desktop and mobile application.
+
+\subsection{Assumptions and Dependencies}
+%<List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
+We assume this will work with Windows and Linux computers.\\
+We assume Bluetooth messaging will not be data-constrained.\\
+We assume the computers will have bluetooth messaging capabilities.\\
+We assume there will be FOUR members in our group, not 3 or 3.001, jusk kidding, ... not really, Chris.\\
 
 \section{External Interface Requirements}
 \subsection{User Interfaces}
