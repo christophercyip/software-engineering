@@ -89,7 +89,15 @@ title=\lstname                   % show the filename of files included with \lst
 
 
 \begin{document}
+\begin{center}
+    Title\\
+    Authors\\
+    Version\\
+    Date\\
+    Other\\
+\end{center}
 
+\newpage
 \section{Introduction}
 \subsection{Purpose}
 %Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.
@@ -137,6 +145,7 @@ The presenter will have the following capabilities through the android applicati
 
 TODO but I don't think we have anything to refers to !!!
 
+\newpage
 \section{Overall Description}
 \subsection{Product Perspective}
 %<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
@@ -189,6 +198,7 @@ We assume Bluetooth messaging will not be data-constrained.\\
 We assume the computers will have bluetooth messaging capabilities.\\
 We assume there will be FOUR members in our group, not 3 or 3.001, jusk kidding, ... not really, Chris.\\
 
+\newpage
 \section{External Interface Requirements}
 \subsection{User Interfaces}
 %<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>
@@ -228,6 +238,7 @@ Both the Mobile and Desktop subsystems will be built upon Java and Android frame
 
 The two major subsystems (as depicted in the “Product Perspective” section above) will communicate using a “Communication Interface”. This Interface will store all messages or requests to be processed and will handle communication between the two subsystems. It will provide a simple and consistent interface where a component can easily check if it has any requests or messages to process. An example of a request is an incoming request for the desktop application (from the Mobile application) to “pair up” with the desktop application so that the two applications can be in sync and can communicate. This “Communication Interface” will need to rely on some form of networking (HTTP, Bluetooth, etc.) to be provided by the host machine. The “Communication Interface” will need to run on a separate thread so that the program will not stall while waiting for incoming messages. The “Communication Interface” must make sure to protect against corruption of its message pool through the use of Semaphores and/or Mutexes, etc.
 
+\newpage
 \section{System Features}
 %<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>
 
@@ -256,27 +267,68 @@ The two major subsystems (as depicted in the “Product Perspective” section a
 \subsection{System Feature 2 (and so on)}
 
 
+\newpage
 \section{Other Nonfunctional Requirements}
 \subsection{Performance Requirements}
 %<If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
+\subsubsection{Mobile to Desktop Communication}
+The delay between user interaction on mobile device and registration of user action on the desktop environment should be minimized.
+\begin{enumerate}
+    \item Requirement Completely Met: Mobile to desktop communication appears instantaneous.
+    \item Acceptable: The mobile to desktop communication contains predictable lag that does not distract user performance.
+    \item Not Met: The user is unable to compensate for inconsistencies or poor mobile to desktop communication performance.
+\end{enumerate}
 
+\subsubsection{Syncing of Mobile to Desktop}
+The time it takes to sync the mobile device to the desktop suite should be less than TODO seconds.
+
+\subsubsection{Desktop Program Start-Up}
+The time it takes to start the desktop suite should be less than TODO seconds.
+
+\subsubsection{Desktop Program Response}
+The presentation creation program should have negligible response times accepting and displaying user input.
 
 \subsection{Safety Requirements}
 %<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>
+There are no know safety requirements at this time.  Caution should be exercised when using any unfamiliar device, however.
 
 
 \subsection{Security Requirements}
 %<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>
-
+\begin{itemize}
+    \item Each presentation will only allow syncing to one mobile device.
+    \item A mobile device will not disconnect another mobile device from its connection to the desktop suite.
+    \item A desktop will not automatically sync with a mobile device.
+    \item Requests made outside of standard mobile to desktop interface will return a standard error message.
+\end{itemize}
+NO requirement is given that communication needs to be encrypted.\\
 
 \subsection{Software Quality Attributes}
 %<Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
+The source code will adhere to the following attributes:
+\begin{itemize}
+    \item The source code will be reasonably documented.  All non-trivial functions or methods will have header documentation describing the following:
+        \begin{enumerate}
+            \item Name
+            \item General description, including pre-conditions
+            \item List and description of input parameters
+            \item List and description of returned values
+            \item Information about state change during method execution (post-condition)
+        \end{enumerate}
+    \item The source code will adhere to a single programming style, namely the Stroustrup variant of K\&R style.
+    \item All code blocks will be enclosed in curly brackets, even if not explicitly required.
+\end{itemize}
+
+Above all else, the system will strive to be usable.  We want flexibility, but if rigid assumptions must be made to release the product on time, then so be it.
+
 
 
 \subsection{Business Rules}
 %<List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.>
+This product will ship by the end of the fall semester.
 
 
+\newpage
 \section{Other Requirements}
 %<Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.>
 
