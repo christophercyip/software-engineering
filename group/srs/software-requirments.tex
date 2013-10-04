@@ -89,20 +89,7 @@ title=\lstname                   % show the filename of files included with \lst
 
 
 \begin{document}
-\Huge
-\begin{center}
-    Software Requirements Specification for the \pd\\
-    \vspace{3cm}
-    \Large
-    Angel De Castro\\
-    Nicholas Otto\\
-    Luis Retana\\
-    Christopher Yip\\
-    \vspace{2cm}
-    Version 0.1\\
-    10/4/2013
-\end{center}
-
+\input{./title.tex}
 \normalsize
 
 \newpage
@@ -248,40 +235,72 @@ The two major subsystems (as depicted in the “Product Perspective” section a
 
 \newpage
 \section{System Features}
-Our system needs to communicate two devices, a computer running either Linux or windows, with a portable Android device. The communication is needed so we can control the computer application from the Android device. The computer application will show a simple interface for presentations. The Android device will have to control the change of slides, zoom in/out, writing, moving mouse, go to page and any other function supported by a simple presentation program. If possible we intend to see the pc screen on the Android device. 
+Our system needs to communicate two devices, a computer running either Linux or windows, with a portable Android device. 
+The communication is needed so we can control the computer application from the Android device. 
+The computer application will show a simple interface for presentations. 
+The Android device will have to control the change of slides, zoom in/out, writing, moving mouse, go to page and any other function supported by a simple presentation program. 
+If possible we intend to see the pc screen on the Android device. 
 
 \subsection{Communications}
 \subsubsection{Description and Priority}
-The Android device needs to send and receive data from the computer application. To achieve this goal a communications protocol must be used such as Bluetooth or HTTP. The feature has the highest priority of a 9 since the whole system relies on the Android device communicating with the computer.
+The Android device needs to send and receive data from the computer application. 
+To achieve this goal a communications protocol must be used such as Bluetooth or HTTP. 
+The feature has the highest priority of a 9 since the whole system relies on the Android device communicating with the computer.
 \subsubsection{Stimulus/Response Sequences}
-This feature must be present from the start, right after the user turns both devices on.  The moment the devices are switched on they must be able to communicate with each other so the normal use of the application can continue
+This feature must be present from the start, right after the user turns both devices on.  
+The moment the devices are switched on they must be able to communicate with each other so the normal use of the application can continue
 \subsubsection{Functional Requirements}
-The communications must be robust, the state of the link must be constantly checked so there is no down time. In case of loss of communications the system must be able to create a new channel of communication. If this fails the user must be prompted of the error.
+The communications must be robust, the state of the link must be constantly checked so there is no down time. 
+In case of loss of communications the system must be able to create a new channel of communication. 
+If this fails the user must be prompted of the error.
 
 \subsection{Synchronization}
 \subsubsection{Description and Priority}
-Before any other function becomes available we need to synchronize the Android device with the computer. This must be done by selecting in both machines the sync button. Once both devices find each other they can pair up. The feature has the highest priority of a 9 since the whole system relies on the Android device maintaining a link with computer
+Before any other function becomes available we need to synchronize the Android device with the computer. 
+This must be done by selecting in both machines the sync button. 
+Once both devices find each other they can pair up. 
+The feature has the highest priority of a 9 since the whole system relies on the Android device maintaining a link with computer
 \subsubsection{Stimulus/Response Sequences}
-This feature must be present from the start, right after the user turns both devices on. Once on, the first task to complete must be a successful synchronization, so the normal use of the application can continue. To accomplish this link both devices must be searching for a pair, once found they can create the link.
+This feature must be present from the start, right after the user turns both devices on. 
+Once on, the first task to complete must be a successful synchronization, so the normal use of the application can continue. 
+To accomplish this link both devices must be searching for a pair, once found they can create the link.
 \subsubsection{Functional Requirements}
-The link must be robust, the state of the link must be constantly checked so there is no down time. For these checks any package sent must receive a confirmation package.  If data fails to reach its destination the system must resend the package. In case of complete loss of the link, the system must be able search for the same device to try and reconnect automatically. If this fails the user must be prompted of the failure.
+The link must be robust, the state of the link must be constantly checked so there is no down time. 
+For these checks any package sent must receive a confirmation package. 
+ If data fails to reach its destination the system must resend the package. 
+In case of complete loss of the link, the system must be able search for the same device to try and reconnect automatically. 
+If this fails the user must be prompted of the failure.
+
 \subsection{Android Gestures}
 \subsubsection{Description and Priority}
-The Android Application must be able to accept input from the user by hand gestures. Using the Androids touch screen the user will send commands to the Android application. These commands must be then sent to the computer were they will be processed and a task will be executed. Such tasks will include the passing of slides, zoom in/out, moving the mouse, etc. This is feature is of the highest priority 9, since it’s the core function of the system.
+The Android Application must be able to accept input from the user by hand gestures. 
+Using the Androids touch screen the user will send commands to the Android application. 
+These commands must be then sent to the computer were they will be processed and a task will be executed. 
+Such tasks will include the passing of slides, zoom in/out, moving the mouse, etc. 
+This is feature is of the highest priority 9, since it’s the core function of the system.
 \subsubsection{Stimulus/Response Sequences}
 After both applications have synced this feature must be made available, a drawn gesture on the Android application must be directly followed by an action in the computer application.
 \subsubsection{Functional Requirements}
-This feature must be robust and responsive with no lag. Any input into the Android device must be immediately show on the computer screen. This way the user gets a feeling of complete control and responsiveness. In case of an error the user will be prompted with a message to repeat the gesture.
+This feature must be robust and responsive with no lag. 
+Any input into the Android device must be immediately show on the computer screen. 
+This way the user gets a feeling of complete control and responsiveness. 
+In case of an error the user will be prompted with a message to repeat the gesture.
+
 \subsection{Simple Presentation Interface on Computer}
 \subsubsection{Description and Priority}
-The task of the computer application is to function as a presentation GUI, it must be able to open and create presentation showing them on screen. The priority of this feature is the highest 9, since all future features rely on it, needing it as a visual interface.
+The task of the computer application is to function as a presentation GUI, it must be able to open and create presentation showing them on screen. 
+The priority of this feature is the highest 9, since all future features rely on it, needing it as a visual interface.
 \subsubsection{Stimulus/Response Sequences}
 The presentation interface must appear once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the Android device screen.
 \subsubsection{Functional Requirements}
 Should be a robust and reliable program, it's controlled by gestures through the Android device so the inputs will be largely varied and vague.
+
 \subsection{Computer Screen on Android Device}
 \subsubsection{Description and Priority}
-Instead of having a specific Android interface the computer screen could be shown on the Android device. This way the user can select or underline exactly were intended without the need of a mouse cursor. This also makes it easier for the user to change slides or zoom in/out at specific points. This feature has a priority of 5, it's not essential for the system it simply makes it more interactive. 
+Instead of having a specific Android interface the computer screen could be shown on the Android device. 
+This way the user can select or underline exactly were intended without the need of a mouse cursor. 
+This also makes it easier for the user to change slides or zoom in/out at specific points. 
+This feature has a priority of 5, it's not essential for the system it simply makes it more interactive. 
 \subsubsection{Stimulus/Response Sequences}
 The presentation must appear on the Android device once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the Android device screen.
 \subsubsection{Functional Requirements}
@@ -336,7 +355,7 @@ Furthermore, the desktop suite shall perform an "auto-save" while the user modif
     \item A desktop will not automatically sync with a mobile device.
     \item Requests made outside of standard mobile to desktop interface will return a standard error message.
 \end{itemize}
-NO requirement is given that communication needs to be encrypted.\\
+No requirement is given that communication needs to be encrypted.\\
 
 \subsection{Software Quality Attributes}
 %<Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
