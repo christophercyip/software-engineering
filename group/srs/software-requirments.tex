@@ -89,13 +89,24 @@ title=\lstname                   % show the filename of files included with \lst
 
 
 \begin{document}
+\Huge
 \begin{center}
-    Title\\
-    Authors\\
-    Version\\
-    Date\\
-    Other\\
+    Software Requirements Specification for the \pd\\
+    \vspace{3cm}
+    \Large
+    Angel De Castro\\
+    Nicholas Otto\\
+    Luis Retana\\
+    Christopher Yip\\
+    \vspace{2cm}
+    Version 0.1\\
+    10/4/2013
 \end{center}
+
+\normalsize
+
+\newpage
+\tableofcontents
 
 \newpage
 \section{Introduction}
@@ -106,10 +117,10 @@ This document describes the \pd product version 0.1.
 \pd aims to facilitate the creation of presentations that can be easily controlled through a simple Android UI. 
 This SRS covers the entirety of the \pd project.
 
-\subsection{Document Conventions}
+%\subsection{Document Conventions}
 %Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.
 
-Todo or takeout
+%Todo or takeout
 
 \subsection{Intended Audience} % and Reading Suggestions
 %<Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.>
@@ -143,7 +154,7 @@ The presenter will have the following capabilities through the android applicati
 \subsection{References}
 %<List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>
 
-TODO but I don't think we have anything to refers to !!!
+TODO 
 
 \newpage
 \section{Overall Description}
@@ -154,7 +165,7 @@ The desktop application portion will target the Windows and Linux operating syst
 The mobile application will be targeted for Android mobile phones, specifically Luis' and Angel's phone.
 
 \begin{center}
-\includegraphics[scale=0.4, trim = 0 5 0 5 cm, clip]{ppd}
+\includegraphics[trim=0cm 5cm 0cm 3cm, clip, scale=0.4]{ppd}
 \end{center}
 
 \subsection{Product Functions}
@@ -164,14 +175,14 @@ The desktop subsystem will perform the following functions:
 \item Build a new presentation
 \item Present previously built presentation
 \item Sync with mobile subsystem
-\item Interract with mobile subsystem
+\item Interact with mobile subsystem
 \end{itemize}
 
 The mobile subsystem will provide the following functions:
 \begin{itemize}
 \item Sync with desktop subsystem
 \item Accept gesture input
-\item Interract with desktop subsystem
+\item Interact with desktop subsystem
 \end{itemize}
 
 \subsection{User Classes and Characteristics}
@@ -180,12 +191,12 @@ The user groups will include students or professors giving simple, quick, and ef
 
 \subsection{Operating Environment}
 %<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
-The hardware requirements for \pd are a Windows or Linux computer where a projector is compatible and Android mobile phone.
-The computer and phone used must have networking (HTTP or Bluetooth) capabilities.
+The hardware requirements for \pd are a Windows or Linux computer where a projector is compatible for the desktop portion and Android mobile phone.
+The computer and phone used must have networking (HTTP or Bluetooth, TBD) capabilities.
 
 \subsection{Design and Implementation Constraints}
 %<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
-TODO: remove or add
+TODO fill in as we get better idea.
 
 \subsection{User Documentation}
 %<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>
@@ -193,9 +204,7 @@ User manual.\\
 Help section in desktop and mobile application.
 \subsection{Assumptions and Dependencies}
 %<List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
-We assume this will work with Windows and Linux computers.\\
-We assume Bluetooth messaging will not be data-constrained.\\
-We assume the computers will have bluetooth messaging capabilities.\\
+We assume Bluetooth messaging will not be data-constrained and that the computers will have bluetooth messaging capabilities.\\
 
 \newpage
 \section{External Interface Requirements}
@@ -239,33 +248,59 @@ The two major subsystems (as depicted in the “Product Perspective” section a
 
 \newpage
 \section{System Features}
+Our system needs to communicate two devices, a computer running either Linux or windows, with a portable Android device. The communication is needed so we can control the computer application from the Android device. The computer application will show a simple interface for presentations. The Android device will have to control the change of slides, zoom in/out, writing, moving mouse, go to page and any other function supported by a simple presentation program. If possible we intend to see the pc screen on the Android device. 
+
+\subsection{Communications}
+\subsubsection{Description and Priority}
+The Android device needs to send and receive data from the computer application. To achieve this goal a communications protocol must be used such as Bluetooth or http. The feature has the highest priority of a 9 since the whole system relies on the Android device communicating with the computer.
+\subsubsection{Stimulus/Response Sequences}
+This feature must be present from the start, right after the user turns both devices on.  The moment the devices are switched on they must be able to communicate with each other so the normal use of the application can continue
+\subsubsection{Functional Requirements}
+The communications must be robust, the state of the link must be constantly checked so there is no down time. In case of loss of communications the system must be able to create a new channel of communication. If this fails the user must be prompted of the error.
+
+\subsection{Synchronization}
+\subsubsection{Description and Priority}
+Before any other function becomes available we need to synchronize the android device with the computer. This must be done by selecting in both machines the sync button. Once both devices find each other they can pair up. The feature has the highest priority of a 9 since the whole system relies on the Android device maintaining a link with computer
+\subsubsection{Stimulus/Response Sequences}
+This feature must be present from the start, right after the user turns both devices on. Once on, the first task to complete must be a successful synchronization, so the normal use of the application can continue. To accomplish this link both devices must be searching for a pair, once found they can create the link.
+\subsubsection{Functional Requirements}
+The link must be robust, the state of the link must be constantly checked so there is no down time. For these checks any package sent must receive a confirmation package.  If data fails to reach its destination the system must resend the package. In case of complete loss of the link, the system must be able search for the same device to try and reconnect automatically. If this fails the user must be prompted of the failure.
+\subsection{Android Gestures}
+\subsubsection{Description and Priority}
+The Android Application must be able to accept input from the user by hand gestures. Using the Androids touch screen the user will send commands to the Android application. These commands must be then sent to the computer were they will be processed and a task will be executed. Such tasks will include the passing of slides, zoom in/out, moving the mouse... This is feature is of the highest priority 9, since it’s the core function of the system.
+\subsubsection{Stimulus/Response Sequences}
+After both applications have synced this feature must be made available, a drawn gesture on the android application must be directly followed by an action in the computer application.
+\subsubsection{Functional Requirements}
+This feature must be robust and responsive with no lag. Any input into the Android device must be immediately show on the computer screen. This way the user gets a feeling of complete control and responsiveness. In case of an error the user will be prompted with a message to repeat the gesture.
+\subsection{Simple Presentation Interface on Computer}
+\subsubsection{Description and Priority}
+The task of the computer application is to function as a presentation GUI, it must be able to open and create presentation showing them on screen. The priority of this feature is the highest 9, since all future features rely on it, needing it as a visual interface.
+\subsubsection{Stimulus/Response Sequences}
+The presentation interface must appear once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the android device screen.
+\subsubsection{Functional Requirements}
+Should be a robust and reliable program, it's controlled by gestures through the Android device so the inputs will be largely varied and vague.
+\subsection{Computer Screen on Android Device}
+\subsubsection{Description and Priority}
+Instead of having a specific Android interface the computer screen could be shown on the Android device. This way the user can select or underline exactly were intended without the need of a mouse cursor. This also makes it easier for the user to change slides or zoom in/out at specific points. This feature has a priority of 5, it's not essential for the system it simply makes it more interactive. 
+\subsubsection{Stimulus/Response Sequences}
+The presentation must appear on the Android device once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the android device screen.
+\subsubsection{Functional Requirements}
+Should be robust and reliable, it's controlled by gestures through the Android device so the inputs will be largely varied and vague.
+
 %<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>
 
-
-
-\subsection{System Feature 1}
+%\subsection{System Feature 1}
 %<Don’t really say “System Feature 1.” State the feature name in just a few words.>
-\subsubsection{Description and Priority}
+%\subsubsection{Description and Priority}
 %<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>
 
-\subsubsection{Stimulus/Response Sequences}
+%\subsubsection{Stimulus/Response Sequences}
 %<List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.>
 
-
-\subsubsection{Functional Requirements}
+%\subsubsection{Functional Requirements}
 %<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
 
 %<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
-
-\begin{itemize}
-    \item REQ-1:
-    \item REQ-2:
-\end{itemize}
-
-
-\subsection{System Feature 2 (and so on)}
-
-
 \newpage
 \section{Other Nonfunctional Requirements}
 \subsection{Performance Requirements}
@@ -279,19 +314,20 @@ The delay between user interaction on mobile device and registration of user act
 \end{enumerate}
 
 \subsubsection{Syncing of Mobile to Desktop}
-The time it takes to sync the mobile device to the desktop suite should be less than TODO seconds.
+The time it takes to sync the mobile device to the desktop suite should be less than 4 seconds.
 
 \subsubsection{Desktop Program Start-Up}
-The time it takes to start the desktop suite should be less than TODO seconds.
+The time it takes to start the desktop suite should be less than 8 seconds.
 
 \subsubsection{Desktop Program Response}
 The presentation creation program should have negligible response times accepting and displaying user input.
 
 \subsection{Safety Requirements}
 %<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>
-There are no know safety requirements at this time.  Caution should be exercised when using any unfamiliar device, however.
+There are no known physical safety requirements at this time.  Caution should be exercised when using any unfamiliar device, however.\\
 
-
+The desktop suite shall not modify any user files other than the files currently opened by the user.
+Furthermore, the desktop suite shall perform an "auto-save" while the user modifying a presentation.  These auto-saves will occur once every 5 minutes.
 \subsection{Security Requirements}
 %<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>
 \begin{itemize}
@@ -328,19 +364,19 @@ This product will ship by the end of the fall semester.
 
 
 \newpage
-\section{Other Requirements}
+%\section{Other Requirements}
 %<Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.>
 
 
-\section{Appendix A: Glossary}
+%\section{Appendix A: Glossary}
 %<Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a single project in each SRS.>
 
 
-\section{Appendix B: Analysis Models}
+%\section{Appendix B: Analysis Models}
 %<Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.>
 
 
-\section{Appendix C: To Be Determined List}
+%\section{Appendix C: To Be Determined List}
 %<Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.>
 
 \end{document}
