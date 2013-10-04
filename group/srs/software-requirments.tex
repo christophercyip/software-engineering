@@ -141,7 +141,7 @@ The end of the SRS will cover the terms used (Glossary), the models of various a
 The system will have 2 main components that interact with the user. 
 The 1st component is a desktop application that will enable the user to create and display presentations. 
 The 2nd component is an Android application that will allow the presenter of the presentation (created via the 1st Component) to control the presentation. 
-The presenter will have the following capabilities through the android application:
+The presenter will have the following capabilities through the Android application:
 \begin{itemize}
 \item Scroll/flip through presentation slides
 \item Zoom in/out of the presentation
@@ -151,10 +151,10 @@ The presenter will have the following capabilities through the android applicati
 \end{itemize}
 
 
-\subsection{References}
+%\subsection{References}
 %<List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>
 
-TODO 
+%TODO 
 
 \newpage
 \section{Overall Description}
@@ -194,9 +194,9 @@ The user groups will include students or professors giving simple, quick, and ef
 The hardware requirements for \pd are a Windows or Linux computer where a projector is compatible for the desktop portion and Android mobile phone.
 The computer and phone used must have networking (HTTP or Bluetooth, TBD) capabilities.
 
-\subsection{Design and Implementation Constraints}
+%\subsection{Design and Implementation Constraints}
 %<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
-TODO fill in as we get better idea.
+%TODO fill in as we get better idea.
 
 \subsection{User Documentation}
 %<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>
@@ -244,7 +244,7 @@ Both the Mobile and Desktop subsystems will be built upon Java and Android frame
 \subsection{Communications Interfaces}
 %<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
 
-The two major subsystems (as depicted in the “Product Perspective” section above) will communicate using a “Communication Interface”. This Interface will store all messages or requests to be processed and will handle communication between the two subsystems. It will provide a simple and consistent interface where a component can easily check if it has any requests or messages to process. An example of a request is an incoming request for the desktop application (from the Mobile application) to “pair up” with the desktop application so that the two applications can be in sync and can communicate. This “Communication Interface” will need to rely on some form of networking (HTTP, Bluetooth, etc.) to be provided by the host machine. The “Communication Interface” will need to run on a separate thread so that the program will not stall while waiting for incoming messages. The “Communication Interface” must make sure to protect against corruption of its message pool through the use of Semaphores and/or Mutexes, etc.
+The two major subsystems (as depicted in the “Product Perspective” section above) will communicate using a “Communication Interface”. This Interface will store all messages or requests to be processed and will handle communication between the two subsystems. It will provide a simple and consistent interface where a component can easily check if it has any requests or messages to process. An example of a request is an incoming request for the desktop application (from the Mobile application) to “pair up” with the mobile device so that the two applications can be in sync and can communicate. This “Communication Interface” will need to rely on some form of networking (HTTP, Bluetooth, etc.) to be provided by the host machine. The “Communication Interface” will need to run on a separate thread so that the program will not stall while waiting for incoming messages. The “Communication Interface” must make sure to protect against corruption of its message pool through the use of Semaphores and/or Mutexes, etc.
 
 \newpage
 \section{System Features}
@@ -252,7 +252,7 @@ Our system needs to communicate two devices, a computer running either Linux or 
 
 \subsection{Communications}
 \subsubsection{Description and Priority}
-The Android device needs to send and receive data from the computer application. To achieve this goal a communications protocol must be used such as Bluetooth or http. The feature has the highest priority of a 9 since the whole system relies on the Android device communicating with the computer.
+The Android device needs to send and receive data from the computer application. To achieve this goal a communications protocol must be used such as Bluetooth or HTTP. The feature has the highest priority of a 9 since the whole system relies on the Android device communicating with the computer.
 \subsubsection{Stimulus/Response Sequences}
 This feature must be present from the start, right after the user turns both devices on.  The moment the devices are switched on they must be able to communicate with each other so the normal use of the application can continue
 \subsubsection{Functional Requirements}
@@ -260,30 +260,30 @@ The communications must be robust, the state of the link must be constantly chec
 
 \subsection{Synchronization}
 \subsubsection{Description and Priority}
-Before any other function becomes available we need to synchronize the android device with the computer. This must be done by selecting in both machines the sync button. Once both devices find each other they can pair up. The feature has the highest priority of a 9 since the whole system relies on the Android device maintaining a link with computer
+Before any other function becomes available we need to synchronize the Android device with the computer. This must be done by selecting in both machines the sync button. Once both devices find each other they can pair up. The feature has the highest priority of a 9 since the whole system relies on the Android device maintaining a link with computer
 \subsubsection{Stimulus/Response Sequences}
 This feature must be present from the start, right after the user turns both devices on. Once on, the first task to complete must be a successful synchronization, so the normal use of the application can continue. To accomplish this link both devices must be searching for a pair, once found they can create the link.
 \subsubsection{Functional Requirements}
 The link must be robust, the state of the link must be constantly checked so there is no down time. For these checks any package sent must receive a confirmation package.  If data fails to reach its destination the system must resend the package. In case of complete loss of the link, the system must be able search for the same device to try and reconnect automatically. If this fails the user must be prompted of the failure.
 \subsection{Android Gestures}
 \subsubsection{Description and Priority}
-The Android Application must be able to accept input from the user by hand gestures. Using the Androids touch screen the user will send commands to the Android application. These commands must be then sent to the computer were they will be processed and a task will be executed. Such tasks will include the passing of slides, zoom in/out, moving the mouse... This is feature is of the highest priority 9, since it’s the core function of the system.
+The Android Application must be able to accept input from the user by hand gestures. Using the Androids touch screen the user will send commands to the Android application. These commands must be then sent to the computer were they will be processed and a task will be executed. Such tasks will include the passing of slides, zoom in/out, moving the mouse, etc. This is feature is of the highest priority 9, since it’s the core function of the system.
 \subsubsection{Stimulus/Response Sequences}
-After both applications have synced this feature must be made available, a drawn gesture on the android application must be directly followed by an action in the computer application.
+After both applications have synced this feature must be made available, a drawn gesture on the Android application must be directly followed by an action in the computer application.
 \subsubsection{Functional Requirements}
 This feature must be robust and responsive with no lag. Any input into the Android device must be immediately show on the computer screen. This way the user gets a feeling of complete control and responsiveness. In case of an error the user will be prompted with a message to repeat the gesture.
 \subsection{Simple Presentation Interface on Computer}
 \subsubsection{Description and Priority}
 The task of the computer application is to function as a presentation GUI, it must be able to open and create presentation showing them on screen. The priority of this feature is the highest 9, since all future features rely on it, needing it as a visual interface.
 \subsubsection{Stimulus/Response Sequences}
-The presentation interface must appear once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the android device screen.
+The presentation interface must appear once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the Android device screen.
 \subsubsection{Functional Requirements}
 Should be a robust and reliable program, it's controlled by gestures through the Android device so the inputs will be largely varied and vague.
 \subsection{Computer Screen on Android Device}
 \subsubsection{Description and Priority}
 Instead of having a specific Android interface the computer screen could be shown on the Android device. This way the user can select or underline exactly were intended without the need of a mouse cursor. This also makes it easier for the user to change slides or zoom in/out at specific points. This feature has a priority of 5, it's not essential for the system it simply makes it more interactive. 
 \subsubsection{Stimulus/Response Sequences}
-The presentation must appear on the Android device once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the android device screen.
+The presentation must appear on the Android device once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the Android device screen.
 \subsubsection{Functional Requirements}
 Should be robust and reliable, it's controlled by gestures through the Android device so the inputs will be largely varied and vague.
 
