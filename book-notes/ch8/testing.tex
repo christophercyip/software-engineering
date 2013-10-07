@@ -115,9 +115,136 @@ Goal of v\& V is to establish confidence that software is "fit for purpose," whi
     \item User expectations.  Users, based on previous experience, will come to expect a certain level (even a bad one) of software performance.
     \item Marketing environment.  Business concerns may trum v\&V efforts.
 \end{enumerate}
+
+Three advantages of software inspection over testing:
+\begin{enumerate}
+    \item During testing, errors can hide other errors.
+    \item Incomplete versions can be inspected without additional costs.
+    \item In addition to program defects, inspection can also find other quallity attributes.
+\end{enumerate}
+
+Three main stages of commercial software testing:
+\begin{enumerate}
+    \item Development testing.  System designers and programmers are likely to be involved.
+    \item Release testing.  Often a separate team of testers.
+    \item User testing.  
+\end{enumerate}
+
 \subsection{Development testing}
+Development testing includes all testing activities that are carried out by the team developing the system.  The tester is usually the programmer, but not alwas the case.  There are usually 3 levels of granularity: Unit testing, Component testing, System testing.
+\subsubsection{Unit testing}
+Unit testing is the process of testing program components, such as methods or object classes.
+When testing, tests should provide coverage of all the featurs of the object.  This means:
+\begin{itemize}
+    \item Test all operations associated with the object.
+    \item Set and check the value of all attributes associated with the object.
+    \item Put the object into all possible states.
+\end{itemize}
+Unit testing should be automized wherever possible.
+This is done with a "test-suite".
+
+Automated tests have 3 parts:
+\begin{enumerate}
+    \item Setup, where you initialize the system.
+    \item Call, call the method to be tested.
+    \item Assertion, compare the result of the call with the expected result.
+\end{enumerate}
+\subsubsection{Choosing unit test cases}
+Testing sucks and is time comsuming.  Effective test cases mean two things:
+\begin{enumerate}
+    \item Test case should show that, when used as expected, the component that you are testing does what it is supposed to do.
+    \item If there are defects, they should be revealed by the unit tests.
+\end{enumerate}
+Thus, test cases should be written to both reflect normal operation, and should test abnormal inputs.
+\begin{enumerate}
+    \item Partition testing:  Identify groups of inputs that have common characteristics and should be processed in the same way.
+    \item Guideline-based testing, use testing guidelines to shoose test cases.  Reflect previous experience.
+\end{enumerate}
+\subsubsection{Component testing}
+Program components may be difficult to test in isolation.  Different types of interface exists:
+\begin{enumerate}
+    \item Parameter interfaces. 
+    \item Shared memory interfaces.  A block of memory is shared between components.
+    \item Procedural interfaces.  One component encapsulates a set of procedures that can be called by other components.
+    \item Message passing interfaces.  One component requests a service from another component by passing a message to it.
+\end{enumerate}
+Different types of interface errors occur:
+\begin{enumerate}
+    \item Interface misuse:  A calling component calls some other component and makes an error in the use of its interface.
+    \item Interface misunderstanding.  A calling component misunderstands the specification of the inteface of the called component and makes assumptions about its behavior.
+    \item Timing errors.  Occur in real-time systems that use a shared memory or message passing interface.
+\end{enumerate}
+General guidlines for interface testing:
+\begin{itemize}
+    \item Examine the code to be tested and explicitly list each call to an external component.
+    \item Where pointers are passed, test the null pointer.
+    \item Where a component is called through a procedural interface, design tests that deliberately cause the component to fail.
+    \item Use stress testing in message passing systems.
+    \item Where several components interact, design test that vary the order in which these components are activated.
+\end{itemize}
+\subsubsection{System testing}
+System testing involves integrating components to create a version of the system and then testing the integrated system.  System testing checks that components are compatible, iteract correctly and transfer the right data at the right time across their interfaces.
+
+Reusable components that have been separately developed and off-the-shelf systems may be integrated.  The complete system is then tested.
+Components developed by separate teams are integrated and tested.
+
 \subsection{Test-driven development}
+An approach to program development in which you interleave testing and code development.  Basis of extreme programming.
+Follows the flow of:
+\begin{itemize}
+    \item Start by identifying the increment of functionality that is required.
+    \item Write a test for this functionality and implement this as an automated test.
+    \item Run the test along with all other tests that have been implemented.  Functionality has not actually been implemented at this point.
+    \item Implement functionality and re-run test.
+    \item Once tests passed, move on to next functional chunk.
+\end{itemize}
+TDD helps clarify the problems for the developers.  
+One of the most important tests is that it simplifies regression testing.
+Other benifits include:
+\begin{enumerate}
+    \item Code coverage.
+    \item Regression testing.  The tests are there even when a feature is changed.  The failed tests will let you know if new bugs have been introduced.
+    \item Simplified debugging.  Should be obvious where the problem lies.
+    \item System documentation.  Tests themselves act as a form of documentation.
+\end{enumerate}
+
 \subsection{Release testing}
+Release testing is the process of testing a particular release of a system that is intended for use outside of the development team.
+Two main distinctions between release testing and system testing during the development process:
+\begin{enumerate}
+    \item A separate team has not been involved in the system development should be responsible for release testing.
+    \item System testing by the development team should focus on discovering bugs in the system.
+\end{enumerate}
+
+\subsubsection{Requirements-based testing}
+Good requirements should be testable.  Usually this \textit{cannot} be done with a single test.
+
+\subsubsection{Scenario testing}
+Devise typical scenarios of use and use these to develop test cases for the system.  A scenario is a story that describes one way in which the system might be used.
+
+\subsubsection{Performance testing}
+Once completely integrated, it is possible to test for emergent properties such as performance and reliability.
+
+These test the failure behavior of the system.  Also stresses the system and may cause defects to come to light that otherwise wouldn't.
+Particularily relevant for network enabled systems.
+
 \subsection{User testing}
+User testing is a stage in the testing process in which users or customers provide input and advice on system testing.
+Developer's tests are invariably artificial.  Three different types of user testing in practice:
+\begin{enumerate}
+    \item Alpha testing: users of the software work with the development team to test the software at the developer's site.
+    \item Beta testing: a release of the software is made available to users to allow them to experiment and raise problems they discover.
+    \item Acceptance testing: customers test a system to decide whether or not it is ready to be accepted from the system developers and deployed in the customer environment.
+\end{enumerate}
+
+Acceptance testing is inherent in custom system development.  Six stages occur:
+\begin{enumerate}
+    \item Define acceptance criteria. Should be before contract signed.
+    \item Plan acceptance testing.  Decideing on resources, time, and budget for acceptance testing and testing schedule.
+    \item Derive acceptance tests.  Design tests to check for acceptance conditions.
+    \item Run acceptance tests.
+    \item Negotiate test results.  It is unlikely that all of the defined acceptance tests will pass.  Also, other issues may arise.
+    \item Reject/accept system.  
+\end{enumerate}
 
 \end{document}
