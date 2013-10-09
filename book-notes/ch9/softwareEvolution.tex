@@ -101,9 +101,142 @@ For cutom software, often the business' own development team maintains the syste
 When the hand off of maintenence is not seamless, the process of changing the software is called "software maintenance."
 
 \subsection{Evolution processes}
+System change proposals are the driver of system evolution.  Come from existing requirements not yet implemented, requests for new requirements, bug reports, and new ideas.
+
+Urgent need for change can come from 3 areas
+\begin{enumerate}
+    \item Serious system fault occurs and must be repaired to allow normal operation.
+    \item Changes to system operating environment have unexpected effects that disrupt normal operations.
+    \item Unanticipated changes to the business running the system.
+\end{enumerate}
+
 \subsection{Program evolution dynamics}
+\textbf{Lehman's Laws}
+\begin{enumerate}
+    \item System maintenance is an inevitable process.
+    \item As a system is changed, the structure is degraded.  Only way to avoid this is preventive maintenance.
+    \item Large systems have a dynamic of their own that is established at an early stage in the development process.
+    \item Large projects work in a 'saturated' state.  Changes to business resources or staffing has imperceptible effects on long-term evolution.
+    \item Adding new functionality to a system inevitably introduces new system faults.
+    \item Funtionality must conitnually increase to maintain user satisfaction.
+    \item Quality will decline unless modified to reflect changes in operating environment.
+    \item Evolution processes incorporate multiagent, multiloop feedback system and they must be treated as feedback systems to achieve significant product improvement.
+\end{enumerate}
+
 \subsection{Software maintenance}
-\subsection{Legacy system management}
+Software maintenance is the general process of changing a system after it has been delivered.
+
+Three types of software maintenance:
+\begin{enumerate}
+    \item Fault repairs.  Coding error - relatively cheap.  Design errors, more expensive and may involve rewriting several program components. Requirements error - most expensive, may need system redesign.
+    \item Environmental adaption.  Required when some aspect of the system's environment change.
+    \item Functionality addition.  Necessary when the system requirements change in response to organizational or business change.
+\end{enumerate}
+
+Also known as corrective, adaptive and perfective maintenance.
+
+Reason's adding functionality is usually more expensive after delivery:
+\begin{enumerate}
+    \item Team stability.  The original development team may not be the ones doing the maitenance.
+    \item Poor development practice.  If developers are not maintainers, little incentive to write maintainable software.
+    \item Staff skills.  Maintenance sometimes attracts less-skilled workers.
+    \item Program age and structure.
+\end{enumerate}
+The first three stem from the fact that organizations still consider development and maintenance to be separate activities.
+
+
+\subsubsection{Maintenance prediction}
+Managers want the maintenance to be predicted.
+Evaluating the relationship between a system and its environment depends on:
+\begin{enumerate}
+    \item Number and complexity of system interfaces.
+    \item Number of inherently volatile system requirements.
+    \item The business process in which the system is used.
+\end{enumerate}
+
+Process metrics that can be used for assessing maintainability are:
+\begin{enumerate}
+    \item Number of requests for corrective maintenance.
+    \item Average time for impact ananlysis.
+    \item Average time taken to implement a change request.
+    \item Number of outstanding change requests.
+\end{enumerate}
+\subsubsection{Software Reengineering}
+Reengineering may involve redocumenting the system, refactoring the system architecture, translating programs to a modern programming language, modifying and updating the structure and values of the system's data.
+Two important benefits to reengineering rather than replacement:
+\begin{itemize}
+    \item Reduced risk.  High risk in redeveloping business-critical software.
+    \item Reduced cost.  Cost of reengineering may be significantly less than the cost of developing new software.
+\end{itemize}
+General model of reegineering process:
+\begin{enumerate}
+    \item Source code translation.
+    \item Reverse engineering.
+    \item Program structure improvement.
+    \item Program modularization.
+    \item Data reengineering.
+\end{enumerate}
+
+\subsubsection{Preventative maintenance by refactoring}
+Refactoring is process of making improvements to a program to slow down degradation through change.
+
+Reengineering and refactoring are not the same thing.  Reengineering takes place after a system has been maintained for some time.  Refactoring is a continuous process of improvement throughout the development and evolution process.
+
+Signs that code may need to be refactored are:
+\begin{enumerate}
+    \item Duplicate code.
+    \item Long methods.
+    \item Switch (case) statements.
+    \item Data clumping.
+    \item Speculative generality.
+\end{enumerate}
+
+\subsection{Legacy System Management}
+Four strategic options:
+\begin{enumerate}
+    \item Scrap the system completely.
+    \item Leave the system unchanged and continued with regular maintenance.
+    \item Reengineer the system to improve its maintainability.
+    \item Replace all or parts of the system with a new system.
+\end{enumerate}
+
+Four basic issues that you have to discuss
+\begin{enumerate}
+    \item The use of the system.
+    \item The business processes that are supported.
+    \item The system dependability.
+    \item System outputs.
+\end{enumerate}
+ Factors used in environment assessment:
+\begin{enumerate}
+    \item Supplier stability.
+    \item Failure rate.
+    \item Age.
+    \item Performance.
+    \item Support requirements.
+    \item Maintenance costs.
+    \item Interoperability.
+\end{enumerate}
+
+Factors used in application assessment.
+\begin{enumerate}
+    \item Understandability.
+    \item Documentation.
+    \item Data.
+    \item Performance.
+    \item Programming language.
+    \item Configuration management.
+    \item Test data.
+    \item Personnel skills.
+\end{enumerate}
+
+Data that may be useful in quality assessment are:
+\begin{enumerate}
+    \item Number of system change requests.
+    \item Number of user interfaces.
+    \item Volume of data used by the system.
+\end{enumerate}
+
 
 
 \end{document}
