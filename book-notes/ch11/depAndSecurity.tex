@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+%\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1.5 in, bottom = 1.5 in ,left = 1.5 in, right = 1.5in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{0pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+
+\newcommand{\natnums}{{\mathbb N}}
+\newcommand{\algnums}{{\mathbb A}}
+\newcommand{\rationals}{{\mathbb Q}}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\unorm}[1]{{\left|\left|#1\right|\right|_u}}
+\newcommand{\scriptR}{\mathcal{R}}
+\newcommand{\scriptP}{\mathcal{P}}
+\newcommand{\taggedP}{\dot{\mathcal{P}}}
+\newcommand{\scriptQ}{\mathcal{Q}}
+\newcommand{\taggedQ}{\dot{\mathcal{Q}}}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=Octave,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\begin{document}
+ 
+\setcounter{section}{10}
+\section{Dependability and Security}
+The term dependability is used to cover the related systems attributes of availability, reliability, safety, and security.  Dependability is usually more important that their detailed functionality for the following reasons:
+\begin{enumerate}
+    \item System failures affect a large number of people.
+    \item Users often reject systems that are unreliable, unsafe, or insecure.
+    \item System failure costs may be enormous.
+    \item Undependable systems may cause information loss.
+\end{enumerate}
+When designing a dependable system, you have to consider
+\begin{enumerate}
+    \item HArdware failure.
+    \item Software failure.
+    \item Operational failure.
+\end{enumerate}
+\subsection{Dependability Properties}
+The dependability of a computer system is a property of the system that reflects its trustworthiness - the degree of confidence a user has that the system will operate as they expect, and that the system will not 'fail' in normal use.  It is NOT usefull to represent this number numerically.  Trustworthiness and usefulness are not the same thing.
+
+Four basic dimensions to dependability:
+\begin{enumerate}
+    \item Availability.
+    \item Reliability.
+    \item Safety.
+    \item Security.
+\end{enumerate}
+Other system properties can also be thought of as dependability properties such as:
+\begin{enumerate}
+    \item Repairability.
+    \item Maintainability.
+    \item Survivability.
+    \item Error tolerance.
+\end{enumerate}
+Safety is a part of dependability, since software that has been comprimised cannot be relied upon.  To develop dependable software, you must ensure that:
+\begin{enumerate}
+    \item You avoid the introduction of accidental errors into the system during software specification and development.
+    \item You design verification and validation processes that are effective in descovering residual errors that affect the dependability of the system.
+    \item You design protection mechanisms that guard against external attacks that can compromise the availability of the system.
+    \item You configure the deployed system and its supporting software correctly for its operating environment.
+\end{enumerate}
+You should also assume your software is not perfect and include recovery mechanisms that make restoration of normal system service quick.
+
+Need for fault tolerance means that dependable systems have to include redundant code to help them monitor themselves, detect erroneous states, and recover from faults before failures occur.  Thus, designers have to trade off performance and dependability.  Lack of checks may speed the system but is then less dependable.
+With this extra design, of course, comes extra costs.  Validation costs will be higher, in particular.
+It is relatively cheap to add design to make a highly dependable system, but costs increase exponentially, and makes very high, and ultra-highly dependable systems prohibitively expensive.
+
+\subsection{Availability and Reliability}
+\subsection{Safety}
+\subsection{Security}
+
+\end{document}
