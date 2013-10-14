@@ -201,8 +201,8 @@ We assume Bluetooth messaging will not be data-constrained and that the computer
 UI Characteristics for both Desktop and Mobile Applications:
 \begin{itemize}
 \item The applications will use the GUI Frameworks provided by the system they are built upon. For example, the Mobile application will make use of the native Android GUI Framework (Widgets, Spinners, etc.) while the Desktop Application will make use of the Java Swing Framework (JFrames, JButtons, etc.).
-\item The applications must provide a button within the UI which will present the user with a “Help” dialog box or screen.
-\item The applications will present errors in two ways:
+\item The applications will provide a button within the UI which will present the user with a “Help” dialog box or screen.
+\item The applications will handle errors in two ways:
 \begin{itemize}
 \item 1) If the error is critical (such as the connection has been lost between the desktop application and mobile application), then a Message/Dialog Box will appear that the user must acknowledge before proceeding.
 \item 2) If the error is NOT critical (such as invalid input), then text should appear towards the bottom of the UI in red text to notify the user of a non-critical error occurring.
@@ -231,7 +231,9 @@ Both the Mobile and Desktop subsystems will be built upon Java and Android frame
 \subsection{Communications Interfaces}
 %<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
 
-The two major subsystems (as depicted in the “Product Perspective” section above) will communicate using a “Communication Interface”. This Interface will store all messages or requests to be processed and will handle communication between the two subsystems. It will provide a simple and consistent interface where a component can easily check if it has any requests or messages to process. An example of a request is an incoming request for the desktop application (from the Mobile application) to “pair up” with the mobile device so that the two applications can be in sync and can communicate. This “Communication Interface” will need to rely on some form of networking (HTTP, Bluetooth, etc.) to be provided by the host machine. The “Communication Interface” will need to run on a separate thread so that the program will not stall while waiting for incoming messages. The “Communication Interface” must make sure to protect against corruption of its message pool through the use of Semaphores and/or Mutexes, etc.
+The two major subsystems (as depicted in the “Product Perspective” section above) will communicate using a “Communication Interface”. This interface will store all messages or requests to be processed and will handle communication between the two subsystems. The interface will be simple and consistent so that components can easily check if they have any requests or messages to process. An example of a request is an incoming request for the desktop application (from the Mobile application) to “pair up” with the mobile device so that the two applications can be in sync and can communicate.
+This “Communication Interface” will need to rely on some form of networking (HTTP, Bluetooth, etc.). The interface will make use of existing networking libraries such as the Java (java.net) and Android (android.net) networking packages which are available for desktop computers and Android devices, respectively. The “Communication Interface” will need to run on a separate thread so that the program will not stall while waiting for incoming messages. The “Communication Interface” must make sure to protect against corruption of its message pool through the use of Semaphores and/or Mutexes, etc.
+
 
 \newpage
 \section{System Features}
