@@ -129,7 +129,7 @@ Advanced users of \conman may find reading this SRS interesting reading as well.
 \section{Overall Description}
 \subsection{Product Perspective}
 %<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
-\conman is inspired by existing attempts made to create a useful calendar, checklist, and task management software suite such as Trello, SourceForge, and some basic calendar applications for iPhone and Android.  \conman is a re-making of the task-management suite that emphasises simplicity and ease of use as the primary development and design philosophies.
+\conman is inspired by existing attempts made to create a useful calendar, checklist, and task management software suite such as Trello, SourceForge, and some basic calendar applications for iPhone and Android.  \conman is a re-making of the task-management suite that emphasizes simplicity and ease of use as the primary development and design philosophies.
 
 \subsection{User Classes and Characteristics}
 %<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>
@@ -143,11 +143,11 @@ When a member switches to individual mode, each member is his/her own manager.
 %<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
 \texttt{ConMan's} functions divide into two categories, application functions and user functions.  Application functions are the functions that describe the basic workings of \conman.  Application functions include:
 \begin{enumerate}
-    \item Create a user profile.
-    \item Switch to Calendar View.
-    \item Switch to Task View.
-    \item Switch to Checklist View.
-    \item Get notifications and updates.
+    \item Creating a user profile.
+    \item Switching to Calendar View.
+    \item Switching to Task View.
+    \item Switching to Checklist View.
+    \item Receiving notifications and updates.
 \end{enumerate}
 
 User functions are further divided into manager and member categories.
@@ -169,7 +169,7 @@ Finally the member functions apply to every user of \conman.  These functions ar
 
 \subsection{Operating Environment}
 %<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
-\conman deploys on an ASP.NET server using a SQLExpress database.
+\conman deploys on an ASP.NET server using a SQL Server Express database.
 The target browsers in which \conman will run are Firefox and Chrome.
 
 
@@ -197,33 +197,47 @@ User Interface characteristics for the \conman web application are as follows:
 \begin{itemize}
     \item The application will use standard HTML, CSS, JavaScript, and possibly ASP.NET controls to structure and create the user interface.
     \item The web application will provide a consistent layout through the use of consistent coloring, formatting, etc.
-    \item The web application will display the company's logo (towards the top left of the screen) of the logged in user
-    \item The web application will provide the user with a Help button so that the user can quickly and easily learn how to use each component of the application.
+    \item The web application will display the company logo (towards the top-left of the screen) of the logged in user's employer
+    \item The web application will provide the user with a "Help" button so that the user can quickly and easily learn how to use each component of the application.
     \item The web user interface will handle errors in different ways:
-    \item If a web form is not completed in a valid manner, then the UI will present an error message in red text to the right of each form field that was not valid. 
-        Each of these error messages will display a message that is appropriate for the error. 
-        For example, if a field accepts non-negative numbers and the user enters -1.5, the UI will display an error message indicating that input must not be negative.
-    \item All other errors will be presented to the user via a dialog/message box that cannot be ignored without acknowledgment (i.e. pressing "OK"). 
-        This message must present the user with helpful messages that describe the error. 
-        For example, an error message for a database transaction may state "ERROR: Communication with the server's database has been lost".
-    \item The web application will allow the user to quickly switch between calendar view, checklist view, or calendar/checklist view
+	\begin{itemize}
+		\item If a web form is not completed in a valid manner, then the UI will present an error message in red text to the right of each form field that was not valid. 
+			Each of these error messages will display a message that is appropriate for the error. 
+			For example, if a field accepts non-negative numbers and the user enters -1.5, the UI will display an error message indicating that input must not be negative.
+		\item All other errors will be presented to the user via a dialog/message box that cannot be ignored without acknowledgment (i.e. pressing "OK"). 
+			This message must present the user with helpful messages that describe the error. 
+			For example, an error message for a database transaction may state "ERROR: Communication with the server's database has been lost".
+	\end{itemize}
+    \item The web application will allow the user to quickly switch between calendar, checklist, and calendar/checklist views.
+	\begin{itemize}
+		\item Calendar View
+		\begin{itemize}
+			\item The Calendar View shows the current month's calendar and for each day, it will display the name of each task that has a checklist due on that day. 
+					By clicking on the name of a task, the web application will redirect the user to the Checklist View (discussed below in section 3.1.3).
+		\end{itemize}
+		
+		\item Calendar/Checklist View
+		\begin{itemize}
+			\item The Calendar/Checklist View will show the calendar of all deadlines and will present all of the checklists associated with the day selected by the user via the calendar.
+		\end{itemize}
+		
+		\item Checklist View
+		\begin{itemize}
+			\item The Checklist View will show a checklist that states what must be completed by a certain date specified by the Task and Checklist manager/owner.
+		\end{itemize}
+		
+	\end{itemize}
+    
+
+	\item The web application will have log-in information available in the top-right corner of the page.
+		\begin{itemize}
+			\item If the user is not logged in, the top-right corner of the page will prompt the user for log-in credentials
+			\item If the user is logged in, the top-right corner of the page will display the users log-in name and will display a link/button for the user to sign out
+		\end{itemize}
+	\item The web application will alert the user that one or more checklists are due for the current day by presenting the user with dialog/message box notifications stating which Tasks have checklists due. Notifications
+			will also be presented for checklists with due dates in the near future (e.g., due dates within the next 3 days).
+	\item The web application will also alert the user via notifications if any tasks or checklists assigned to them have been modified.
 \end{itemize}
-
-    \subsubsection{Calendar View}
-    The Calendar View shows the current month's calendar and for each day, it will display the name of each task that has a checklist due on that day. 
-    By clicking on the name of a task, the web application will redirect the user to the Checklist View (discussed below).
-
-    \subsubsection{Calendar/Checklist View}
-The Calendar/Checklist View will show the calendar of all deadlines and will present the checklist associated with the day selected by the user.
-
-\subsubsection{Checklist View}
-The Checklist View will show a checklist that states what must be completed by a certain date specified by the Task and Checklist manager/owner.
-
-Finally, the web application will have log-in information available in the top-right corner of the page.
-If the user is not logged in, the top-right corner of the page will prompt the user for log-in credentials
-If the user is logged in, the top-right corner of the page will display the users log-in name and will display a link/button for the user to sign out
-The web application will alert the user that one or more checklists are due for the current day by presenting the user with a dialog/message box stating which Tasks have checklists due. 
-Similarly, the application will alert the user of checklists with due dates in the near future (e.g. due dates within the next 3 days).
 
 \subsection{Hardware Interfaces}
    %<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
@@ -234,13 +248,13 @@ Not applicable for \conman.
 
 As mentioned in section 3.1, the web application will be built using HTML, CSS, JavaScript, and ASP.NET. 
 The application will also need to interface with the database located on the server through the use of SQL and database libraries such as those provided by the .NET framework. 
-This database will store all data pertaining to user information (ID, name, log-in credentials, age, employer, team name, email address, etc.), company information (ID, name, employees, teams, etc.), task information (ID, due date, creator team ID, employees, checklists, etc.), and checklist information (ID, creator, due date, task ID, employees, list, etc.).
+This database will store all data pertaining to user information (e.g., ID, name, log-in credentials, age, employer, team name, email address, etc.), company information (e.g., ID, name, employees, teams, etc.), task information (e.g., ID, due date, creator team ID, employees, checklists, etc.), and checklist information (e.g., ID, creator ID, due date, task ID, employees IDs, list, etc.).
         
 \subsection{Communications Interfaces}
                          %<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
-The web application will really on the following technologies for communication:
+The web application will rely on the following technologies for communication:
 \begin{itemize}
-    \item SMTP for sending out email notifications to users of checklists within upcoming due dates
+    \item SMTP for sending out email notifications to users concerning checklists with upcoming due dates
     \item SQL for performing transactions with the application's database
 \end{itemize}
 
@@ -277,15 +291,15 @@ The view feature will show a form with the tasks information.
 
 \subsubsection{Functional Requirements}
 The interface must be intuitive, with minimal training required to learn how its used. 
-To minimize user error all action buttons will be large and simple and the options will be controlled by the system.
+To minimize user error, all action buttons will be large and simple and the options will be controlled by the system.
 
 \subsection{Adding, Editing, Deleting Tasks}
 \subsubsection{Description and Priority}
 Modifying a task is the central user function in \conman. 
-Adding a task will create a new entry for specific day inside the Calendar View, deleting a task completely removes a task, while editing will allow the user to change any of a task fields. 
+Adding a task will create a new entry for a specific day inside the Calendar View. Deleting a task completely removes a task, while editing a task will allow the user to change any of a task fields. 
 This will be of the highest priority 9 since all of the system functionality depends on the user being able to assign tasks to a day.
 \subsubsection{Stimulus/Response Sequences}
-Once the day is selected the user will be able to choose between adding, deleting, editing and viewing the task. 
+Once the day is selected, the user will be able to choose between adding, deleting, editing and viewing the task. 
 Adding a task will take the user to a form were he can enter the initial task values and then create the task. 
 Editing will take you to the same form with the fields already completed and deleting will remove the entry. 
 \subsubsection{Functional Requirements}
@@ -293,7 +307,7 @@ The task form will require the usual fields in a calendar.
 It should include date, time, description, alarm. 
 Once filled the system then adds the task to the day specified. 
 The form will check for errors in the information supplied before accepting the task. 
-If the user changes the date this should also be reflected on the calendar.
+If the user changes the date this should also be reflected on the calendar and a notification should be sent out to all employees associated with the task.
 
 \subsection{User Profiles}
 \subsubsection{Description and Priority}
@@ -307,22 +321,22 @@ The authentication screen will offer the possibility of creating a new user or e
 If a new user is created, the system will transition into the user creation interface where he can complete the fields. 
 If the user already has an account, he will be showed his calendar with all the tasks previously created. 
 \subsubsection{Functional Requirements}
-The new user form will require the usual fields, name, surname, password, email\dots 
-Once filled the system will take the user to its calendar. 
-The authentication process must be secure, it must control who access each profile since the data saved is confidential. 
-If an incorrect user is entered or the information for the new user is incorrect, the user will be prompted with a error message.
+The new user form will require the usual fields: name, surname, password, email, etc. 
+After the fields are supplied, the system will take the user to its calendar. 
+The authentication process must be secure. Therefore, it must control who accesses each profile since data is confidential. 
+If incorrect user credentials are entered or if the information for the new user is incorrect, the user will be prompted with a error message.
 
 \subsection{Notification System}
 \subsubsection{Description and Priority}
 This feature can be activated at the task creation form. 
-If activated, this feature will warn the user with an email when a task is coming upon its due date. The notification alerts will have a 5 priority.
+If activated, this feature will notify the user with an email and with a message/dialog box (via the web application) when a task has an upcoming due date. The notification alerts will have a 5 priority.
 
 \subsubsection{Stimulus/Response Sequences}
 This option will be made available to the user once he has entered the create new task form. 
-It will give the user the option to choose a time to remind him of the event. 
+It will give the user the option to choose a time to remind him and possibly other users of the event. 
  
 \subsubsection{Functional Requirements}
-The system will have to control that the time entered is plausible and has a correct format.  If an invalid notification date is set, the user will be informed of the error. 
+The system will have to validate the time entered and ensure that it is plausible and formatted correctly.  If an invalid notification time is set, the user will be informed of the error. 
 
 \newpage
 \section{Other Nonfunctional Requirements}
