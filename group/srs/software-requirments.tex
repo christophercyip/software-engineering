@@ -37,7 +37,7 @@
 \newcommand{\taggedP}{\dot{\mathcal{P}}}
 \newcommand{\scriptQ}{\mathcal{Q}}
 \newcommand{\taggedQ}{\dot{\mathcal{Q}}}
-\newcommand{\pd}{\texttt{PresDroid }}
+\newcommand{\conman}{\texttt{ConMan }}
 
 
 % Allows hyperlinks if compiled with pdflatex
@@ -99,6 +99,7 @@ title=\lstname                   % show the filename of files included with \lst
 \section{Introduction}
 \subsection{Purpose}
 %Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.
+The Calendar, Organization, and Notification Manager - \conman - is a web-suite that gives project managers the tools needed to plan, assign, and follow-up on tasking given to project team members.  This SRS covers all aspects of \conman.
 
 %\subsection{Document Conventions}
 %Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.
@@ -107,9 +108,17 @@ title=\lstname                   % show the filename of files included with \lst
 
 \subsection{Intended Audience} % and Reading Suggestions
 %<Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.>
+This document is intended primarily for developers and reviewers of the \conman suite.  
+Advanced users of \conman may find reading this SRS interesting reading as well.
 
 \subsection{Product Scope}
 %<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.>
+\conman's main objective is to give project managers and project team members a simple, but effective, tool for planning their tasking and keeping to a schedule.  
+\conman accomplishes its purpose with these mechanisms:
+\begin{itemize}
+    \item Tight integration of scheduled tasking with a calendar view.  \conman will allow a user to see at a glance the tasks they are assigned, how much progress has already been made, and the effort remaining to complete the task.
+    \item Meaningful notifications and updates.  Users can choose to select a notification schedule themselves or recieve automatic notifications of changes to their tasks and upcoming deadlines.
+\end{itemize}
 
 %\subsection{References}
 %<List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>
@@ -120,15 +129,49 @@ title=\lstname                   % show the filename of files included with \lst
 \section{Overall Description}
 \subsection{Product Perspective}
 %<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
-
-\subsection{Product Functions}
-%<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
+\conman is inspired by existing attempts made to create a useful calendar, checklist, and task management software suite such as Trello, SourceForge, and some basic calendar applications for iPhone and Android.  \conman is a re-making of the task-management suite that emphasises simplicity and ease of use as the primary development and design philosophies.
 
 \subsection{User Classes and Characteristics}
 %<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>
+The two user classes for \conman are managers and members.  
+Managers will have privileged commands available which will effect an entire team.
+Members are assigned to teams and can modify the tasking that is assigned to them.
+When a member switches to individual mode, each member is his/her own manager.
+
+
+\subsection{Product Functions}
+%<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
+\texttt{ConMan's} functions divide into two categories, application functions and user functions.  Application functions are the functions that describe the basic workings of \conman.  Application functions include:
+\begin{enumerate}
+    \item Create a user profile.
+    \item Switch to Calendar View.
+    \item Switch to Task View.
+    \item Switch to Checklist View.
+    \item Get notifications and updates.
+\end{enumerate}
+
+User functions are further divided into manager and member categories.
+Manager categories are only available to users who are designated a project manager when the user profile is created.
+\begin{enumerate}
+    \item Create and delete teams.
+    \item Add and modify tasks for a team.
+    \item Create, modify, and delete checklists for the team.
+    \item Create group notifications.
+    \item Perform member verification functions.
+\end{enumerate}
+Finally the member functions apply to every user of \conman.  These functions are:
+\begin{enumerate}
+    \item Write task progress notes.
+    \item Write checklist progress notes.
+    \item Switch between team and individual views.
+    \item Mark checklist items as complete (if the checklist is assigned to the member).
+\end{enumerate}
 
 \subsection{Operating Environment}
 %<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
+\conman deploys on an ASP.NET server using a SQLExpress database.
+The target browsers in which \conman will run are Firefox and Chrome.
+
 
 %\subsection{Design and Implementation Constraints}
 %<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
@@ -136,48 +179,161 @@ title=\lstname                   % show the filename of files included with \lst
 
 \subsection{User Documentation}
 %<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>
-User manual.\\
-Help section in desktop and mobile application.
+The documents available describing \conman include this software requirements specification, a 
+user manual, and
+an in-app help menu.
 
-\subsection{Assumptions and Dependencies}
+All of the documentation will be available in PDF.
+
+%\subsection{Assumptions and Dependencies}
 %<List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
 
 \newpage
 \section{External Interface Requirements}
+%%%%BREAK
 \subsection{User Interfaces}
-%<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>
+User Interface characteristics for the \conman web application are as follows:
 
+\begin{itemize}
+    \item The application will use standard HTML, CSS, JavaScript, and possibly ASP.NET controls to structure and create the user interface.
+    \item The web application will provide a consistent layout through the use of consistent coloring, formatting, etc.
+    \item The web application will display the company's logo (towards the top left of the screen) of the logged in user
+    \item The web application will provide the user with a Help button so that the user can quickly and easily learn how to use each component of the application.
+    \item The web user interface will handle errors in different ways:
+    \item If a web form is not completed in a valid manner, then the UI will present an error message in red text to the right of each form field that was not valid. 
+        Each of these error messages will display a message that is appropriate for the error. 
+        For example, if a field accepts non-negative numbers and the user enters -1.5, the UI will display an error message indicating that input must not be negative.
+    \item All other errors will be presented to the user via a dialog/message box that cannot be ignored without acknowledgment (i.e. pressing "OK"). 
+        This message must present the user with helpful messages that describe the error. 
+        For example, an error message for a database transaction may state "ERROR: Communication with the server's database has been lost".
+    \item The web application will allow the user to quickly switch between calendar view, checklist view, or calendar/checklist view
+\end{itemize}
 
+    \subsubsection{Calendar View}
+    The Calendar View shows the current month's calendar and for each day, it will display the name of each task that has a checklist due on that day. 
+    By clicking on the name of a task, the web application will redirect the user to the Checklist View (discussed below).
+
+    \subsubsection{Calendar/Checklist View}
+The Calendar/Checklist View will show the calendar of all deadlines and will present the checklist associated with the day selected by the user.
+
+\subsubsection{Checklist View}
+The Checklist View will show a checklist that states what must be completed by a certain date specified by the Task and Checklist manager/owner.
+
+Finally, the web application will have log-in information available in the top-right corner of the page.
+If the user is not logged in, the top-right corner of the page will prompt the user for log-in credentials
+If the user is logged in, the top-right corner of the page will display the users log-in name and will display a link/button for the user to sign out
+The web application will alert the user that one or more checklists are due for the current day by presenting the user with a dialog/message box stating which Tasks have checklists due. 
+Similarly, the application will alert the user of checklists with due dates in the near future (e.g. due dates within the next 3 days).
 
 \subsection{Hardware Interfaces}
-%<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
+   %<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
+Not applicable for \conman.
 
 \subsection{Software Interfaces}
-%<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
+      %<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
 
+As mentioned in section 3.1, the web application will be built using HTML, CSS, JavaScript, and ASP.NET. 
+The application will also need to interface with the database located on the server through the use of SQL and database libraries such as those provided by the .NET framework. 
+This database will store all data pertaining to user information (ID, name, log-in credentials, age, employer, team name, email address, etc.), company information (ID, name, employees, teams, etc.), task information (ID, due date, creator team ID, employees, checklists, etc.), and checklist information (ID, creator, due date, task ID, employees, list, etc.).
+        
 \subsection{Communications Interfaces}
-%<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
+                         %<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
+The web application will really on the following technologies for communication:
+\begin{itemize}
+    \item SMTP for sending out email notifications to users of checklists within upcoming due dates
+    \item SQL for performing transactions with the application's database
+\end{itemize}
 
 \newpage
 \section{System Features}
 %<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>
-
 %\subsection{System Feature 1}
 %<Don’t really say “System Feature 1.” State the feature name in just a few words.>
 %\subsubsection{Description and Priority}
 %<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>
-
 %\subsubsection{Stimulus/Response Sequences}
 %<List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.>
-
 %\subsubsection{Functional Requirements}
 %<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
-
 %<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
+%%%BREAK
+Our system will have a simple layout.
+The main screen will show a simple month-view calendar with the current day highlighted. 
+The name of an assigned task or checklist will appear on the day of the month when it is due. 
+The calendar then offers the possibility of clicking on any day or task.
+If a task is clicked, a list will appear with the task details along with options for adding, deleting or editing checklists associated with the task. 
+If instead the day of the month was clicked, the only option will be to add a new task. 
+The interface will also have a menu added to select user, change view and any other secondary feature helpful to the system.
+
+\subsection{Calendar View}
+\subsubsection{Description and Priority}
+Creating a Calendar View will be our main priority it should allow the user to click on any day to see or create new tasks.  The view should also implement the possibility of changing months to see past and future tasks. 
+This will be of the highest priority 9 since all future features are based on the user being able to choose a day from the calendar.
+
+\subsubsection{Stimulus/Response Sequences}
+After logging into \conman the initial screen will be the Calendar View.  When the user clicks on a day it should transition into a to-do list interface. 
+Here the user can see, add, edit or delete tasks. 
+The view feature will show a form with the tasks information.
+
+\subsubsection{Functional Requirements}
+The interface must be intuitive, with minimal training required to learn how its used. 
+To minimize user error all action buttons will be large and simple and the options will be controlled by the system.
+
+\subsection{Adding, Editing, Deleting Tasks}
+\subsubsection{Description and Priority}
+Modifying a task is the central user function in \conman. 
+Adding a task will create a new entry for specific day inside the Calendar View, deleting a task completely removes a task, while editing will allow the user to change any of a task fields. 
+This will be of the highest priority 9 since all of the system functionality depends on the user being able to assign tasks to a day.
+\subsubsection{Stimulus/Response Sequences}
+Once the day is selected the user will be able to choose between adding, deleting, editing and viewing the task. 
+Adding a task will take the user to a form were he can enter the initial task values and then create the task. 
+Editing will take you to the same form with the fields already completed and deleting will remove the entry. 
+\subsubsection{Functional Requirements}
+The task form will require the usual fields in a calendar. 
+It should include date, time, description, alarm. 
+Once filled the system then adds the task to the day specified. 
+The form will check for errors in the information supplied before accepting the task. 
+If the user changes the date this should also be reflected on the calendar.
+
+\subsection{User Profiles}
+\subsubsection{Description and Priority}
+With this feature a user can log into a profile, loading all the tasks previously created onto the Calendar View. 
+A simple authentication process is required to ensure privacy, a user will also be able to create an account on startup. 
+Since this feature is important but not critical to system use, User Profiles have a priority of 7.
+
+\subsubsection{Stimulus/Response Sequences}
+The authentication process will be the first screen. 
+The authentication screen will offer the possibility of creating a new user or entering existing credentials. 
+If a new user is created, the system will transition into the user creation interface where he can complete the fields. 
+If the user already has an account, he will be showed his calendar with all the tasks previously created. 
+\subsubsection{Functional Requirements}
+The new user form will require the usual fields, name, surname, password, email\dots 
+Once filled the system will take the user to its calendar. 
+The authentication process must be secure, it must control who access each profile since the data saved is confidential. 
+If an incorrect user is entered or the information for the new user is incorrect, the user will be prompted with a error message.
+
+\subsection{Notification System}
+\subsubsection{Description and Priority}
+This feature can be activated at the task creation form. 
+If activated, this feature will warn the user with an email when a task is coming upon its due date. The notification alerts will have a 5 priority.
+
+\subsubsection{Stimulus/Response Sequences}
+This option will be made available to the user once he has entered the create new task form. 
+It will give the user the option to choose a time to remind him of the event. 
+ 
+\subsubsection{Functional Requirements}
+The system will have to control that the time entered is plausible and has a correct format.  If an invalid notification date is set, the user will be informed of the error. 
+
 \newpage
 \section{Other Nonfunctional Requirements}
 \subsection{Performance Requirements}
 %<If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
+As a general requirement, the user should be able to visually see some type of response from the program withing 0.2 seconds after a valid user action.  
+If, for instance, a user performs an action that requires validation from the server (such as authenticating the user upon login), this requirement does not stiuplate that the server will be finished processing the request withing 0.2 seconds, but rather the program gives at least a loading indicator to signal the user that their actions has been received.
+
+All e-mails sent by \conman will be sent within 5 minutes of the requested time.
+\conman, of course, has no control over the performance of the user's e-mail network which will receive the mail.
+
 
 \subsection{Safety Requirements}
 %<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>
@@ -185,6 +341,11 @@ There are no known physical safety requirements at this time.  Caution should be
 
 \subsection{Security Requirements}
 %<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>
+A user should only be able to log onto \conman with valid user credentials.
+Furthermore, a user should only be able to modify tasks or checklists which they are assigned to.
+Also, member level users can only view tasks assigned to the team to which they belong.
+
+Manager level user, however, are the only user class that can add or assign tasks to teams.  Also Manager users are solely responsible for marking finished tasks or checklists as complete.  Users should not have this functionality.
 
 
 \subsection{Software Quality Attributes}
