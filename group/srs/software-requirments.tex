@@ -37,7 +37,7 @@
 \newcommand{\taggedP}{\dot{\mathcal{P}}}
 \newcommand{\scriptQ}{\mathcal{Q}}
 \newcommand{\taggedQ}{\dot{\mathcal{Q}}}
-\newcommand{\pd}{\texttt{PresDroid }}
+\newcommand{\conman}{\texttt{ConMan }}
 
 
 % Allows hyperlinks if compiled with pdflatex
@@ -99,10 +99,7 @@ title=\lstname                   % show the filename of files included with \lst
 \section{Introduction}
 \subsection{Purpose}
 %Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.
-
-This document describes the \pd product version 0.1.
-\pd aims to facilitate the creation of presentations that can be easily controlled through a simple Android UI. 
-This SRS covers the entirety of the \pd project.
+The Calendar, Organization, and Notification Manager - \texttt{ConMan} - is a web-suite that gives project managers the tools needed to plan, assign, and follow-up on tasking given to project team members.  This SRS covers all aspects of \texttt{ConMan}.
 
 %\subsection{Document Conventions}
 %Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.
@@ -111,32 +108,17 @@ This SRS covers the entirety of the \pd project.
 
 \subsection{Intended Audience} % and Reading Suggestions
 %<Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.>
-
-\begin{enumerate}
-\item Potential User (People wanting to give a presentation)
-\item Dr. Pruski
-\item Software Development Team
-\item Software Testing and Validation Team
-\item System Architect
-\end{enumerate}
-
-This SRS contains the Product Scope, Overall Description, External Interface Requirements, System Features, Non-Functional Requirements, and Other Requirements of the system. 
-The end of the SRS will cover the terms used (Glossary), the models of various aspects of the system (Analysis Models), and aspects of the system to still be determined (To-Be Determined List).
+This document is intended primarily for developers and reviewers of the \texttt{ConMan} suite.  
+Advanced users of \texttt{ConMan} may find reading this SRS interesting reading as well.
 
 \subsection{Product Scope}
 %<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.>
-The system will have 2 main components that interact with the user. 
-The 1st component is a desktop application that will enable the user to create and display presentations. 
-The 2nd component is an Android application that will allow the presenter of the presentation (created via the 1st Component) to control the presentation. 
-The presenter will have the following capabilities through the Android application:
+\texttt{ConMan}'s main objective is to give project managers and project team members a simple, but effective, tool for planning their tasking and keeping to a schedule.  
+\texttt{ConMan} accomplishes its purpose with these mechanisms:
 \begin{itemize}
-\item Scroll/flip through presentation slides
-\item Zoom in/out of the presentation
-\item Highlight text on the presentation
-\item Draw figures on the slides
-\item Point to specific content (like a laser pointer) through a simple Android UI and gestures
+    \item Tight integration of scheduled tasking with a calendar view.  \texttt{ConMan} will allow a user to see at a glance the tasks they are assigned, how much progress has already been made, and the effort remaining to complete the task.
+    \item Meaningful notifications and updates.  Users can choose to select a notification schedule themselves or recieve automatic notifications of changes to their tasks and upcoming deadlines.
 \end{itemize}
-
 
 %\subsection{References}
 %<List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>
@@ -147,39 +129,49 @@ The presenter will have the following capabilities through the Android applicati
 \section{Overall Description}
 \subsection{Product Perspective}
 %<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
-The \pd is a new stand-alone system that does not depend on any other user systems.  
-The desktop application portion will target the Windows and Linux operating system environments.
-The mobile application will be targeted for Android mobile phones, specifically Luis' and Angel's phone.
-
-\begin{center}
-\includegraphics[trim=0cm 5cm 0cm 3cm, clip, scale=0.4]{ppd}
-\end{center}
-
-\subsection{Product Functions}
-%<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
-The desktop subsystem will perform the following functions:
-\begin{itemize}
-\item Build a new presentation
-\item Present previously built presentation
-\item Sync with mobile subsystem
-\item Interact with mobile subsystem
-\end{itemize}
-
-The mobile subsystem will provide the following functions:
-\begin{itemize}
-\item Sync with desktop subsystem
-\item Accept gesture input
-\item Interact with desktop subsystem
-\end{itemize}
+\texttt{ConMan} is inspired by existing attempts made to create a useful calendar, checklist, and task management software suite such as Trello, SourceForge, and some basic calendar applications for iPhone and Android.  \texttt{ConMan} is a re-making of the task-management suite that emphasizes simplicity and ease of use as the primary development and design philosophies.
 
 \subsection{User Classes and Characteristics}
 %<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>
-The user groups will include students or professors giving simple, quick, and effective presentations.
+The two user classes for \texttt{ConMan} are managers and members.  
+Managers will have privileged commands available which will effect an entire team.
+Members are assigned to teams and can modify the tasking that is assigned to them.
+When a member switches to individual mode, each member is his/her own manager.
+
+
+\subsection{Product Functions}
+%<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
+\texttt{ConMan's} functions divide into two categories, application functions and user functions.  Application functions are the functions that describe the basic workings of \texttt{ConMan}.  Application functions include:
+\begin{enumerate}
+    \item Creating a user profile.
+    \item Switching to Calendar View.
+    \item Switching to Task View.
+    \item Switching to Checklist View.
+    \item Receiving notifications and updates.
+\end{enumerate}
+
+User functions are further divided into manager and member categories.
+Manager categories are only available to users who are designated a project manager when the user profile is created.
+\begin{enumerate}
+    \item Create and delete teams.
+    \item Add and modify tasks for a team.
+    \item Create, modify, and delete checklists for the team.
+    \item Create group notifications.
+    \item Perform member verification functions.
+\end{enumerate}
+Finally the member functions apply to every user of \texttt{ConMan}.  These functions are:
+\begin{enumerate}
+    \item Write task progress notes.
+    \item Write checklist progress notes.
+    \item Switch between team and individual views.
+    \item Mark checklist items as complete (if the checklist is assigned to the member).
+\end{enumerate}
 
 \subsection{Operating Environment}
 %<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
-The hardware requirements for \pd are a Windows or Linux computer where a projector is compatible for the desktop portion and Android mobile phone.
-The computer and phone used must have networking (HTTP or Bluetooth, TBD) capabilities.
+\texttt{ConMan} deploys on an ASP.NET server using a SQL Server Express database.
+The target browsers in which \texttt{ConMan} will run are Firefox and Chrome.
+
 
 %\subsection{Design and Implementation Constraints}
 %<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
@@ -187,177 +179,188 @@ The computer and phone used must have networking (HTTP or Bluetooth, TBD) capabi
 
 \subsection{User Documentation}
 %<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>
-User manual.\\
-Help section in desktop and mobile application.
-\subsection{Assumptions and Dependencies}
+The documents available describing \texttt{ConMan} include this software requirements specification, a 
+user manual, and
+an in-app help menu.
+
+All of the documentation will be available in PDF.
+
+%\subsection{Assumptions and Dependencies}
 %<List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
-We assume Bluetooth messaging will not be data-constrained and that the computers will have bluetooth messaging capabilities.\\
 
 \newpage
 \section{External Interface Requirements}
+%%%%BREAK
 \subsection{User Interfaces}
-%<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>
+User Interface characteristics for the \texttt{ConMan} web application are as follows:
 
-UI Characteristics for both Desktop and Mobile Applications:
 \begin{itemize}
-\item The applications will use the GUI Frameworks provided by the system they are built upon. For example, the Mobile application will make use of the native Android GUI Framework (Widgets, Spinners, etc.) while the Desktop Application will make use of the Java Swing Framework (JFrames, JButtons, etc.).
-\item The applications will provide a button within the UI which will present the user with a “Help” dialog box or screen.
-\item The applications will handle errors in two ways:
-\begin{itemize}
-\item 1) If the error is critical (such as the connection has been lost between the desktop application and mobile application), then a Message/Dialog Box will appear that the user must acknowledge before proceeding.
-\item 2) If the error is NOT critical (such as invalid input), then text should appear towards the bottom of the UI in red text to notify the user of a non-critical error occurring.
-\end{itemize}
-\item The layout of UI elements should adapt to suit to the system that application is installed on. For example, the Android Application UI should be able to adapt to different types of mobile devices (Phone and Tablet) so that elements in the UI don’t appear in unexpected places.
-\end{itemize}
+    \item The application will use standard HTML, CSS, JavaScript, and possibly ASP.NET controls to structure and create the user interface.
+    \item The web application will provide a consistent layout through the use of consistent coloring, formatting, etc.
+    \item The web application will display the company logo (towards the top-left of the screen) of the logged in user's employer
+    \item The web application will provide the user with a "Help" button so that the user can quickly and easily learn how to use each component of the application.
+    \item The web user interface will handle errors in different ways:
+	\begin{itemize}
+		\item If a web form is not completed in a valid manner, then the UI will present an error message in red text to the right of each form field that was not valid. 
+			Each of these error messages will display a message that is appropriate for the error. 
+			For example, if a field accepts non-negative numbers and the user enters -1.5, the UI will display an error message indicating that input must not be negative.
+		\item All other errors will be presented to the user via a dialog/message box that cannot be ignored without acknowledgment (i.e. pressing "OK"). 
+			This message must present the user with helpful messages that describe the error. 
+			For example, an error message for a database transaction may state "ERROR: Communication with the server's database has been lost".
+	\end{itemize}
+    \item The web application will allow the user to quickly switch between calendar, checklist, and calendar/checklist views.
+	\begin{itemize}
+		\item Calendar View
+		\begin{itemize}
+			\item The Calendar View shows the current month's calendar and for each day, it will display the name of each task that has a checklist due on that day. 
+					By clicking on the name of a task, the web application will redirect the user to the Checklist View (discussed below in section 3.1.3).
+		\end{itemize}
+		
+		\item Calendar/Checklist View
+		\begin{itemize}
+			\item The Calendar/Checklist View will show the calendar of all deadlines and will present all of the checklists associated with the day selected by the user via the calendar.
+		\end{itemize}
+		
+		\item Checklist View
+		\begin{itemize}
+			\item The Checklist View will show a checklist that states what must be completed by a certain date specified by the Task and Checklist manager/owner.
+		\end{itemize}
+		
+	\end{itemize}
+    
 
-
+	\item The web application will have log-in information available in the top-right corner of the page.
+		\begin{itemize}
+			\item If the user is not logged in, the top-right corner of the page will prompt the user for log-in credentials
+			\item If the user is logged in, the top-right corner of the page will display the users log-in name and will display a link/button for the user to sign out
+		\end{itemize}
+	\item The web application will alert the user that one or more checklists are due for the current day by presenting the user with dialog/message box notifications stating which Tasks have checklists due. Notifications
+			will also be presented for checklists with due dates in the near future (e.g., due dates within the next 3 days).
+	\item The web application will also alert the user via notifications if any tasks or checklists assigned to them have been modified.
+\end{itemize}
 
 \subsection{Hardware Interfaces}
-%<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
-
-The interfaces between both applications and the underlying hardware will be provided through the frameworks used in development such as the Android SDK/Framework and the Java Framework. As mentioned earlier, the supported devices will include Android devices for the Mobile Application and Windows and Linux machines for the desktop application. 
+   %<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
+Not applicable for \texttt{ConMan}.
 
 \subsection{Software Interfaces}
-%<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
+      %<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
 
-Both the Mobile and Desktop subsystems will be built upon Java and Android frameworks, respectively. These frameworks will provide abstract interfaces to operating system features such as file management and multi-threading. Both subsystems (mobile and desktop) will need to create and process a variety of external messages, including, but not limited to:
-\begin{itemize}
-\item Pair up with mobile or desktop application request
-\item Zoom presentation in/out message
-\item Move pointer on presentation screen to a specific point message
-\item “Kill” connection between desktop and mobile applications message
-\end{itemize}
-
+As mentioned in section 3.1, the web application will be built using HTML, CSS, JavaScript, and ASP.NET. 
+The application will also need to interface with the database located on the server through the use of SQL and database libraries such as those provided by the .NET framework. 
+This database will store all data pertaining to user information (e.g., ID, name, log-in credentials, age, employer, team name, email address, etc.), company information (e.g., ID, name, employees, teams, etc.), task information (e.g., ID, due date, creator team ID, employees, checklists, etc.), and checklist information (e.g., ID, creator ID, due date, task ID, employees IDs, list, etc.).
+        
 \subsection{Communications Interfaces}
-%<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
-
-The two major subsystems (as depicted in the “Product Perspective” section above) will communicate using a “Communication Interface”. This interface will store all messages or requests to be processed and will handle communication between the two subsystems. The interface will be simple and consistent so that components can easily check if they have any requests or messages to process. An example of a request is an incoming request for the desktop application (from the Mobile application) to “pair up” with the mobile device so that the two applications can be in sync and can communicate.
-This “Communication Interface” will need to rely on some form of networking (HTTP, Bluetooth, etc.). The interface will make use of existing networking libraries such as the Java (java.net) and Android (android.net) networking packages which are available for desktop computers and Android devices, respectively. The “Communication Interface” will need to run on a separate thread so that the program will not stall while waiting for incoming messages. The “Communication Interface” must make sure to protect against corruption of its message pool through the use of Semaphores and/or Mutexes, etc.
-
+                         %<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
+The web application will rely on the following technologies for communication:
+\begin{itemize}
+    \item SMTP for sending out email notifications to users concerning checklists with upcoming due dates
+    \item SQL for performing transactions with the application's database
+\end{itemize}
 
 \newpage
 \section{System Features}
-Our system needs to communicate two devices, a computer running either Linux or windows, with a portable Android device. 
-The communication is needed so we can control the computer application from the Android device. 
-The computer application will show a simple interface for presentations. 
-The Android device will have to control the change of slides, zoom in/out, writing, moving mouse, go to page and any other function supported by a simple presentation program. 
-If possible we intend to see the pc screen on the Android device. 
-
-\subsection{Communications}
-\subsubsection{Description and Priority}
-The Android device needs to send and receive data from the computer application. 
-To achieve this goal a communications protocol must be used such as Bluetooth or HTTP. 
-The feature has the highest priority of a 9 since the whole system relies on the Android device communicating with the computer.
-\subsubsection{Stimulus/Response Sequences}
-This feature must be present from the start, right after the user turns both devices on.  
-The moment the devices are switched on they must be able to communicate with each other so the normal use of the application can continue
-\subsubsection{Functional Requirements}
-The communications must be robust, the state of the link must be constantly checked so there is no down time. 
-In case of loss of communications the system must be able to create a new channel of communication. 
-If this fails the user must be prompted of the error.
-
-\subsection{Synchronization}
-\subsubsection{Description and Priority}
-Before any other function becomes available we need to synchronize the Android device with the computer. 
-This must be done by selecting in both machines the sync button. 
-Once both devices find each other they can pair up. 
-The feature has the highest priority of a 9 since the whole system relies on the Android device maintaining a link with computer
-\subsubsection{Stimulus/Response Sequences}
-This feature must be present from the start, right after the user turns both devices on. 
-Once on, the first task to complete must be a successful synchronization, so the normal use of the application can continue. 
-To accomplish this link both devices must be searching for a pair, once found they can create the link.
-\subsubsection{Functional Requirements}
-The link must be robust, the state of the link must be constantly checked so there is no down time. 
-For these checks any package sent must receive a confirmation package. 
- If data fails to reach its destination the system must resend the package. 
-In case of complete loss of the link, the system must be able search for the same device to try and reconnect automatically. 
-If this fails the user must be prompted of the failure.
-
-\subsection{Android Gestures}
-\subsubsection{Description and Priority}
-The Android Application must be able to accept input from the user by hand gestures. 
-Using the Androids touch screen the user will send commands to the Android application. 
-These commands must be then sent to the computer were they will be processed and a task will be executed. 
-Such tasks will include the passing of slides, zoom in/out, moving the mouse, etc. 
-This is feature is of the highest priority 9, since it’s the core function of the system.
-\subsubsection{Stimulus/Response Sequences}
-After both applications have synced this feature must be made available, a drawn gesture on the Android application must be directly followed by an action in the computer application.
-\subsubsection{Functional Requirements}
-This feature must be robust and responsive with no lag. 
-Any input into the Android device must be immediately show on the computer screen. 
-This way the user gets a feeling of complete control and responsiveness. 
-In case of an error the user will be prompted with a message to repeat the gesture.
-
-\subsection{Simple Presentation Interface on Computer}
-\subsubsection{Description and Priority}
-The task of the computer application is to function as a presentation GUI, it must be able to open and create presentation showing them on screen. 
-The priority of this feature is the highest 9, since all future features rely on it, needing it as a visual interface.
-\subsubsection{Stimulus/Response Sequences}
-The presentation interface must appear once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the Android device screen.
-\subsubsection{Functional Requirements}
-Should be a robust and reliable program, it's controlled by gestures through the Android device so the inputs will be largely varied and vague.
-
-\subsection{Computer Screen on Android Device}
-\subsubsection{Description and Priority}
-Instead of having a specific Android interface the computer screen could be shown on the Android device. 
-This way the user can select or underline exactly were intended without the need of a mouse cursor. 
-This also makes it easier for the user to change slides or zoom in/out at specific points. 
-This feature has a priority of 5, it's not essential for the system it simply makes it more interactive. 
-\subsubsection{Stimulus/Response Sequences}
-The presentation must appear on the Android device once both applications have been synchronized, the screen must reflect the changes from any input the user sends through the Android device screen.
-\subsubsection{Functional Requirements}
-Should be robust and reliable, it's controlled by gestures through the Android device so the inputs will be largely varied and vague.
-
 %<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>
-
 %\subsection{System Feature 1}
 %<Don’t really say “System Feature 1.” State the feature name in just a few words.>
 %\subsubsection{Description and Priority}
 %<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>
-
 %\subsubsection{Stimulus/Response Sequences}
 %<List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.>
-
 %\subsubsection{Functional Requirements}
 %<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
-
 %<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
+%%%BREAK
+Our system will have a simple layout.
+The main screen will show a simple month-view calendar with the current day highlighted. 
+The name of an assigned task or checklist will appear on the day of the month when it is due. 
+The calendar then offers the possibility of clicking on any day or task.
+If a task is clicked, a list will appear with the task details along with options for adding, deleting or editing checklists associated with the task. 
+If instead the day of the month was clicked, the only option will be to add a new task. 
+The interface will also have a menu added to select user, change view and any other secondary feature helpful to the system.
+
+\subsection{Calendar View}
+\subsubsection{Description and Priority}
+Creating a Calendar View will be our main priority it should allow the user to click on any day to see or create new tasks.  The view should also implement the possibility of changing months to see past and future tasks. 
+This will be of the highest priority 9 since all future features are based on the user being able to choose a day from the calendar.
+
+\subsubsection{Stimulus/Response Sequences}
+After logging into \texttt{ConMan} the initial screen will be the Calendar View.  When the user clicks on a day it should transition into a to-do list interface. 
+Here the user can see, add, edit or delete tasks. 
+The view feature will show a form with the tasks information.
+
+\subsubsection{Functional Requirements}
+The interface must be intuitive, with minimal training required to learn how its used. 
+To minimize user error, all action buttons will be large and simple and the options will be controlled by the system.
+
+\subsection{Adding, Editing, Deleting Tasks}
+\subsubsection{Description and Priority}
+Modifying a task is the central user function in \texttt{ConMan}. 
+Adding a task will create a new entry for a specific day inside the Calendar View. Deleting a task completely removes a task, while editing a task will allow the user to change any of a task fields. 
+This will be of the highest priority 9 since all of the system functionality depends on the user being able to assign tasks to a day.
+\subsubsection{Stimulus/Response Sequences}
+Once the day is selected, the user will be able to choose between adding, deleting, editing and viewing the task. 
+Adding a task will take the user to a form were he can enter the initial task values and then create the task. 
+Editing will take you to the same form with the fields already completed and deleting will remove the entry. 
+\subsubsection{Functional Requirements}
+The task form will require the usual fields in a calendar. 
+It should include date, time, description, alarm. 
+Once filled the system then adds the task to the day specified. 
+The form will check for errors in the information supplied before accepting the task. 
+If the user changes the date this should also be reflected on the calendar and a notification should be sent out to all employees associated with the task.
+
+\subsection{User Profiles}
+\subsubsection{Description and Priority}
+With this feature a user can log into a profile, loading all the tasks previously created onto the Calendar View. 
+A simple authentication process is required to ensure privacy, a user will also be able to create an account on startup. 
+Since this feature is important but not critical to system use, User Profiles have a priority of 7.
+
+\subsubsection{Stimulus/Response Sequences}
+The authentication process will be the first screen. 
+The authentication screen will offer the possibility of creating a new user or entering existing credentials. 
+If a new user is created, the system will transition into the user creation interface where he can complete the fields. 
+If the user already has an account, he will be showed his calendar with all the tasks previously created. 
+\subsubsection{Functional Requirements}
+The new user form will require the usual fields: name, surname, password, email, etc. 
+After the fields are supplied, the system will take the user to its calendar. 
+The authentication process must be secure. Therefore, it must control who accesses each profile since data is confidential. 
+If incorrect user credentials are entered or if the information for the new user is incorrect, the user will be prompted with a error message.
+
+\subsection{Notification System}
+\subsubsection{Description and Priority}
+This feature can be activated at the task creation form. 
+If activated, this feature will notify the user with an email and with a message/dialog box (via the web application) when a task has an upcoming due date. The notification alerts will have a 5 priority.
+
+\subsubsection{Stimulus/Response Sequences}
+This option will be made available to the user once he has entered the create new task form. 
+It will give the user the option to choose a time to remind him and possibly other users of the event. 
+ 
+\subsubsection{Functional Requirements}
+The system will have to validate the time entered and ensure that it is plausible and formatted correctly.  If an invalid notification time is set, the user will be informed of the error. 
+
 \newpage
 \section{Other Nonfunctional Requirements}
 \subsection{Performance Requirements}
 %<If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
-\subsubsection{Mobile to Desktop Communication}
-The delay between user interaction on mobile device and registration of user action on the desktop environment should be minimized.
-\begin{enumerate}
-    \item Requirement Completely Met: Mobile to desktop communication appears instantaneous.
-    \item Acceptable: The mobile to desktop communication contains predictable lag that does not distract user performance.
-    \item Not Met: The user is unable to compensate for inconsistencies or poor mobile to desktop communication performance.
-\end{enumerate}
+As a general requirement, the user should be able to visually see some type of response from the program withing 0.2 seconds after a valid user action.  
+If, for instance, a user performs an action that requires validation from the server (such as authenticating the user upon login), this requirement does not stiuplate that the server will be finished processing the request withing 0.2 seconds, but rather the program gives at least a loading indicator to signal the user that their actions has been received.
 
-\subsubsection{Syncing of Mobile to Desktop}
-The time it takes to sync the mobile device to the desktop suite should be less than 4 seconds.
+All e-mails sent by \texttt{ConMan} will be sent within 5 minutes of the requested time.
+\texttt{ConMan}, of course, has no control over the performance of the user's e-mail network which will receive the mail.
 
-\subsubsection{Desktop Program Start-Up}
-The time it takes to start the desktop suite should be less than 8 seconds.
-
-\subsubsection{Desktop Program Response}
-The presentation creation program should have negligible response times accepting and displaying user input.
 
 \subsection{Safety Requirements}
 %<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>
 There are no known physical safety requirements at this time.  Caution should be exercised when using any unfamiliar device, however.\\
 
-The desktop suite shall not modify any user files other than the files currently opened by the user.
-Furthermore, the desktop suite shall perform an "auto-save" while the user modifying a presentation.  These auto-saves will occur once every 5 minutes.
 \subsection{Security Requirements}
 %<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>
-\begin{itemize}
-    \item Each presentation will only allow syncing to one mobile device.
-    \item A mobile device will not disconnect another mobile device from its connection to the desktop suite.
-    \item A desktop will not automatically sync with a mobile device.
-    \item Requests made outside of standard mobile to desktop interface will return a standard error message.
-\end{itemize}
-No requirement is given that communication needs to be encrypted.\\
+A user should only be able to log onto \texttt{ConMan} with valid user credentials.
+Furthermore, a user should only be able to modify tasks or checklists which they are assigned to.
+Also, member level users can only view tasks assigned to the team to which they belong.
+
+Manager level user, however, are the only user class that can add or assign tasks to teams.  Also Manager users are solely responsible for marking finished tasks or checklists as complete.  Users should not have this functionality.
+
 
 \subsection{Software Quality Attributes}
 %<Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
