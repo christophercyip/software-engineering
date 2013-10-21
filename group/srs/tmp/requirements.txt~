@@ -1,0 +1,77 @@
+External Interface Requirements
+
+   User Interfaces
+
+<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>
+
+ 
+
+UI characteristics for the ConMan web application are as follows:
+
+·         ??? The application will use standard HTML, CSS, jQuery UI, and possibly ASP.NET controls to structure and create the user interface.
+
+·         The web application will provide a consistent layout through the use of consistent coloring, formatting, etc.
+
+·         The web application will display the company's logo (towards the top left of the screen) of the logged in user
+
+·         The web application will provide the user with a Help button so that the user can quickly and easily learn how to use each component of the application.
+
+·         The web user interface will handle errors in different ways:
+
+·         If a web form is not completed in a valid manner, then the UI will present an error message in red text to the right of each form field that was not valid. Each of these error messages will display a message that is appropriate for the error. For example, if a field accepts non-negative numbers and the user enters -1.5, the UI will display an error message indicating that input must not be negative.
+
+·         All other errors will be presented to the user via a dialog/message box that cannot be ignored without acknowledging it (i.e. pressing "OK"). This message must present the user with helpful messages that describe the error. For example, an error message for a database transaction may state "ERROR: Communication with the server's database has been lost".
+
+·         The web application will allow the user to quickly switch between calendar view, checklist view, or calendar/checklist view
+
+o   Calendar View
+
+§  Shows the current month's calendar and for each day, it will display the name of each task that has a checklist due on that day. By clicking on the name of a task, the web application will redirect the user to the Checklist View (discussed below).
+
+o   Calendar/Checklist View
+
+§  Will show the calendar of all deadlines and will present the checklist associated with the day selected by the user.
+
+o   Checklist View
+
+§  Will show a checklist that states what must be completed by a certain date specified by the Task and Checklist manager/owner.
+
+·         The web application will have log-in information available in the top-right corner of the page.
+
+·         If the user is not logged in, the top-right corner of the page will prompt the user for log-in credentials
+
+·         If the user is logged in, the top-right corner of the page will display the users log-in name and will display a link/button for the user to sign out
+
+·         The web application will alert the user that one or more checklists are due for the current day by presenting the user with a dialog/message box stating which Tasks have checklists due. Similarly, the application will alert the user of checklists with due dates in the near future (e.g. due dates within the next 3 days).
+
+   Hardware Interfaces
+
+<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
+
+ 
+
+??? I don't think we need this section since we are developing a web application
+
+   Software Interfaces
+
+<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
+
+ 
+
+?? I am not sure which technology we are going to use
+
+ 
+
+                As mentioned in section 3.1, the web application will be built using HTML, CSS, jQuery UI, and ASP.NET. The application will also need to interface with the database located on the server through the use of SQL and database libraries such as those provided by the .NET framework. This database will store all data pertaining to user information (ID, name, log-in credentials, age, employer, team name, email address, etc.), company information (ID, name, employees, teams, etc.), task information (ID, due date, creator team ID, employees, checklists, etc.), and checklist information (ID, creator, due date, task ID, employees, list, etc.).
+
+   Communications Interfaces
+
+<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
+
+ 
+
+The web application will really on the following technologies for communication:
+
+ SMTP for sending out email notifications to users of checklists within upcoming due dates
+
+ SQL for performing transactions with the application's database
