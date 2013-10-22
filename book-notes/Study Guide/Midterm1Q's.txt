@@ -1,0 +1,165 @@
+//*****************************************************************************
+// Midterm Questions
+//*****************************************************************************
+
+1) Basic characteristics of SE
+	a) What is Software Engineering?
+	b) What are the fundamental activities of SE
+	
+2) Types of software and its desired attributes
+	a) What are two types of software products?
+		i) What are their attributes
+
+3) Software engineering ethics
+	a) What are the four tenants of software engineering ethics?
+
+4) Software process models and process activities
+	a) What is a software process?
+	b) What is a software process model?
+	c) What are 3 process models?
+		i) What is it and describe the principal stages?
+		ii) Pros and cons
+
+5) Managing change in a software process
+	a) What are two related approaches that may be used to reduce the cost of rework?
+	b) What are two ways of coping with change and changing sys req?
+		i) What can prototyping help with?
+		ii) Why is it unwise to use throwaway prototypes for final product? 
+		iii) Advantages and cons of incremental
+
+6) Agile methods vs. plan-driven development: characteristics, advantages and disadvantages
+	a) What is agile and its principals?
+		i) Adv/cons
+	b) What is plan driven dev?
+		i) adv/con
+	c) When to use each? (just know)
+
+7) Extreme programming and Scrum approach
+	a) What is XP?
+		i) What are its practices?
+		ii) What are key features in testing?
+	b) What is the Scrum approach?
+		i) What are its key characteristics?
+		ii) What is the scrum master?
+		iii) What are its advantages?
+		iv) List stages of scrum process.
+
+8) Types of software requirements
+	a) What are the types of software requirements?
+		i) Reasons implementation of non-functional req may be diffused throughout system?
+		ii) What external sources do non-functional req come from?
+		iii) Metrics for non-functional req
+
+9) Approaches to requirements specification
+	a) Why do you need to know something about the design before writing a requirements spec?
+	b) What are some ways of writing a system requirements specification?
+
+10) Activities (phases, stages) of requirements engineering process
+	a) What are phases of req engineering process?
+
+11) Types of software system models
+	a) What is a system model?
+	b) Types of system models?
+		i) What are use-case models and sequence diagrams? (interaction)
+		ii) What are class diagrams? (structural)
+		iii) What are data and event models? (behavioral)
+
+12) Model-driven software engineering approach
+	a) What is model-driven SE?
+	b) Pros/cons
+
+13) Fundamental characteristics of architectural design
+	a) What is arch design?
+		i) what are the two levels of abstraction?
+		ii) adv?
+		iii) What should arch design decisions include?
+
+14) Types of architectural patterns; their advantages and disadvantages
+	a) What is an arch pattern?
+	b) Types of arch patterns? (5)
+		i) adv/con of each
+
+15) Types of application systems architectures and their characteristics
+	a) What are application architectures? (specific software types from commonalities)
+	b) What are the types of applications systems architectures?
+
+16) Stages of object-oriented design
+	a) What must you do to develop an object oriented design from a concept?
+		i) What are involved with each of these?
+		ii) Two types of design model?
+		iii) Three models that add detail to use cases and architectural models?
+
+17) Design patterns
+	a) What are design patterns?
+	b) What are four essential elements of design patterns?
+	c) What are four common problems with an associated pattern?
+
+
+18) Software reuse issues; configuration management; open source development
+	a) At what levels is reuse possible?
+	b) what are the costs of reuse?
+	c) 3 fundamental config management activities?
+	d) What should companies that manage open source do?
+
+19) Various classifications of testing; phases of development testing
+	a) What are the various classfications of testing?
+	b) What are the phases of development testing?
+		i) describe each of these
+
+20) Test-driven development
+	a) What is it?
+	b) What are the steps in the test-driven development process?
+	c) What are the benefits?
+
+21) Release and user testing
+	a) What are these types of testing?
+	b) Difference between release and system?
+	c) What are the approaches for release testing?
+	d) What are the 3 different types of user testing?
+
+22) Software evolution and its dynamics
+	a) What is software evolution?
+	b) What are the stages in the software evolution process and what triggers it?
+	c) What is program evolution dynamics?
+	d) What are Lehman's laws?
+
+23) Maintenance; types and characteristic activities
+	a) What are the 3 types?
+	b) What are the characteristic activities?
+	c) What are the activities in the reegineering process?
+
+24) Management of legacy systems
+	a) What is a legacy system
+	b) What are the 4 strategic options for determining what to do with a legacy system?
+	c) What are the 4 basic issues you have to discuss when assesing the busniess value of a legacy   	   system?
+	d) What 3 things are useful during quality assessment?
+
+25) Dependability and its dimensions
+	a) What is dependability?
+	b) What are its dimensions?
+	c) What are some other properties of dependability?
+
+26) Characteristics of the four major dimensions of dependability
+	a) What are the characteristics?
+
+27) Characteristics of risk-driven requirements specification
+	a) What is it?
+	b) What are the stages in the process?
+	c) What are the phases of risk analysis?
+
+28) Reliability specification
+	a) 2 kinds of reliability requirements?
+	b) What is the process of reliability specification?
+	c) What are the reliability metrics?
+	d) 3 types of functinoal reliability requirements?
+
+29) Safety and security specification
+	a) What is the safety specification process?
+	b) What are 3 strategies you can use for derive safety requirements?
+	c) Why is security more challenging than safety?
+	d) What are the 3 stages to security specification
+
+30) Formal methods of specification
+	a) What are formal methods?
+	b) What are the advantages?
+	c) What are the disadvantages?
