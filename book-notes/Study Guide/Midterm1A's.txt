@@ -1,0 +1,485 @@
+//*****************************************************************************
+// Midterm Answers
+//*****************************************************************************
+
+1) 
+	a) SE: Is an engineering discipline that is concerned with all aspects of software development to crate functional, usable, and maintainable software under financial and organizational constraints. 
+	(Software is not just program, its program and all associated documentation and user manuals)
+
+	b) software specs
+	   Software dev
+	   software validation
+	   software evo
+
+2)
+	a) Generic products
+	   Custom products
+
+	   i) Generic attributes: stand-alone that are produced by a dev org, sold on open market
+	   	  Custom attributes: commissioned by a particular customer
+
+3)
+	a) Confidentiality - respect confidentiality of clients regardless of formal agreement or not
+	   
+	   Competence - Do not misrepresent your competence or accept work outside of your competence
+	   
+	   Intellectual property rights - Ensure intellectual property rights of clients/employers are protected
+
+	   Computer Misuse - Don't play games or make viruses
+
+4)
+	a) A set of related activities that lead to the development of a software product
+	
+	b) A simplified representation of a software process. Represents a process from a particular point of view, providing only partial info on process
+
+	c) Waterfall - Takes the four fundamental process activities and represents them as separate phases that cascade down upon one another
+	    Activities: requirements analysis and def, system and software designs, implementation and unit testing, integration and sys testing, operation and maintenance
+
+		Pros: Detailed documentation (plan based)
+		Cons: Hard to make changes
+
+	   Incremental - Develop an initial version, get init feedback from customers until something adequate is built
+	    Activities: Specs, dev, validation are all concurrent
+	   	Pros: Reduced cost of change, easy to get customer feedback, more rapid deployment of software
+	   	Cons: Little documentation for management (not visible), system structure degrades as increments are added
+
+	   Reuse - relying on a large base of reusable software components for system framework
+	    Activities: Component analysis, Req modification, system design with reuse, dev and integration
+	    Pros: Less software, so less cost and risk, faster delivery
+	    Cons: Must make sacrifices(compromises) to the requirements, lose some control over sys evo, because some reusable components have their own rules about sys evo
+
+5)
+	a) Change avoidance - Software processes contain activities that can anticipate possible changes before significant rework is required
+
+	   Change tolerance - processes are designed that changes may be implemented at low cost
+
+	b) Prototyping, incremental delivery
+		i) Elicitation and validation of sys requirements
+		   Exploring particular software solutions and supporting UI design
+		
+		ii) Hard to meet non-functional requirements
+			Undocumented due to rapid changes
+			Degraded sys structure
+			Organizational quality standards are relaxed for prototypes
+
+		iii) Adv: Customers can use increments as prototypes, gain exp
+				  Customers can get some functionality before entire sys is deved
+				  Easy to incorporate changes
+				  Most important services receives the most testing
+			 Dis: Hard to ID common facilities needed by all increments
+			 	  Bad for replacements, and Users may want complete functionality
+			 	  Some companies require complete specs
+
+6)
+	a) Agile is a category of incremental software dev, meant for small in-house software dev, sharing a set of common principals
+
+	   Principals: Customer involvement, incremental dev, people not process, embrace change, maintain simplicity Bad for large sys
+		i) adv: Advantages of incremental design, code looks nice (well commented code)
+		   con: Customers might not want to be involved
+		   		Team may not work well together
+		   		Prioritizing change can be hard (especially with stakeholders)
+		   		Maintaining simplicity requires extra work
+		   		Organizational culture may have a well defined process in place
+
+	b) Plan driven approach Id's separate states in software process, with the output of each stage being the input for the next (to communicate)
+		i) adv: Similar to waterfall pros: documentation, visibility etc
+		   con: Making changes difficult
+
+7)
+	a) Extreme approach to agile, in which several new versions of a system may be developed by different programmers, integrated, and tested in a single day
+		i) Principles: Incremental planning, requirements on storycards
+					   Small releases
+					   Simple design
+					   Test-first dev
+					   Refactoring
+					   Pair programming
+					   Collective ownership
+					   Continuous integration
+					   Sustainable pace
+					   On-site customer
+	    ii) Features: Test-first dev
+	    			  Incremental test dev from scenarios
+	    			  User involvement in test dev and validation
+	    			  Use of automated testing frameworks
+
+    b) Agile method that focuses on the management of agile process (managing iterative dev)
+    	i) Characteristics: Sprints - 2-4 weeks long, correspond to release of sys in XP
+    						Starting point of planning is product backlog, list of work done(priorists/risks assigned)
+    						Selection phase: team works with customer to select features/functionalities
+    						Team organizes to dev software, short daily meetings to review progress
+    						Work is reviewed and presented to stakeholders. Next sprint begins
+
+		ii) Scrum master: (overseer) Arranges daily meetings, tracks backlog of work to be done, records decisions, measure progress against backlog, communicates with customers/management outside of team
+
+		iii) Product broken down into manageable/understandable chunks
+			 Unstable requirements do not hold up progress
+			 Whole team has visibility of everything and consequently team communication improved
+			 Customer sees on-time delivery of increments and gain feedback on how product works
+			 Trust between customers and dev is established
+
+		iv) Outline planning/arch design
+			Sprint - Assess, select, develop, review (and repeat)
+			Project closure
+
+8)
+	a) Functional: Defining system behavior (services it should provide, reaction to inputs)
+	   Non-functional: Constraints on services/functions, constraints on dev process, constraints on everything (speed, robustness,portibility)
+
+	    i) They affect the whole arch 
+	   	  They generate functional requirements
+
+	   	ii) Product, organizational, external(regulations)
+
+	   	iii) Speed, size, ease of use, reliability, robustness, portability
+
+9)
+	a) Must design an init arch to help you write a requirements spec, such as if you are reusing software. 
+	
+	If you are interoperating with existing systems, it may impose system requirements
+	
+	There are situations where you need to use a specific architecture to satisfy non-functional requirements
+
+	b) Natural Language: Using numbered sentences in natural language (speaking lang), 1 sentence/requirement
+	
+	Structured natural lang: Written in natural lang on a standard form/template
+	
+	Design descirption lang: Uses a language like a programming language, but more abstract to specify requirements by defining operational models of sys
+	
+	Graphical notations: Graphical models, supplemented with text annotations, used to define functional  req
+	
+	Mathematic specs: Based on mathematical concepts such as finite-state machines or sets
+
+10)
+	a) Feasibility study: can user needs be satisfied with current hardware/software tech
+
+	   Requirements elicitation and analysis: work with customers and sys end users to find out about requirements, and performance of sys
+
+	   Specification: translating it into doc (natural lang)
+
+	   Validation: process of checking req are what customer wants
+
+11)
+	a) Process of dev abstract models of a system, each presenting a different view/perspective of system
+
+	b) Context - Defines boundaries between a sys and its environment
+	   Interaction - Models interaction between system and its users
+	   Structural - Shows organization and arch of sys
+	   Behavioral - Models dynamic behavior of executing system
+
+	   i) Use-case models - Scenario with stick figures describing what they expect form the system
+	      Sequence diagrams - models interactions between actors/object in a sys, and in what order
+       
+       ii) Class diagrams - shows classes and associations between them, in hierarchy; (name, attr, operations)
+
+       iii) Data-driven models - shows sequences of actiosn involving input data and its associated output
+       		Event-driven models - shows how sys responds to external/internal events based on assumption that there are a finite number of states
+
+
+12) 
+	a) Model-driven SE - Models rather than programs are the principal output of the SE process
+	   Programs are automatically generated from the models
+
+    b) Adv: Higher level of abstraction
+       		Platform independent
+       Con: Abstractions may be wrong
+       		Platform independence only arguable for long-lifetime systems
+
+13)
+	a) Architectural design - understanding of how a sys should be organized, designing the overall structure. First stage in software design process. 
+
+		i) Arch in small - How to decompose individual programs into components 
+		   Arch in large - Concerned with arch across multiple systems
+
+	    ii) 3 adv of explicitly designing/documenting software arch
+	    		Stakeholder comm - High level presentation of sys may be used as focus for discussion
+	    		System analysis - Arch design decisions have a large effect on if sys can meet crit requirements (performance, reliability, maintainability)
+	    		Large-scale reuse - Model of sys arch is compact, manageable description of how a sys is organized, how components interoperate
+
+		iii) Type of app
+			 Distribution of sys
+			 Arch styles to use
+			 Ways in which arch should be documented
+
+14)
+	a) A means of reusing knowledge about a system architecture. describe the arch, when it may be used, adv and cons of each
+
+	b) Layered - Every layer only knows about the functionality of the layer beneath it
+			adv: Easy to replace, so long as you maintain interface
+			con: hard to separate layers
+	   Model View Controller - separates presentation and interaction from the sys data. 3 components: model manages data, view manages how its presented, controller manages data flow
+	   		adv: Allows data to change independently from its representation
+	   		con: Additional code complexity when data model and interactions are simple
+	   Repository - Components only interact through a central repository where all data is stored
+	   		adv: Components may be independent, change to component may be propagated to all
+	   		con: Repository is a single point of failure
+	   Client-Server -  Functionality of system is organized into services each service is delivered from a separated server
+	   		adv: Servers can be distribued across a network
+	   		con: Each service is a single point of failure; susceptible to DOS and server failure
+	   Pipe and Filter - Processing of data ni sys organized so each processing component is discrete and carries out one type of data transformation
+	   		adv: Easy to understand, supports transformation reuse. Workflow matches many business processes
+	   		con: Format for data transfer must be agreed upon between communication transformations. Each must parse/unparse output
+
+
+15) 
+	a) Describe structure/organization of particular types of software systems, encapsulating the principle characteristics of classes of systems
+
+	b) Transaction processing applications - Database centered, process user requests for info, update info in database
+	
+	   Information systems - Allows controlled access to a large base of info, ie flight timetables.
+	
+	   Language processing - Translate a natural or artificial lang into another representation of that lang, and for programming langs, may also exec code
+
+16) 
+	a) Understand and define the context and external interactions
+	   Design the system architecture
+	   Identify the principal objects in the system
+	   Develop design models
+	   Specify Interfaces
+
+	   i) Context: create context and interaction models
+	      Arch: Identify the major components that make up the system and their interactions
+	      Obj: Find objects through grammatical analysis, tangible entities, scenario-based analysis
+	      Models: Design models show the objects in a system and their relationships
+
+	      ii) Structural Model - static structure of system using objects classes and relationships
+	          Dynamic - show interactions during run time of the objects
+
+	      iii) Subsystem - logical groupings of objects into coherent subsystems
+	           Sequence - show sequence of object interactions
+	           state machine - how objects respond to events and change states
+
+	      Interfaces: Interfaces between components so that objects and subsystems can be designed
+	                  in parallel
+
+17)
+	a) Description of an OOP problem and the essence of its solution, so that the solution can be
+	   reused in differnet settings
+
+	b) Name that is a meaningful refernce to pattern
+	   Description of the problem area that explains when pattern may be applied
+	   Soultion description of the parts of the design solution (a template)
+	   Statement of consequences of applying pattern
+
+	c) Observer - tell several objects that some other object has changed
+
+	   Facade - tidy up the interfaces to a number of related objects that have been developed incrementally
+
+	   Iterator - Provide a standard way of accessing elements in a collection, irrespective
+	   of how collection is implemented
+
+	   Decorator - Allow for functionality of existing class to be extended at run time
+
+
+18) 
+	a) Abstraction - use knowledge rather than software (like design patterns)
+	   Object - reuse objects from a library
+	   Component - reuse collections of objects
+	   System - reuse entire application system
+
+	b) Cost in time spent looking or the software and assesing if it meets your needs
+	   Costs of buying the software
+	   Costs of adapting/confinguring the software
+	   Costs of integrating
+
+	c) Version management - keep track of different versions
+
+	   System integration - support is provided to help developers define what versions of components are needed, and this is all used to create a system
+
+	   Problem tracking - support allowed for users to report bugs
+
+	d) Maintain info about open source components used
+	   Be aware of the liscences
+	   Be aware of evolution pathways for components
+	   Educate people about open source
+	   Have auditing systems in place
+	   Participate in open source community
+
+19)
+	a) Development - system tested during development to discover bugs and defects
+	   Release testing - separate testing team tests complete version to check for requirements
+	   User testing - potential users test in their own environment
+
+	b) Unit Testing - individual program units or object classes are tested
+
+			1) Test all operations of the object
+			2) Check accessors and setters
+			3) Put into all possible states
+
+	   Component testing - several inidivual units are integrated into components and tested
+
+	   		1) List each call to external component
+	   		2) Test with NULL pointers when passing across interface
+	   		3) Where a component is called through procedural interface, make them fail
+	   		4) Use stress testing in message passing
+	   		5) When shared memory is involved, get them all trying to access it
+
+	   System testing - some or all components are integrated, one at a time (the reusable ones,
+	   and also ones from different teams)
+
+20)
+	a) Approach to program development where you interleave testing and code development
+
+	b) Identify next increment of functionaltiy
+	   Write an automated test for that functinoality
+	   Run the test along with all other tests that have been implmented
+	   Implement the functionality and re-run the test
+	   Go on to implement next chunk of functinality
+
+	c) Code coverage (each segment has a test)
+	   Regression testing ******MOST IMPORTANT
+	   Simplified debugging
+	   System documentation (test describes what it's doing)
+
+21)
+	a) Release testing is the process of testing a particular release that is inteded for use
+	   outisde of development team.
+
+	   User testing is a stage in testing in which users provide input and advice on system testing
+
+	b) Seprate team not involved with dev should do release testing
+	   System testing by dev team looks for bugs and defect, release team looks for validation
+
+	c) Requirements-based - validation testing, a test for each requirement is developed
+	   Scenario testing - describe use situations and use these to develop test cases
+	   Performance testing - test for non-functional requirements like performance and reliability
+
+	d) alpha - still at developers site
+	   beta - public release, users can experiment and raise problems
+	   acceptance - customers test a system to decide if it is ready for deployment
+
+22)
+	a) Change in software after it is released to a market
+	b) Triggered by a change request, the stages are:
+
+	   Impact analysis
+	   Release planning
+	   Change implementation
+	   system release
+
+	c) study of system change
+
+	d) Continuing change
+	   Increasing complexity
+	   Large program evolution - self-regulating process
+	   Organizational stability - rate of development is constant
+	   Conservation of familiartiy - don't make changes too abrupt
+	   Continuting growth
+	   Declining quality
+	   Feedback system
+
+23)
+	a) Fault repairs - requirements errors are most expensive
+	   Environmental adaptation - hardware, or platform may change
+	   Functinality addition
+
+	b) Maintainence prediction
+	   Software reengineering
+	   Refactoring
+
+	c) Source code translation
+	   Reverse engineering - code back to specs
+	   Program structure improvement
+	   Program modularization
+	   data reegineering - refine database schemas
+
+24)
+	a) older system that is still used by the busniess but relies on old outdated components
+
+	b) Scrap
+	   Leave unchanged and continue regular maintanence
+	   Reengineer to improve maintainability
+	   Replace all or part with a new system
+
+	c) Use of the system
+	   The busniess processes that are supported
+	   System dependability
+	   System outputs
+
+	d) Number of system change requests
+	   Number of user interfaces
+	   Volume of data used by the system
+
+25)
+	a) How trustworthy is a system
+	b) Availability
+	   Reliability
+	   Safety
+	   Security
+
+	c) Repairability
+	   Maintainability
+	   Survivability - how well can it survive under attack or with some functionality missing
+	   Error tolerance - how are input errors avoided/handled
+
+26)
+	a) Reliability - probably of an error ocurring in operational use. May contain known faults
+	   but may still be considered reliable because users never use those parts
+
+	b) Availability - probability that system will deliver services when requested.
+
+	c) Safety - system attribute that reflects system's ability to operate without damage
+
+	d) Security - ability of a system to protect against external attacks
+
+27)
+	a) an approach that involves understanding the risks faced by the system, disvoering their
+	   root causes, and generating requirements to manage these risks
+
+	b) Risk identification
+	   Risk analysis and classfication - really bad, less bad, etc.
+	   Risk decomposition - discover its root causes
+	   Risk reduction - propose for ways in which risk can be reduced
+
+	c) Preliminary - major risk from system's environment are identified
+	   Life-cycle - takes place during system development
+	   Operational risk analysis - concerned with the system user interface and risks from operators
+
+28)
+	a) Functional
+	   Non-functional
+
+	b) Risk identification - identify types of system failures
+	   Risk analysis - estimate costs and consequences of diferent types of software failure
+	   Risk decomposition - find root cause of probable system failures
+	   Risk reduction - set out acceptable probabilities and reduce risk
+
+	c) POFOD - Probability that demand for service will result in failure
+	   ROCOF - failure per time period, 1/this is MTTF
+	   AVAIL - ability to deliver when requested
+
+	d) Checking - chekcs on inputs
+	   Recovery - recover after failure
+	   Redundancy - redundant features
+
+29)
+	a) Risk ID - identifty HAZARDS that may threaten the system
+	   Risk analysis - hazard assessment, which hazards are worst and most likely
+	   Risk decomposition - discover events that can lead to the occurence of a hazard
+	   Risk reduction - ensure that a hazard does not lead to an accident and damange minimized
+
+	b) Hazard avoidance - system is designed so that the hazard cannot occur
+	   Hazard detection and removal - design system so that hazard can be neutralized
+	   Damage limitation - design system so that the consequences of an accident are minimized
+
+	c) Saftey env is not hostile
+	   System failure is a type of attack
+	   Attackers conceal problems
+	   Attacks are smart
+	   Security is less studied
+
+	d) Preliminary risk analysis - derive requirements for system as a whole
+	   Life-cycle risk analysis - during development, take into account technology used
+	   Operational risk analysis - risks posed by malicious attacks and by users
+
+30)
+	a) system specification that is expressed as a mathematical model.
+	b) Deep understanding of requirements
+	   Automatic analysis
+	   B method - translate directly into program
+	   Testing costs reduced because program verified against specification
+
+	c) Domain experts don't understand a formal spec
+	   difficult to esmitate cost savings
+	   SW einginers have not been trrained to use it
+	   difficult to scale
+	   formal specs don't work well with agile
