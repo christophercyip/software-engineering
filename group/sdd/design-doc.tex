@@ -1,0 +1,457 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+%\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1 in, bottom = 1 in ,left = 1.5 in, right = 1.5in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{12pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+
+\newcommand{\conman}{\texttt{ConMan }}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=Octave,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\begin{document}
+\input{./sddtitle.tex}
+\normalsize
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Introduction}
+This software design document provides a description of the \texttt{ConMan} application. 
+
+\newpage
+\section{Architectural Design}
+\subsection{Overview}
+\texttt{ConMan} is divided into two major components: the client-side user interface, and a server-side application and database.
+The client-side communicates with the server using HTTP requests sent through an internet browser.  
+\texttt{ConMan} utilizes the Client-Server architecture and allows multiple clients to concurrently access the server.  
+
+\subsection{Client-Server Interaction}
+Data and user interactions are passed between the database, server, and clients through a MVC architecture.
+
+The \texttt{ConMan} database will maintain the data for the \texttt{ConMan} application.  
+The database will have no direct interaction with the clients and is only accessible through an interface with the server.
+Requests made to the database will occur in a First-Come, First-Served manner in order to preserve data consistency.
+
+The \texttt{ConMan} server parses HTTP requests made by the clients and will interface with the database as needed.  
+The server itself will be stateless and will not maintain user or application data after a request is handled.
+Data passed between the client and server will be in the JSON format.
+
+\subsection{Basic Context}
+The "basic context" of \texttt{ConMan} is where a user can only take actions that affect their personal account.
+Every \texttt{ConMan} user has a basic account, and consists of the tasks and checklists that are not a part of external teams or groups.
+When a user opens the \texttt{ConMan} application by pointing their browser to the \texttt{ConMan} URL, the initial user context is the basic context.
+The basic context is also the starting context when an account is created.
+
+
+\subsubsection{Interface Description}
+Fields entirely enclosed in [] brackets are to be considered optional.
+\begin{lstlisting}
+CreateAccount(  LastName:String,
+                FirstName:String,
+                E-mail:String,
+                Password:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+ModifyAccount(  UserId:Int,
+                [LastName:String],
+                [FirstName:String],
+                [E-mail:String],
+                [NewPassword:String],
+                OldPassword:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+CreateTask( UserId:Int,
+            TeamId:Int,
+            DueDate:date,
+            Description:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+ModifyTask( UserId:Int,
+            TaskId:Int,
+            TeamId:Int,
+            [DueDate:date],
+            [Description:String],
+            [Completed:Boolean],
+            [Note:String]);
+\end{lstlisting}
+
+\begin{lstlisting}
+CreateChecklist(    UserId:Int,
+                    TeamId:Int,
+                    TaskId:Int,
+                    DueDate:date,
+                    Fields:[{CheckListId:Int, FieldId:Int DueDate:date, Description:String}],
+                    Description:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+ModifyChecklist( UserId:Int,
+                 CheckListId:Int,
+                 TaskId:Int,
+                 [DueDate:date],
+                 [Description:String],
+                 [Fields:[{CheckListId:Int, FieldId:Int DueDate:date, Description:String}]],
+                 [CompletedField:Boolean[]],
+                 [Completed:Boolean],
+                 [Note:String]);
+\end{lstlisting}
+
+\subsubsection{Processing Details}
+The \texttt{CreateAccount} interface is used when the user first creates an account with the \texttt{ConMan} system.
+The server will validate the input fields given by the user.
+If all fields are valid, the server will update the database records and add a new user.
+A team is automatically generated with a team-Id equivalent to the user-Id.
+If the server successfully validates the user fields and successfully updates the database, the user-Id generated by the database will be returned.
+Otherwise, an error code will be returned.
+
+\texttt{ModifyAccount} functions similarly to \texttt{CreateAccount}, except fields that \texttt{NULL} can be given for fields that are not being updated and are not required to identify the action.
+
+\texttt{CreateTask} adds a new task for the user. 
+In the basic context, the \texttt{TeamId} will be the \texttt{UserId}. 
+After verification by the server and a successful database update, the task-Id will be returned.
+Otherwise, an error code will be returned.
+
+\texttt{ModifyTask}, like \texttt{ModifyAccount} allows texttt{NULL} values to be given for fields that are not being updated.
+A success or error code will be returned.
+
+\texttt{CreateChecklist} will add a checklist to a task owned by a user.
+In the basic context, the \texttt{TeamId} will be the \texttt{UserId}.
+
+\texttt{ModifyChecklist} This interface function is invoked to modify an existing checklist.
+ 
+\subsubsection{Restrictions/Limitations}
+For every interface action, the server must validate the given fields against the database to ensure the user making the request has the appropriate permissions.
+\subsubsection{Performance Issues}
+Requests made by the clients to the server are subject to time-out restrictions.  
+If the server takes too long to process an interface request and the client-server connection is ended, the client will assume the transaction failed.
+Under such a failure condition, the client will send a "revoke" notice to the server indicating that any database changes made on behalf of the timed-out request must be rolled-back.
+\subsubsection{Design Constraints}
+In order to maintain data consistency, either only one database should be used, or a very robust data-duplicating effort must be made to ensure consistency across multiple databases.  
+Version one of \texttt{ConMan} will only support a single database back-end.
+
+\subsection{Team Context}
+The team context is conceptually very similar to the basic context, except administrator privileges are required to modify the team account.
+Administrator privileges are automatically given to the creator of a team.
+Tasks associated with the team can be modified by all team administrators and all users belonging to the team who have been assigned to the task.
+
+\subsubsection{Interface Description}
+Fields entirely enclosed in [] brackets are to be considered optional.
+\begin{lstlisting}
+CreateTeam(     TeamName:String,
+                E-mail:String,
+                Password:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+ModifyTeam(     TeamId:Int,
+                [TeamName:String],
+                [E-mail:String],
+                [NewPassword:String],
+                OldPassword:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+CreateTeamTask( UserId:Int,
+                TeamId:Int,
+                AssignedUsers:Int[],
+                DueDate:date,
+                Description:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+ModifyTeamTask( UserId:Int,
+            TaskId:Int,
+            TeamId:Int,
+            [AssignedUsers:Int[]],
+            [DueDate:date],
+            [Description:String],
+            [Completed:Boolean],
+            [Note:String]);
+\end{lstlisting}
+
+\begin{lstlisting}
+CreateTeamChecklist(    UserId:Int,
+                        TeamId:Int,
+                        TaskId:Int,
+                        AssignedUsers:Int[],
+                        DueDate:date,
+                        Fields:[{CheckListId:Int, FieldId:Int DueDate:date, Description:String}],
+                        Description:String);
+\end{lstlisting}
+
+\begin{lstlisting}
+ModifyTeamChecklist( UserId:Int,
+                 CheckListId:Int,
+                 TeamId:Int,
+                 TaskId:Int,
+                 [AssignedUsers:Int[]],
+                 [DueDate:date],
+                 [Description:String],
+                 [Fields:[{CheckListId:Int, FieldId:Int DueDate:date, Description:String}]],
+                 [CompletedField:Boolean[]],
+                 [Completed:Boolean],
+                 [Note:String]);
+\end{lstlisting}
+
+\subsubsection{Processing Details}
+The processing details for the team context differ from the basic context only in the fact that an additional check must be performed to ensure the user making the request has the correct team permissions to do so.
+\subsubsection{Restrictions/Limitations}
+There are no additional restrictions or limitations.
+\subsubsection{Performance Issues}
+There are no additional performance constraints.
+\subsubsection{Design Constraints}
+
+%
+%\subsection{Group Administrator}
+%
+%\subsubsection{Interface Description}
+%\subsubsection{Processing Details}
+%\subsubsection{Restrictions/Limitations}
+%\subsubsection{Performance Issues}
+%\subsubsection{Design Constraints}
+%
+%
+
+
+\newpage
+\section{Data Design}
+Server-side databases provide persistent data storage for the \texttt{ConMan} application.
+When a user connects to the \texttt{ConMan} application through a web-browser, the data associated with that user is retrieved by the server from the database and sent as a JSON encoded string back to the user for client side processing.
+To preserve consistency, client side processing will only include data representation (visual effects).
+Any create, update, or destroy operations on the data must be validated by a server request (interfaces defined below).
+
+All data held outside of the database - client and server-side -  will be not be preserved by the \texttt{ConMan} application when the user navigates away from the \texttt{ConMan} page.
+
+\subsection{Database Design}
+The following database table descriptions describe the data interactions and dependencies.
+
+\begin{tabular}{|l|} \hline
+    \textbf{User Table} \\ \hline
+    UserId:Int (unique)\\
+    LastName:String\\
+    FirstName:String\\
+    Email:String\\
+    Password:String\\ \hline
+\end{tabular}
+\hfill
+\begin{tabular}{|l|} \hline
+    \textbf{Team Table} \\ \hline
+    TeamId:Int (unique)\\
+    TeamName:String \\
+    TeamEmail:String\\ \hline
+\end{tabular}
+
+\begin{tabular}{|l|} \hline
+    \textbf{Team Member Table} \\ \hline
+    TeamId:Int\\
+    UserId:Int\\
+    Admin:boolean\\ \hline
+\end{tabular}
+\hfill
+\begin{tabular}{|l|} \hline
+    \textbf{Task Table} \\ \hline
+    TaskId:Int\\
+    TeamId:Int\\
+    DueDate:date\\
+    Description:String\\ \hline
+\end{tabular}
+
+\begin{tabular}{|l|} \hline
+    \textbf{CheckList Table} \\ \hline
+    ChecklistId:Int\\
+    TaskId:Int\\
+    DueDate:date\\
+    Description:String\\ \hline
+\end{tabular}
+\hfill
+\begin{tabular}{|l|} \hline
+    \textbf{CheckList Fields} \\ \hline
+    ChecklistId:Int\\
+    FieldId:Int\\
+    DueDate:date\\
+    Description:String\\
+    Completed:boolean\\ \hline
+\end{tabular}
+
+\begin{tabular}{|l|} \hline
+    \textbf{CheckList Notes} \\ \hline
+    ChecklistId:Int\\
+    FieldId:Int\\
+    Date:date\\
+    UserId:Int\\
+    Note:String\\ \hline
+\end{tabular}
+\hfill
+\begin{tabular}{|l|} \hline
+    \textbf{Task Notes} \\ \hline
+    TaskId:Int\\
+    UserId:Int\\
+    Date:date\\
+    Note:String\\ \hline
+\end{tabular}
+
+\begin{tabular}{|l|} \hline
+    \textbf{User Tasks} \\ \hline
+    UserId:Int\\
+    TaskId:Int\\ \hline
+\end{tabular}
+\hfill
+\begin{tabular}{|l|} \hline
+    \textbf{User CheckLists} \\ \hline
+    UserId:Int\\
+    ChecklistId:Int\\ \hline
+\end{tabular}
+
+\newpage
+\section{User Interface}
+\newpage
+\section{Restrictions, Limitations, and Constraints}
+As detailed in the SRS, the user interface will only be supported for the Chrome and FireFox desktop web-browsers.
+Future versions of \texttt{ConMan} could add support more browsers and devices.
+
+An internet connection is also required to use \texttt{ConMan}, and there are no plans to implement off-line support.
+Because \texttt{ConMan} is intended to assist coordination between teams (particularly software development teams), a network connection is essential.
+\newpage
+\section{Testing Guidelines}
+Testing will be integrated throughout the development of \texttt{ConMan}.  Components will be tested individually before being integrated into the system for system testing.
+A database of test cases, test results, and action required will be maintained by the developers to ensure \texttt{ConMan} satisfies all of its major requirements.
+
+\subsection{Testing Cases and Expected Results}
+\subsubsection{Account Creation}
+\textbf{Motivation:}  A user, Mr. Fat-Fingers, decides that \texttt{ConMan} sounds really cool and decides to give it a try.  Unfortunately, Mr. Fat-Fingers has difficulty typing.  After finally navigating to the account creation page, Mr. Fat-Fingers tries to create an account.  
+
+Potential cases:
+\begin{enumerate}
+    \item E-mail field is incorrectly entered.\\
+        \begin{itemize}
+            \item Input: An invalid e-mail (a description of a valid e-mail will be determined later).
+            \item Output: An error message will be displayed to the user prompting them to enter a valid e-mail address.
+        \end{itemize}
+    \item Account creation fields are left blank.\\
+        \begin{itemize}
+            \item Input: Any of the fields for first name, last name, e-mail, or password are left blank.
+            \item Output: An error message appears prompting the user to populate all of the fields.
+        \end{itemize}
+    \item An e-mail already in use has been entered.\\
+        \begin{itemize}
+            \item Input: An e-mail already in the \texttt{ConMan} database.
+            \item Output: An error message prompting the user to either enter a different e-mail or log onto existing account.
+        \end{itemize}
+    \item All fields are correctly entered.\\
+        \begin{itemize}
+            \item Input: A unique and correctly formatted e-mail address, and all other fields are populated.
+            \item Output: A user account is created and user re-directed to the \texttt{ConMan} home page.
+        \end{itemize}
+\end{enumerate}
+
+\subsection{Account Login}
+\textbf{Motivation} A returning user, Ms. Forgetful, is trying to log in to her \texttt{ConMan} account.
+
+Potential cases:
+\begin{enumerate}
+    \item E-mail field is incorrectly entered.\\
+        \begin{itemize}
+            \item Input: An improperly formatted e-mail.
+            \item Output: An error message prompts Ms. Forgetful to check the formatting of her e-mail address.
+        \end{itemize}
+    \item E-mail is not contained in the \texttt{ConMan} database.
+        \begin{itemize}
+            \item Input: A correctly formatted e-mail that is not associated with a user account.
+            \item Output: An error message that prompts the user that her information could not be validated.
+        \end{itemize}
+    \item The password and e-mail combination do not match.
+        \begin{itemize}
+            \item Input: A correctly formatted e-mail that is not associated with the given password.
+            \item Output: An error message that prompts the user that her information could not be validated.
+        \end{itemize}
+    \item The password or e-mail fields are left blank.
+        \begin{itemize}
+            \item Input: Either password or e-mail fields are left blank.
+            \item Output: An error message that prompts the user to fill all fields.
+        \end{itemize}
+    \item The password and e-mail combination are valid.
+        \begin{itemize}
+            \item Input: A correctly formatted e-mail that miraculously matches the associated password entered by Ms. Forgetful.
+            \item Output: A user account is created and user re-directed to the \texttt{ConMan} home page.
+        \end{itemize}
+\end{enumerate}
+
+\newpage
+\section{Appendices}
+
+Client Server
+MVC
+HTTP
+URL
+JSON
+\end{document}
