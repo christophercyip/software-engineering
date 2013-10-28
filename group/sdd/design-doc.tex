@@ -60,7 +60,7 @@ keepspaces=true,                 % keeps spaces in text, useful for keeping inde
 keywordstyle=\color{blue},       % keyword style
 language=Octave,                 % the language of the code
 morekeywords={*,...},            % if you want to add more keywords to the set
-numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
 numbersep=5pt,                   % how far the line-numbers are from the code
 numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
 rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
@@ -83,7 +83,10 @@ title=\lstname                   % show the filename of files included with \lst
 
 \newpage
 \section{Introduction}
-This software design document provides a description of the \texttt{ConMan} application. 
+This software design document provides a description of the \texttt{ConMan} application.  In addition to describing the basic user interface design, the client-server interface and database description are also provided here.
+
+The purpose of \texttt{ConMan} is to provide a simple, web-based task-management application that can be used by both individuals and teams.
+The user interface should be easy to learn without hiding any of the core features of \texttt{ConMan}.
 
 \newpage
 \section{Architectural Design}
@@ -375,19 +378,38 @@ The following database table descriptions describe the data interactions and dep
 
 \newpage
 \section{User Interface}
+The user interface of \texttt{ConMan} is dominated by the use of the "main screen" (shown below).  
+The main screen consists of four distinct parts, the top bar, the bottom bar, the left pane, and the content area.
+A general overview of some of the user interface designs follows.
 
+\subsection{Main Screen}
 \begin{center}
-\includegraphics[trim = 0cm 5cm 0cm 0cm, clip=true, scale=0.7]{images/mainscreen}
+\includegraphics[trim = 0cm 14cm 0cm 0cm, clip=true, scale=0.7]{images/mainscreen}
 \end{center}
+As can be seen here, the top and bottom bars are populated with navigational tools.
+The left pane allows the user to select which context they would like to operate in (personal or team context) and displays options relating to the selected context.
+The content area then has three primary views
+\subsection{Content Area}
+\subsubsection{Calendar View}
 \begin{center}
-\includegraphics[trim = 0cm 5cm 0cm 0cm, clip=true, scale=0.7]{images/calendarview}
+\includegraphics[trim = 0cm 14cm 0cm 0cm, clip=true, scale=0.7]{images/calendarview}
 \end{center}
+The calendar view gives the user an opportunity to see when the tasks and checklists he is assigned are due.
+If the user has selected the personal context in the left pane, then only the personal context tasks will be displayed.
+The tasks and checklists appearing in the calendar will be hyper-links that navigate the content area to the task or checklist view respectively.
+\subsubsection{Task View}
 \begin{center}
-\includegraphics[trim = 0cm 5cm 0cm 0cm, clip=true, scale=0.7]{images/taskview}
+\includegraphics[trim = 0cm 12cm 0cm 0cm, clip=true, scale=0.7]{images/taskview}
 \end{center}
+The task view will show the task name, description, checklists, notes, and available actions for the selected task.
+For tasks which are assigned to teams, non-administrative users will not be able to perform every action (namely deleting a task).
+Non-administrative users will still be able to see the administrative actions, but the action link will be obscured (usually grayed out).
+\subsubsection{Checklist View}
 \begin{center}
-\includegraphics[trim = 0cm 5cm 0cm 0cm, clip=true, scale=0.7]{images/checklistview}
+\includegraphics[trim = 0cm 12cm 0cm 0cm, clip=true, scale=0.7]{images/checklistview}
 \end{center}
+A checklist is conceptually very similar to a task and displays similar items.
+Again, not every action will be available to non-administrative users.
 \newpage
 \section{Restrictions, Limitations, and Constraints}
 As detailed in the SRS, the user interface will only be supported for the Chrome and FireFox desktop web-browsers.
