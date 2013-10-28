@@ -85,9 +85,51 @@ title=\lstname                   % show the filename of files included with \lst
 \section{Introduction}
 This software design document provides a description of the \texttt{ConMan} application.  In addition to describing the basic user interface design, the client-server interface and database description are also provided here.
 
-The purpose of \texttt{ConMan} is to provide a simple, web-based task-management application that can be used by both individuals and teams.
-The user interface should be easy to learn without hiding any of the core features of \texttt{ConMan}.
+\subsection{Goal and Purpose}
+The purpose of \texttt{ConMan} is to provide a simple, web-based task-management application that can be used by both individuals and teams. The user interface should be easy to learn without hiding any of the core features of \texttt{ConMan}. The applications and its data should be protected with controls such as permission checking to ensure that data is not leaked and/or corrupted. 
 
+\subsection{Core Features}
+The core features of \texttt{ConMan} include:
+\begin{itemize}
+\item Ability to register as a user
+\item Ability to define teams of users
+\item Ability to create, view, update, and delete project tasks
+\item Ability to create, view, update, and delete checklists associated with tasks
+\item Ability to register for notifications (via the application and via email) of upcoming deadlines
+\item Ability to view deadlines through a calendar interface
+\end{itemize}
+
+\subsection{Major Constraints}
+The constraint of the largest magnitude is time. Due to time constraints, all development and testing must be completed within a 2 month period. A smaller constraint involves the team’s web development experience. A portion of the team has little web development experience and even lower experience with the technologies that will be used (ASP.NET, jQuery, etc.).
+
+\subsection{Intended Audience and Reading Overview}
+This document is intended for individuals involved in the design and implementation of the \texttt{ConMan} web application. Stakeholders and customers may also want to read this document with the goal of ensuring that the product is being developed to their requirements. Readers of this document may read through this document in a sequential manner or they may read individual sections in any order. Below is a list of each section along with a short description:
+\begin{itemize}
+\item Architectural Design (Section 2)
+\begin{itemize}
+\item The two major components of \texttt{ConMan}`s Client-Server architecture are discussed.
+\end{itemize}
+\item Data Design (Section 3)
+\begin{itemize}
+\item The database tables are defined and the transaction of data is described.
+\end{itemize}
+\item User Interface Design (Section 4)
+\begin{itemize}
+\item The general layout for the main page of the web application is depicted through the use of multiple wireframes.
+\end{itemize}
+\item Restrictions, Limitations, and Constraints (Section 5)
+\begin{itemize}
+\item This section specifies the browsers to be supported by the initial release of ConMan and the application’s reliance on internet connections.
+\end{itemize}
+\item Testing Guidelines (Section 6)
+\begin{itemize}
+\item A variety of test cases are presented along with their expected results. 
+\end{itemize}
+\item Appendices (Section 7)
+\begin{itemize}
+\item This section will contain a list of definitions of terms used throughout the document.
+\end{itemize}
+\end{itemize}
 \newpage
 \section{Architectural Design}
 \subsection{Overview}
@@ -575,6 +617,14 @@ Potential cases:
 
 \newpage
 \section{Appendices}
+\subsection{Definitions}
+\begin{itemize}
+\item Client-Server: A system architecture where a central server provides data to one or many networked computers (these are the clients).
+\item MVC: A design pattern commonly used for building interactive applications. The Model, View, and Controller components form the structure of the MVC pattern. The Model is a representation of  the underlying application data, the  View is a collection of objects representing the user interface elements (buttons, list, etc.), and the Controller is a connection between the Model and the View.
+\item HTTP: Hypertext Transfer Protocol (HTTP) is a standard for communication between servers and web browsers.
+\item URL: Uniform Resource Locator (URL) is a string of characters denoting the location of an entity (e.g., a website or an image) within the Internet.
+\item JSON: JavaScript Object Notation (JSON) is a text-based standard for data interchange in a human-readable format.
+\end{itemize}
 
 Client Server
 MVC
