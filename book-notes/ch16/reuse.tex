@@ -1,0 +1,195 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+%\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1 in, bottom = 1 in ,left = 1 in, right = 1in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{0pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+
+\newcommand{\natnums}{{\mathbb N}}
+\newcommand{\algnums}{{\mathbb A}}
+\newcommand{\rationals}{{\mathbb Q}}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\unorm}[1]{{\left|\left|#1\right|\right|_u}}
+\newcommand{\scriptR}{\mathcal{R}}
+\newcommand{\scriptP}{\mathcal{P}}
+\newcommand{\taggedP}{\dot{\mathcal{P}}}
+\newcommand{\scriptQ}{\mathcal{Q}}
+\newcommand{\taggedQ}{\dot{\mathcal{Q}}}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=Octave,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\begin{document}
+ 
+\setcounter{section}{15}
+\section{Software reuse}
+Reuse is promoted to see a greater return on software investment.
+There may be:
+Application system reuse, component reuse, object and function reuse.
+Benefits include:
+\begin{enumerate}
+\item Increased dependability
+\item Reduced process risk
+\item Effective use of specialists
+\item Standards compliance
+\item Accelerated development
+\end{enumerate}
+Problems include:
+\begin{enumerate}
+\item Increased maintenance costs
+\item Lack of total support
+\item Not-invented-here syndrome
+\item Creating, maintaining and using a component library
+\item Finding, understanding and adapting reusable components.
+\end{enumerate}
+\subsection{The reuse landscape}
+Key factors when considering planning reuse are:
+\begin{enumerate}
+\item The development schedule for the software
+\item The expected software lifetime
+\item The background, skill, and experience of the development team
+\item The criticality of the software and its non-functional requirements
+\item The application domain
+\item The platform on which the system will run.
+\end{enumerate}
+Approaches that support software re-use:
+\begin{center}
+\begin{tabular}{l l}
+Architectural patters & Design patterns\\
+Component-based development & Application frameworks\\
+Legacy-system wrapping & Service-oriented systems\\
+Software product lines & COTS product reuse\\
+ERP systems & Configurable vertical applications\\
+Program libraries & Model-driven engineering\\
+Program generators & Aspect-oriented software development
+\end{tabular}
+\end{center}
+\subsection{Application frameworks}
+Application frameworks are implemented as a collection of concrete and abstract obect classes in an object-oriented programming language.
+Three classes of frameworks are:
+\begin{enumerate}
+\item System infrastructure frameworks
+\item Middleware integration frameworks
+\item Enterprise application frameworks
+\end{enumerate}
+Web application frameworks (WAFs) are also becomming very popular to create web pages.
+\textbf{Frameworks are often implementations of design patterns}
+
+\subsection{Software product lines}
+Various types of specialization of a sotware product line may be developed:
+\begin{enumerate}
+\item Platform specialization
+\item Environment specialization
+\item Functional specialization
+\item Process specialization
+\end{enumerate}
+Steps involved in extending a software product line are:
+\begin{enumerate}
+\item Elicit stakeholder requirements
+\item Select the existing system that is the closest fit to the requirements
+\item Renegotiate requirements
+\item Adapt existing system
+\item Deliver new family member
+\end{enumerate}
+\subsection{COTS product reuse}
+A commercial-off-the-shelf product is a software system that can be adapted to the needs of different customers without changing the source code of the system.
+There are two broad types of COTS product reuse: COTS-solution systems and COTS-integrated systems.
+Solution systems consist of a generic application from a single vendor that is configured to customer requirements.
+Integrated systems involve itegrating two or more COTS systems to create an application system.
+\subsubsection{COTS-solution systems}
+Solution systems are generic application systems that may be designed to support a particular business type.  On a larger scale, an Enterprise Resource Planning (ERP) system may support all of the manufacturing, ordering, and customer relationship management activities.  Key features of the ERP are:
+\begin{enumerate}
+\item A numver of modules to support different business functions.
+\item Defined set of business processes associated with each module
+\item A common dtabase that maintains information about all related business functions
+\item Set of business rules that apply to all data in the database
+\end{enumerate}
+
+Extensive configuration may be involved.  Configuration activities include:
+\begin{enumerate}
+\item Selecting the required functionality from the system
+\item Establishing a data model that defines how the organization's data will be structured in the system databse.
+\item Defining business rules that paply to that data.
+\item Defining the expected interactions with external systems.
+\item Designing the input forms and the output reports generated by the system.
+\item Desining new business processes that conform to the underlying process model supported by the system.
+\end{enumerate}
+
+\subsubsection{COTS-integrated systems}
+Integrated systems are applications that include two or more COTS products or, sometimes, legacy applications sytems.  
+Four problems with COTS integration:
+\begin{enumerate}
+\item Lack of control over functionality and performance.
+\item Problems woth COTS system interoperability
+\item No control over system evolution
+\item Support form COTS vendors
+\end{enumerate}
+\end{document}
