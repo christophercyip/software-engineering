@@ -138,7 +138,7 @@ When a member switches to the individual context, each member becomes his/her ow
 
 
 \subsection{Product Functions}
-\texttt{ConMan's} functions can be divided into two categories, application functions and user functions.  Application functions are the functions that describe the basic workings of \texttt{ConMan}.  
+\texttt{ConMan's} functions can be divided into two categories: application functions and user functions.  Application functions are functions that describe the basic functionality of \texttt{ConMan}.  
 They include:
 \begin{enumerate}
     \item Creating a user profile.
@@ -148,27 +148,30 @@ They include:
     \item Receiving notifications and updates.
 \end{enumerate}
 
-User functions are further divided into manager and member categories.
-Manager functions are only available to users designated as project managers when their team account was created.
+User functions are further divided into manager and member functions.
+Manager functions are only available to users designated as project managers. Users are designated as project managers during 
+the creation of their team. 
+Manager functions include:
 \begin{enumerate}
-    \item Create and delete teams.
-    \item Add and modify tasks for a team.
-    \item Create, modify, and delete checklists for the team.
-    \item Create group notifications.
-    \item Perform member verification functions.
+    \item Creating and deleting teams.
+    \item Adding and modifying tasks for a team.
+    \item Creating, modifying, and deleting checklists for the team.
+    \item Creating group notifications.
+    \item Performing member verification functions.
 \end{enumerate}
-Finally the member functions apply to every user of \texttt{ConMan}.  These functions are:
+Finally, the member functions apply to every user of \texttt{ConMan}.  These functions include:
 \begin{enumerate}
-    \item Write task progress notes.
-    \item Write checklist progress notes.
-    \item Switch between team and individual views.
-    \item Mark checklist items as complete (if the checklist is assigned to the member).
+    \item Writing task progress notes.
+    \item Writing checklist progress notes.
+    \item Switching between team and individual views.
+    \item Marking checklist items as complete (if the checklist is assigned to the member).
 \end{enumerate}
 
 \subsection{Operating Environment}
 %<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
 \texttt{ConMan} deploys on an ASP.NET server using a SQL Server Express database.
-The target browsers in which \texttt{ConMan} will run are Firefox and Chrome.
+The target browsers in which \texttt{ConMan} will run are Firefox and Chrome. The application's 
+client-side code (JavaScript, jQuery, etc.) will run within these browsers.
 
 
 %\subsection{Design and Implementation Constraints}
