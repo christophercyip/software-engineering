@@ -144,9 +144,9 @@ When a member switches to individual mode, each member is his/her own manager.
 \texttt{ConMan's} functions divide into two categories, application functions and user functions.  Application functions are the functions that describe the basic workings of \texttt{ConMan}.  Application functions include:
 \begin{enumerate}
     \item Creating a user profile.
-    \item Switching to Calendar View.
-    \item Switching to Task View.
-    \item Switching to Checklist View.
+    \item Switching to calendar view.
+    \item Switching to task view.
+    \item Switching to checklist view.
     \item Receiving notifications and updates.
 \end{enumerate}
 
@@ -197,7 +197,6 @@ User Interface characteristics for the \texttt{ConMan} web application are as fo
 \begin{itemize}
     \item The application will use standard HTML, CSS, JavaScript, and possibly ASP.NET controls to structure and create the user interface.
     \item The web application will provide a consistent layout through the use of consistent coloring, formatting, etc.
-    \item The web application will display the company logo (towards the top-left of the screen) of the logged in user's employer
     \item The web application will provide the user with a "Help" button so that the user can quickly and easily learn how to use each component of the application.
     \item The web user interface will handle errors in different ways:
 	\begin{itemize}
@@ -212,18 +211,23 @@ User Interface characteristics for the \texttt{ConMan} web application are as fo
 	\begin{itemize}
 		\item Calendar View
 		\begin{itemize}
-			\item The Calendar View shows the current month's calendar and for each day, it will display the name of each task that has a checklist due on that day. 
-					By clicking on the name of a task, the web application will redirect the user to the Checklist View (discussed below in section 3.1.3).
+			\item The calendar view shows the current month's calendar and for each day, it will display the name of each task that has a checklist due on that day. 
+					By clicking on the name of a task, the web application will redirect the user to the task view (discussed below under the "Task View" bullet).
 		\end{itemize}
 		
-		\item Calendar/Checklist View
+		\item Task View
 		\begin{itemize}
-			\item The Calendar/Checklist View will show the calendar of all deadlines and will present all of the checklists associated with the day selected by the user via the calendar.
+			\item The task view will show all information about the selected task. The task name, description, checklist(s), and notes will be available to the
+					user. The user will also be able to edit (add a checklist or modify other task information) and delete a task. In addition, this view will enable the
+					user to sign up for notifications concerning the current task. Clicking on a checklist from this view will redirect the user to the checklist view (discussed below 
+					under the "Checklist View" bullet).
 		\end{itemize}
 		
 		\item Checklist View
 		\begin{itemize}
-			\item The Checklist View will show a checklist that states what must be completed by a certain date specified by the Task and Checklist manager/owner.
+			\item The checklist view will show all information about the selected checklist. The checklist name, description, parent task, item(s), and notes will be available to the
+					user. The user will also be able to edit (add an item to the checklist or modify other checklist information) and delete a checklist. In addition, this view will enable the
+					user to sign up for notifications concerning the current checklist. Clicking on a checklist item will display the details associated with that checklist item.
 		\end{itemize}
 		
 	\end{itemize}
@@ -234,7 +238,7 @@ User Interface characteristics for the \texttt{ConMan} web application are as fo
 			\item If the user is not logged in, the top-right corner of the page will prompt the user for log-in credentials
 			\item If the user is logged in, the top-right corner of the page will display the users log-in name and will display a link/button for the user to sign out
 		\end{itemize}
-	\item The web application will alert the user that one or more checklists are due for the current day by presenting the user with dialog/message box notifications stating which Tasks have checklists due. Notifications
+	\item The web application will alert the user that one or more checklists are due for the current day by presenting the user with dialog/message box notifications stating which tasks have checklists due. Notifications
 			will also be presented for checklists with due dates in the near future (e.g., due dates within the next 3 days).
 	\item The web application will also alert the user via notifications if any tasks or checklists assigned to them have been modified.
 \end{itemize}
@@ -281,11 +285,11 @@ The interface will also have a menu added to select user, change view and any ot
 
 \subsection{Calendar View}
 \subsubsection{Description and Priority}
-Creating a Calendar View will be our main priority it should allow the user to click on any day to see or create new tasks.  The view should also implement the possibility of changing months to see past and future tasks. 
+Creating a calendar view will be our main priority it should allow the user to click on any day to see or create new tasks.  The view should also implement the possibility of changing months to see past and future tasks. 
 This will be of the highest priority 9 since all future features are based on the user being able to choose a day from the calendar.
 
 \subsubsection{Stimulus/Response Sequences}
-After logging into \texttt{ConMan} the initial screen will be the Calendar View.  When the user clicks on a day it should transition into a to-do list interface. 
+After logging into \texttt{ConMan} the initial screen will be the calendar view.  When the user clicks on a day it should transition into a to-do list interface. 
 Here the user can see, add, edit or delete tasks. 
 The view feature will show a form with the tasks information.
 
@@ -296,7 +300,7 @@ To minimize user error, all action buttons will be large and simple and the opti
 \subsection{Adding, Editing, Deleting Tasks}
 \subsubsection{Description and Priority}
 Modifying a task is the central user function in \texttt{ConMan}. 
-Adding a task will create a new entry for a specific day inside the Calendar View. Deleting a task completely removes a task, while editing a task will allow the user to change any of a task fields. 
+Adding a task will create a new entry for a specific day inside the calendar view. Deleting a task completely removes a task, while editing a task will allow the user to change any of a task fields. 
 This will be of the highest priority 9 since all of the system functionality depends on the user being able to assign tasks to a day.
 \subsubsection{Stimulus/Response Sequences}
 Once the day is selected, the user will be able to choose between adding, deleting, editing and viewing the task. 
@@ -311,7 +315,7 @@ If the user changes the date this should also be reflected on the calendar and a
 
 \subsection{User Profiles}
 \subsubsection{Description and Priority}
-With this feature a user can log into a profile, loading all the tasks previously created onto the Calendar View. 
+With this feature a user can log into a profile, loading all the tasks previously created onto the calendar view. 
 A simple authentication process is required to ensure privacy, a user will also be able to create an account on startup. 
 Since this feature is important but not critical to system use, User Profiles have a priority of 7.
 
