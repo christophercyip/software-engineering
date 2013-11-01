@@ -362,11 +362,11 @@ The system will have to validate the time entered and ensure that it is plausibl
 \section{Other Nonfunctional Requirements}
 \subsection{Performance Requirements}
 %<If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
-As a general requirement, the user should be able to visually see some type of response from the program withing 0.2 seconds after a valid user action.  
-If, for instance, a user performs an action that requires validation from the server (such as authenticating the user upon login), this requirement does not stiuplate that the server will be finished processing the request withing 0.2 seconds, but rather the program gives at least a loading indicator to signal the user that their actions has been received.
+As a general requirement, the user should be able to visually see some type of response from the program within 0.2 seconds after a valid user action.  
+If, for instance, a user performs an action that requires validation from the server (such as authenticating the user upon login), this requirement does not stipulate that the server will finish processing the request within 0.2 seconds, but rather the program will give at least a loading indicator to signal the user that the action was been received.
 
-All e-mails sent by \texttt{ConMan} will be sent within 5 minutes of the requested time.
-\texttt{ConMan}, of course, has no control over the performance of the user's e-mail network which will receive the mail.
+All e-mails sent by \texttt{ConMan} will be sent within 5 minutes of the indicated alarm time.
+\texttt{ConMan}, of course, has no control over the performance of the user's email network which will receive the mail.
 
 
 \subsection{Safety Requirements}
@@ -379,8 +379,7 @@ A user should only be able to log onto \texttt{ConMan} with valid user credentia
 Furthermore, a user should only be able to modify tasks or checklists which they are assigned to.
 Also, member level users can only view tasks assigned to the team to which they belong.
 
-Manager level user, however, are the only user class that can add or assign tasks to teams.  Also Manager users are solely responsible for marking finished tasks or checklists as complete.  Users should not have this functionality.
-
+Manager level users, however, are the only user class that can add or assign tasks to teams.  Also, Manager users are solely responsible for marking tasks finished  or checklists as complete.  Basic users will be allowed to perform these functions.
 
 \subsection{Software Quality Attributes}
 %<Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
@@ -393,14 +392,14 @@ The source code will adhere to the following attributes:
             \item List and description of input parameters
             \item List and description of returned values
             \item Information about state change during method execution (post-condition)
+            \item Functions which are entirely described by the function name or private functions specific to a small code block need not satisfy all of these requirements.
         \end{enumerate}
     \item The source code will adhere to a single programming style, namely the Stroustrup variant of K\&R style.
     \item All code blocks will be enclosed in curly brackets, even if not explicitly required.
 \end{itemize}
 
-Above all else, the system will strive to be usable.  We want flexibility, but if rigid assumptions must be made to release the product on time, then so be it.
-
-
+Above all else, the system should be at least minimally usable upon delivery.
+If time allows, features which increase user flexibility will be added, but attempts to increase user options must not delay the project delivery.
 
 \subsection{Business Rules}
 %<List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.>
