@@ -128,20 +128,18 @@ Advanced users of \texttt{ConMan} may find reading this SRS document interesting
 \newpage
 \section{Overall Description}
 \subsection{Product Perspective}
-%<Describe the context and origin of the product being specified in this SRS document. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS document defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
-\texttt{ConMan} is inspired by existing attempts made to create a useful calendar, checklist, and task management software suite such as Trello, SourceForge, and some basic calendar applications for iPhone and Android.  \texttt{ConMan} is a re-making of the task-management suite that emphasizes simplicity and ease of use as the primary development and design philosophies.
+\texttt{ConMan} is inspired by other attempts to create a useful calendar, checklist, and task management software suite such as Trello, SourceForge, and some basic calendar applications for iPhone and Android.  \texttt{ConMan's} approach to creating a task-management suite is emphasizing simplicity and ease of use as the primary development and design philosophies.
 
 \subsection{User Classes and Characteristics}
-%<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>
 The two user classes for \texttt{ConMan} are managers and members.  
-Managers will have privileged commands available which will effect an entire team.
-Members are assigned to teams and can modify the tasking that is assigned to them.
-When a member switches to individual mode, each member is his/her own manager.
+Managers have privileged commands available which effect an entire team.
+Members are assigned to teams and can modify the tasks that are assigned to them.
+When a member switches to the individual context, each member becomes his/her own manager.
 
 
 \subsection{Product Functions}
-%<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS document. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
-\texttt{ConMan's} functions divide into two categories, application functions and user functions.  Application functions are the functions that describe the basic workings of \texttt{ConMan}.  Application functions include:
+\texttt{ConMan's} functions can be divided into two categories, application functions and user functions.  Application functions are the functions that describe the basic workings of \texttt{ConMan}.  
+They include:
 \begin{enumerate}
     \item Creating a user profile.
     \item Switching to calendar view.
@@ -151,7 +149,7 @@ When a member switches to individual mode, each member is his/her own manager.
 \end{enumerate}
 
 User functions are further divided into manager and member categories.
-Manager categories are only available to users who are designated a project manager when the user profile is created.
+Manager functions are only available to users designated as project managers when their team account was created.
 \begin{enumerate}
     \item Create and delete teams.
     \item Add and modify tasks for a team.
@@ -180,7 +178,7 @@ The target browsers in which \texttt{ConMan} will run are Firefox and Chrome.
 \subsection{User Documentation}
 %<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>
 The documents available describing \texttt{ConMan} include this software requirements specification, a 
-user manual, and
+user manual, design document, testing report document and
 an in-app help menu.
 
 All of the documentation will be available in PDF.
