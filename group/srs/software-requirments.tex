@@ -264,29 +264,20 @@ The web application will rely on the following technologies for communication:
 
 \newpage
 \section{System Features}
-%<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>
-%\subsection{System Feature 1}
-%<Don’t really say “System Feature 1.” State the feature name in just a few words.>
-%\subsubsection{Description and Priority}
-%<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>
-%\subsubsection{Stimulus/Response Sequences}
-%<List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.>
-%\subsubsection{Functional Requirements}
-%<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
-%<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
-%%%BREAK
-Our system will have a simple layout.
+The system will have a simple layout.
 The main screen will show a simple month-view calendar with the current day highlighted. 
 The name of an assigned task or checklist will appear on the day of the month when it is due. 
 The calendar then offers the possibility of clicking on any day or task.
 If a task is clicked, a list will appear with the task details along with options for adding, deleting or editing checklists associated with the task. 
-If instead the day of the month was clicked, the only option will be to add a new task. 
-The interface will also have a menu added to select user, change view and any other secondary feature helpful to the system.
+If the day of the month was clicked, the only option will be to add a new task. 
+The interface will also have a menu to select user context, change view and any other secondary features helpful to the system (e.g. help-section links).
 
 \subsection{Calendar View}
 \subsubsection{Description and Priority}
-Creating a calendar view will be our main priority it should allow the user to click on any day to see or create new tasks.  The view should also implement the possibility of changing months to see past and future tasks. 
-This will be of the highest priority 9 since all future features are based on the user being able to choose a day from the calendar.
+Creating a calendar view will be the main priority.
+It should allow the user to click on any day to see or create new tasks.  
+The system should also implement the possibility of changing months to see past and future tasks. 
+This will be of the highest priority, 9, since all future features are based on the user being able to choose a day from the calendar.
 
 \subsubsection{Stimulus/Response Sequences}
 After logging into \texttt{ConMan} the initial screen will be the calendar view.  When the user clicks on a day it should transition into a to-do list interface. 
@@ -294,24 +285,24 @@ Here the user can see, add, edit or delete tasks.
 The view feature will show a form with the tasks information.
 
 \subsubsection{Functional Requirements}
-The interface must be intuitive, with minimal training required to learn how its used. 
-To minimize user error, all action buttons will be large and simple and the options will be controlled by the system.
+The interface shall be intuitive, with minimal training required to learn how it is used. 
+To minimize user error, all action buttons will be large and simple to understand.
 
 \subsection{Adding, Editing, Deleting Tasks}
 \subsubsection{Description and Priority}
-Modifying a task is the central user function in \texttt{ConMan}. 
+Modifying a task is the primary user action in \texttt{ConMan}. 
 Adding a task will create a new entry for a specific day inside the calendar view. Deleting a task completely removes a task, while editing a task will allow the user to change any of a task fields. 
-This will be of the highest priority 9 since all of the system functionality depends on the user being able to assign tasks to a day.
+This will be of the highest priority, 9, since all of the system functionality depends on the user being able to assign tasks to a day.
 \subsubsection{Stimulus/Response Sequences}
-Once the day is selected, the user will be able to choose between adding, deleting, editing and viewing the task. 
-Adding a task will take the user to a form were he can enter the initial task values and then create the task. 
-Editing will take you to the same form with the fields already completed and deleting will remove the entry. 
+Once the day from the calendar view is selected, the user will be able to choose between adding, deleting, editing and viewing the task. 
+Adding a task will take the user to a form where he can enter the initial task values and then create the task. 
+Editing will take the user to the same form with the fields already completed and deleting will remove the task entry. 
 \subsubsection{Functional Requirements}
 The task form will require the usual fields in a calendar. 
-It should include date, time, description, alarm. 
-Once filled the system then adds the task to the day specified. 
+It should include date, time, description, and alarm. 
+Once filled the system adds the task to the day specified. 
 The form will check for errors in the information supplied before accepting the task. 
-If the user changes the date this should also be reflected on the calendar and a notification should be sent out to all employees associated with the task.
+If the user modifies the deadline date, the change should also be reflected on the calendar and a notification should be sent to all employees associated with the task.
 
 \subsection{Adding, Editing, Deleting Checklists}
 \subsubsection{Description and Priority} 
@@ -331,29 +322,30 @@ If the user changes the date this should also be reflected on the calendar and a
 
 \subsection{User Profiles}
 \subsubsection{Description and Priority}
-With this feature a user can log into a profile, loading all the tasks previously created onto the calendar view. 
-A simple authentication process is required to ensure privacy, a user will also be able to create an account on startup. 
+This feature allows a user to log into a profile, loading all the tasks previously created onto the calendar view. 
+A simple authentication process is required to ensure privacy; a user will also be able to create an account on startup. 
 Since this feature is important but not critical to system use, User Profiles have a priority of 7.
 
 \subsubsection{Stimulus/Response Sequences}
-The authentication process will be the first screen. 
+Users will see an authentication screen each time the log into \texttt{ConMan}. 
 The authentication screen will offer the possibility of creating a new user or entering existing credentials. 
-If a new user is created, the system will transition into the user creation interface where he can complete the fields. 
-If the user already has an account, he will be showed his calendar with all the tasks previously created. 
+If a new user is created, the system will transition into the user creation interface where she can complete the fields. 
+If the user already has an account, she will be showed her calendar with all the previously created tasks. 
 \subsubsection{Functional Requirements}
 The new user form will require the usual fields: name, surname, password, email, etc. 
-After the fields are supplied, the system will take the user to its calendar. 
-The authentication process must be secure. Therefore, it must control who accesses each profile since data is confidential. 
+After the fields are supplied, the system will take the user to the calendar. 
+The authentication process must be secure. 
+Therefore, it must control who accesses each profile since data is confidential. 
 If incorrect user credentials are entered or if the information for the new user is incorrect, the user will be prompted with a error message.
 
 \subsection{Notification System}
 \subsubsection{Description and Priority}
 This feature can be activated at the task creation form. 
-If activated, this feature will notify the user with an email and with a message/dialog box (via the web application) when a task has an upcoming due date. The notification alerts will have a 5 priority.
+If activated, this feature will notify the user with an email and with a message/dialog box (via the web application) when a task has an upcoming due date. The notification alerts will have priority 5.
 
 \subsubsection{Stimulus/Response Sequences}
-This option will be made available to the user once he has entered the create new task form. 
-It will give the user the option to choose a time to remind him and possibly other users of the event. 
+This option will be made available to the user once she has entered the task creation form. 
+It will give the user the option to choose a time to remind her and possibly other users of the event. 
  
 \subsubsection{Functional Requirements}
 The system will have to validate the time entered and ensure that it is plausible and formatted correctly.  If an invalid notification time is set, the user will be informed of the error. 
