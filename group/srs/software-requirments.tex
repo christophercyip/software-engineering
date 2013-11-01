@@ -313,6 +313,22 @@ Once filled the system then adds the task to the day specified.
 The form will check for errors in the information supplied before accepting the task. 
 If the user changes the date this should also be reflected on the calendar and a notification should be sent out to all employees associated with the task.
 
+\subsection{Adding, Editing, Deleting Checklists}
+\subsubsection{Description and Priority} 
+Adding a checklist will update the task that will contain it by placing the checklist in the specified location in the task's checklist list. 
+Deleting a checklist completely removes a checklist, while editing a checklist will allow the user to change any of a checklist fields. 
+This will be of the highest priority 9 since every task is useless if it does not have a checklist(s).
+\subsubsection{Stimulus/Response Sequences}
+Once a checklist is selected, the user will be able to choose between adding, deleting, editing and viewing the checklist. 
+Adding a checklist will take the user to a form were he can enter the initial checklist values and then create the checklist. 
+Editing will take you to the same form with the fields already completed and deleting will remove the checklist and all references to it. 
+\subsubsection{Functional Requirements}
+The checklist form will require the usual fields in a calendar. 
+It should include date, time, description, alarm. 
+Once filled, the system then adds the checklist to the specified task. 
+The form will check for errors in the information supplied before accepting the checklist. 
+If the user changes the date this should also be reflected on the calendar and a notification should be sent out to all employees associated with the task.
+
 \subsection{User Profiles}
 \subsubsection{Description and Priority}
 With this feature a user can log into a profile, loading all the tasks previously created onto the calendar view. 
