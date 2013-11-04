@@ -181,6 +181,36 @@ Exception handling is a difficult problem, components should not handle them the
 Wrappers can be added to legacy systems to make them fit better with modern notions of CBSE.
 
 \subsubsection{CBSE with reuse}
-The successful reuse of components requires a development prcess tailored to reusable components.
+The successful reuse of components requires a development process tailored to reusable components.
+Essential differences between CBSE with reuse and software processes for original software development are:
+\begin{enumerate}
+\item The user requirement's are initially developed in outline rather than in detail, and stakeholders are encouraged to be as flexible as possible in defining their requirements.
+\item Requirements are refined and modified early in the process depending on the components available.
+\item There is a further component search and design refinement activity after the system architecture has been designed.
+\item Development is a composition process where the discovered components are integrated.
+\end{enumerate}
+An activity that is unique to the CBSE process is identifying candidate components or services for reuse.
+The component identification process is: Component search, component selection, component validation
+
 \subsection{Component composition}
+Component composition is the process of integrating components with each other, and with specially written 'glue code' to create a system or another component.
+Different types of composition exist:
+\begin{enumerate}
+\item Sequential composition is when components are called in sequence, but the components do not call each other.  Extra glue code is required.
+\item Hierarchical composition is when one component calls directly on the services provided by another components.  The called component provides the services that are required by the calling component.
+\item Additive composition is when two or more components are put together to create a new component which combines their functionality.
+\end{enumerate}
+Three types of incompatibility can occur:
+\begin{enumerate}
+\item Parameter incompatibility.  The operations on each side of the interace have the same name but their parameter types or the number of parameters are different.
+\item Operation incompatibility.  The names of the operations in the 'provides' and 'requires' interfaces are different.
+\item Operation incompleteness.  The 'provides' interface of a component is a subset of the 'requires' interface of another component or vice versa.
+\end{enumerate}
+
+When you create a system oby composing components you may find that there are potential conflicts between functional and non-functional requirements.  The decisions where you may have to take trade-offs into account are:
+\begin{enumerate}
+\item What composition of components is most effective for delivering the functional requirements for the system?
+\item What composition of the components will make it easier to adapt the composite component when its requirements change?
+\item What will be the emergent properties of the composed system?  These are properties such as performance and dependability.  You can only assess these once the complete system is implemented.
+\end{enumerate}
 \end{document}
