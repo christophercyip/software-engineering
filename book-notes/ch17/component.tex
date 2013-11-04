@@ -1,0 +1,186 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+%\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1 in, bottom = 1 in ,left = 1 in, right = 1in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{0pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+
+\newcommand{\natnums}{{\mathbb N}}
+\newcommand{\algnums}{{\mathbb A}}
+\newcommand{\rationals}{{\mathbb Q}}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\unorm}[1]{{\left|\left|#1\right|\right|_u}}
+\newcommand{\scriptR}{\mathcal{R}}
+\newcommand{\scriptP}{\mathcal{P}}
+\newcommand{\taggedP}{\dot{\mathcal{P}}}
+\newcommand{\scriptQ}{\mathcal{Q}}
+\newcommand{\taggedQ}{\dot{\mathcal{Q}}}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=C,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\begin{document}
+ 
+\setcounter{section}{16}
+\section{Component-based software engineering}
+For custom software, component-based software engineering is an effective, reuse-oriented way to develop new enterprise systems.
+CBSE is the process of defining, implementing, and integrating or composing loosely coupled, independent components into systems.
+Important because software systems are becoming more and more complex.
+Essentials of component-based software engineering are:
+\begin{enumerate}
+\item Independent components that are completely specified by their interfaces.  Clear separation between the component interface and its implementation.
+\item Component standards that facilitate the integration of components.  Standards are embodied in a component model.  Define how component interfaces should be specified and how components communicate.
+\item Middleware that provides software support for component integration.  Middleware handles component communications.
+\item A development process that is geared to component-based software engineering.
+\end{enumerate}
+Underlying CBSE are sound design principles that support the construction of understandable and maintainable software:
+\begin{enumerate}
+\item Components are independent so they do not interfere with each other's operation.
+\item Components communicate through well-defined interfaces.  If these interfaces are maintained, one component can be replaced by another.
+\item Component infrastructures offer a range of standard services that can be used in the application system.
+\end{enumerate}
+\subsection{Components and component models}
+A component is an independent software unit that can be composed with other components to create a software system.
+Components are an element that is included in a system, rather than a service that is referenced by the system.  However, they are also compatible with the idea of a service as a component.
+Essential characteristics of a component as used in CSBE:
+\begin{enumerate}
+\item Standardized
+\item Independent
+\item Composable
+\item Deployable
+\item Documented.
+\end{enumerate}
+Components can be viewed as a service, where the system doesn't care where or how that component was developed.
+Viewing components as a service provider emphasizes two critical characteristics of a reusable component:
+\begin{enumerate}
+\item The component is an independent executable entity that is defined by its interfaces.  You don't need any knowledge of its source code to use it.  It can either be referenced as an external service or included directly in a program.
+\item The services offered by a component are made available through an interface and all its interactions are through that interface.
+\end{enumerate}
+Components have two main interfaces:
+\begin{enumerate}
+\item The 'provides' interface defines the services provided by the component.  This interface is essentially the component API.
+\item The 'requires' interface specifies what services must be provided by other components in the system in a component is to operate correctly.
+\end{enumerate}
+\subsubsection{Component models}
+A component model is a definition of standards for component implementation, documentation, and deployment.
+Basic elements of an ideal component model are:
+\begin{enumerate}
+\item Interfaces.  Components are defined by specifying their interfaces.
+\item Usage.  In order for components to be distributed and accessed remotely, they need to have a unique name or handle associated with them.  
+Component meta-data is data about the component itself.
+Components are generic entities and need to be configured to fit into an application system - that is they require customization.
+\item Deployment.  The component model includes a specification of how components should be packaged for deployment as independent, executable entities.
+\end{enumerate}
+Services provided by a component model implementation fall into two categories
+\begin{enumerate}
+\item Platform services, which enable components to communicate and interoperate in a distributed environment.  These are the fundamental services that must be available in all component-based system.
+\item Support services, which are common services that are likely to be required by many different components.  
+\end{enumerate}
+
+\subsection{CBSE processes}
+CBSE processes are software processes that support component-based software engineering.  They take into account the possibilities of reuse and the different process activities involved in developing and using reusable components.
+Two types of CBSE processes at the highest level:
+\begin{enumerate}
+\item Development for reuse
+\item Development with reuse
+\end{enumerate}
+Both of these processes have subprocesses that support them:
+\begin{enumerate}
+\item Component acquisition is the process of acquiring components for reuse or development into a reusable component.
+\item Component management is concerned with managing a company's reusable components, ensuring that they are properly cataloged, stored, and made available for reuse.
+\item Component certification is the process of checking a component and certifying that it meets its specification
+\end{enumerate}
+\subsubsection{CBSE for reuse}
+CBSE for reuse is the process of developing reusable components and making them available for reuse through a component management system.
+Most likely to take place within an organization that has made a commitment to reuse-driven software engineering.
+To make a component reusable, you have to adapt and extend the application-specific components to create more generic and therefore more reusable versions.
+Have to decide if a component is likely to be reused and if the cost savings from future reuse the costs of making the component reusable. pg463
+Changes that might be made to make it more reusable are:
+\begin{enumerate}
+\item removing application specific methods.
+\item Changing names to make them more general.
+\item Adding methods to provide more complete function coverage.
+\item Making exception handling consistent for all methods.
+\item ading a 'configuration' interface to allow the component to be adapted to different situations of use
+\item integrating required components to increase independence.
+\end{enumerate}
+Exception handling is a difficult problem, components should not handle them themselves.  In practice, there are two problems with this:
+\begin{enumerate}
+\item Publishing all exceptions leads to bloated interfaces that are harder to understand.
+\item The operation of the component may depend on local exception handling, and changing this may have serious implications for the functionality of the component.
+\end{enumerate}
+
+Wrappers can be added to legacy systems to make them fit better with modern notions of CBSE.
+
+\subsubsection{CBSE with reuse}
+The successful reuse of components requires a development prcess tailored to reusable components.
+\subsection{Component composition}
+\end{document}
