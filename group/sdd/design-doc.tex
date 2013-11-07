@@ -424,6 +424,7 @@ The user interface of \texttt{ConMan} is dominated by the use of the "main scree
 The main screen consists of four distinct parts, the top bar, the bottom bar, the left pane, and the content area.
 A general overview of some of the user interface designs follows.
 
+
 \subsection{Main Screen}
 \begin{center}
 \includegraphics[trim = 0cm 14cm 0cm 0cm, clip=true, scale=0.7]{images/mainscreen}
@@ -436,7 +437,7 @@ The content area then has three primary views
 \begin{center}
 \includegraphics[trim = 0cm 14cm 0cm 0cm, clip=true, scale=0.7]{images/calendarview}
 \end{center}
-The calendar view gives the user an opportunity to see when the tasks and checklists he is assigned are due.
+The calendar view gives the user an opportunity to see when the tasks and checklists are due.
 If the user has selected the personal context in the left pane, then only the personal context tasks will be displayed.
 The tasks and checklists appearing in the calendar will be hyper-links that navigate the content area to the task or checklist view respectively.
 \subsubsection{Task View}
@@ -444,14 +445,23 @@ The tasks and checklists appearing in the calendar will be hyper-links that navi
 \includegraphics[trim = 0cm 12cm 0cm 0cm, clip=true, scale=0.7]{images/taskview}
 \end{center}
 The task view will show the task name, description, checklists, notes, and available actions for the selected task.
-For tasks which are assigned to teams, non-administrative users will not be able to perform every action (namely deleting a task).
-Non-administrative users will still be able to see the administrative actions, but the action link will be obscured (usually grayed out).
+For tasks which are assigned to teams, non-administrative users will not be able to delete a task.
+Non-administrative users will still be able to see the administrative actions, but the action link will be obscured (i.e., grayed out).
 \subsubsection{Checklist View}
 \begin{center}
 \includegraphics[trim = 0cm 12cm 0cm 0cm, clip=true, scale=0.7]{images/checklistview}
 \end{center}
 A checklist is conceptually very similar to a task and displays similar items.
 Again, not every action will be available to non-administrative users.
+\subsection{Registration Screen}
+Users must create an account for \texttt{ConMan} in order to perform a variety of function with \texttt{ConMan} 
+such as registering for email notifications. Users must supply their first and last names, email, and password in 
+order to register.
+\subsection{Sign-In Screen}
+If an user has an account in \texttt{ConMan}, the user can sign-in using the email and 
+password provided during the creation of their account.
+
+
 \newpage
 \section{Restrictions, Limitations, and Constraints}
 As detailed in the SRS, the user interface will only be supported for the Chrome and FireFox desktop web-browsers.
