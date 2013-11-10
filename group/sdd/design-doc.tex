@@ -333,7 +333,7 @@ There are no additional design constraints.
 \section{Data Design}
 The server-side database provides persistent data storage for the \texttt{ConMan} application.
 When a user connects to the \texttt{ConMan} application through a web-browser, the data associated with that user is retrieved by the server from the database and sent as a JSON encoded string back to the user for client side processing.
-To preserve consistency, client-side processing will only include data representation (visual effects).
+To preserve consistency, client-side processing will only handle representation of the data (i.e. the "view").
 Any create, update, or destroy operations on the data must be validated by a server request (interfaces defined below).
 
 All data held outside of the database - client and server-side -  will not be preserved by the \texttt{ConMan} application when the user navigates away from the \texttt{ConMan} page.
