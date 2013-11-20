@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>ConMan</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    ConMan
+                </h1>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Registration.aspx" Text="Register"/>
+                        <asp:MenuItem NavigateUrl="~/SignIn.aspx" Text="Sign-In" />
+                        <asp:MenuItem NavigateUrl="~/ListUsers.aspx" Text="List Users"/>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="sidebar">
+            <!-- Sidebar -->
+            <p>This is the left sidebar</p>
+            <asp:ContentPlaceHolder ID="SidebarContent" runat="server" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div><!-- End Main Content -->
+        <div class="footer">
+            <p>This is the footer</p>
+        </div><!-- End Footer -->
+    </div> <!-- End Page -->
+    </form>
+</body>
+</html>
