@@ -1,0 +1,194 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+%\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1 in, bottom = 1 in ,left = 1 in, right = 1in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{0pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+
+\newcommand{\natnums}{{\mathbb N}}
+\newcommand{\algnums}{{\mathbb A}}
+\newcommand{\rationals}{{\mathbb Q}}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\unorm}[1]{{\left|\left|#1\right|\right|_u}}
+\newcommand{\scriptR}{\mathcal{R}}
+\newcommand{\scriptP}{\mathcal{P}}
+\newcommand{\taggedP}{\dot{\mathcal{P}}}
+\newcommand{\scriptQ}{\mathcal{Q}}
+\newcommand{\taggedQ}{\dot{\mathcal{Q}}}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=C,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\begin{document}
+ 
+\setcounter{section}{24}
+\section{Configuration Management}
+Systems are always changing: bugs need to be fixed, system requirements change, implement new features, new hardware, business change.
+
+Configuration Management is concerned with the policies processes and tools for managing changing software systems.
+\subsection{Change Management}
+Involves keeping track of requests for changes to the software from customers and developers, working out the costs and impact of making these changes, and deciding if and when the changes should be implemented.
+
+Initiated when a 'customer' completes and submits a change request describing the change required to the system (eg bug report, or additional functionality request).
+
+Checking.  Aftr a change request has been submitted, it is checked to ensure it is valid - not all change requests require action.
+
+Change assesment and Costing.  Development or maintenance team, work out what is involved in implementing the change.
+
+Required changes to the system modules are assesed.
+
+Cost of making changes estimated.
+
+Change Control Board.  Decides if it is cost-effective from a business perspective to make the change to the software.
+Factors that should be taken into account in deciding whether or not a change should be approved are:
+\begin{enumerate}
+\item The consequences of not making the change.
+\item The benefits of the change.
+\item Number of users affected by the change.
+\item Costs of making the change.
+\item The product release cycle.
+\end{enumerate}
+
+\subsection{Version Management}
+Involves keeping track of the multiple versions of the system components and ensuring that the changes made to components by different developers do not interfere with each other.
+Manages Codelines and baselines.
+
+Codelines: A sequence of versions of source code with later versions in the sequence derived from earlier versions.  Normally apply to components of systems.
+
+Baseline:  Definition of a specific system.  Specifies the component versions that are included in the system plus a specification of the libraries used, configuration files, etc.
+
+Version management normally provides a range of features:
+\begin{enumerate}
+\item Version and release identification.  Managed versions are assiged identifiers when they are submitted to the system.
+\item Storage management.
+\item Change history recording.
+\item Independent development.
+\item Project support.
+\end{enumerate}
+
+\subsection{System Building}
+Process of assembling program components, data, and libraries, and then compiling and linking these to create an executable system.
+
+Building is a complex process, which is potentially error-prone as there may be three different system platforms involved:
+\begin{enumerate}
+\item The development system, which includes develoopment tools such as compilers, source code editors, etc.  Local build tools may create testing versions of system.
+\item Build server.  Used to build definitive, executable versions of the system.  
+\item Target environment.  Platform on which the system executes.  May be the same type of computer that is used for the development and build systems.
+\end{enumerate}
+ Many build tools tha tprovide some or all of the following features:
+\begin{enumerate}
+\item Build script generation.
+\item Version management system integration.
+\item Minimal recompilation.
+\item Executable system creation
+\item Test automation
+\item Reporting
+\item Documentation generation
+\end{enumerate}
+Agile methods advocate for continuous integration.
+
+Continuous integration steps are:
+\begin{enumerate}
+\item Check out the mainline system from version management system into developer's provate workspace.
+\item Build the system and run automated tests to ensure that the built system passes all tests.
+\item Make the changes to the system components.
+\item Build the system in the private workspace and rerun system tests.  If the tests fail, continue editing.
+\item Once all tests are poassed, check it into the build system but do not commit it as a new system baseline.
+\item Build the system on build server and run all tests.
+\item If system passes its test on build system, commit the changes as a new baseline in the system mainline.
+\end{enumerate}
+
+\subsection{Release Management}
+Preparing software for external release and keeping track of the system versions that have been released for customer use.
+Often split between major and minor releases.
+
+When a system release is produced, it must be documented to ensure that it can be re-created exactly in the future.  To document a release, you have to record the specific versions of the source code components that were used to create the executable code.
+
+Factors influencing system release planning
+\begin{enumerate}
+\item Techincal quality of the system.
+\item Platform changes
+\item Lehman's fifth law.  Suggests that if you add a lot of new functionality to a system, you will also introduce bugs that will limit the amount of functionality that may be included in the next release.
+\item Competition
+\item Marketing requirements.
+\item Customer change proposals.
+\end{enumerate}
+
+A system release is not just the executable code of the system.  May also include:
+\begin{enumerate}
+\item Configuration files
+\item Data files
+\item installation program
+\item electronic and paper documentation
+\item packaging and associated publicity 
+\end{enumerate}
+
+\end{document}
