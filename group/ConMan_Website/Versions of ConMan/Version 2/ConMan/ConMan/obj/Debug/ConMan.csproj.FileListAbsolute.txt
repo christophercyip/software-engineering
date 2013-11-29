@@ -1,0 +1,5 @@
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\bin\ConMan.dll
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\bin\ConMan.pdb
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ResolveAssemblyReference.cache
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ConMan.dll
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ConMan.pdb
