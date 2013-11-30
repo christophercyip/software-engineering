@@ -53,9 +53,10 @@ namespace DAL
         /// <returns></returns>
         public static User GetUserByEmail(String email)
         {
-            // Data Source=.\SQLEXPRESS;AttachDbFilename=C:\LuisJr\USDSenior1\Software_Engineering\Test_Sites\App_Data\Database.mdf;Integrated Security=True;User Instance=True
+            //Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\acer\Documents\GitHub\software-engineering\group\Sample_Web_Site\App_Data\Database.mdf;Integrated Security=True;User Instance=True
             String connectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
 
+            User newUser;
             // This will be -1 if user was not added or > 0 if the user was added
             using (SqlConnection sqlConn = new SqlConnection(connectionString))
             {
@@ -67,12 +68,13 @@ namespace DAL
                 sqlConn.Open();
                 // Execute scalar returns the element at the 1st column of the data inserted( which should be the ID)
                 SqlDataReader dr = command.ExecuteReader();
-                User newUser = new User();
-                newUser.ID = dr.getSQLI
+                dr.GetSqlInt64(0);
+                newUser = new User();
+                //newUser.ID = dr.getSQLI();
                 sqlConn.Close();
             }
 
-            return userID;
+            return newUser;
         }
     }
     

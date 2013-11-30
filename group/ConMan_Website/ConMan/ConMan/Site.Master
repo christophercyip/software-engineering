@@ -26,6 +26,8 @@
                             <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                             <asp:MenuItem NavigateUrl="~/TeamPage.aspx" Text="Team" Value="Team">
                             </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/TaskPage.aspx" Text="Tasks" Value="Tasks">
+                            </asp:MenuItem>
                         </Items>
                     </asp:Menu>
                 </div>

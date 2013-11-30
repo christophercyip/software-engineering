@@ -56,9 +56,9 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
+    <Content Include="App_Data\nickDB.mdf" />
+    <Content Include="App_Data\nickDB_log.ldf">
+      <DependentUpon>nickDB.mdf</DependentUpon>
     </Content>
     <Content Include="SignIn.aspx" />
     <Content Include="Styles\Site.css" />
@@ -67,6 +67,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="TaskPage.aspx" />
     <Content Include="TeamPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -112,6 +113,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\DAL\TaskDAL.cs" />
     <Compile Include="App_Code\DAL\TeamDAL.cs" />
     <Compile Include="App_Code\DAL\TeamMemberDAL.cs" />
     <Compile Include="App_Code\Entities\Team.cs" />
@@ -142,6 +144,13 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="App_Code\DAL\UserDAL.cs" />
+    <Compile Include="TaskPage.aspx.cs">
+      <DependentUpon>TaskPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskPage.aspx.designer.cs">
+      <DependentUpon>TaskPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TeamPage.aspx.cs">
       <DependentUpon>TeamPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

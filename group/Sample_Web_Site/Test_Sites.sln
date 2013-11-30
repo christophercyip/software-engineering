@@ -1,18 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Test_Sites", "..\..\..\..\..\..\LuisJr\USDSenior1\Software_Engineering\Test_Sites\", "{2734331C-0F25-4A17-A406-9A6E3F25CBEC}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Test_Sites", "C:\Users\acer\Documents\GitHub\software-engineering\group\Sample_Web_Site\", "{2734331C-0F25-4A17-A406-9A6E3F25CBEC}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Test_Sites"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\LuisJr\USDSenior1\Software_Engineering\Test_Sites\"
+		Debug.AspNetCompiler.PhysicalPath = "C:\Users\acer\Documents\GitHub\software-engineering\group\Sample_Web_Site\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Test_Sites\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/Test_Sites"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\LuisJr\USDSenior1\Software_Engineering\Test_Sites\"
+		Release.AspNetCompiler.VirtualPath = "/C:\Users\acer\Documents\GitHub\software-engineering\group\Sample_Web_Site\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Test_Sites\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
