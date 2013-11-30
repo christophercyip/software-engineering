@@ -56,9 +56,9 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="App_Data\nickDB.mdf" />
-    <Content Include="App_Data\nickDB_log.ldf">
-      <DependentUpon>nickDB.mdf</DependentUpon>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="SignIn.aspx" />
     <Content Include="Styles\Site.css" />
