@@ -99,36 +99,85 @@ title=\lstname                   % show the filename of files included with \lst
 
 \section{Introduction}
 \subsection{Purpose of the Test Plan Document}
-a
+The Test Plan document contains all information about various tests and 
+how to implement various tests. The document's intended audience is the 
+\texttt{ConMan} project manager, development team, and testing team.
 
+\newpage
 \section{Compatibility Testing}
 \subsection{Test Risks / Issues}
-b
+Due to the nature of \texttt{ConMan}, no risks will manifest during compatibility 
+testing. 
 
 \subsection{Items to be tested / not tested}
-c
+All ASP.NET web forms (i.e. files ending in .aspx) shall be tested in both 
+Mozilla Firefox and Google Chrome web browsers. No other web browsers will 
+be used for compatibility testing as \texttt{ConMan} is built to work for Firefox 
+and Chrome.\newline
+
+Tests:
+\begin{itemize}
+\item Item to test: CMP-TEST-1
+\item Test Description: Test every web page in \texttt{ConMan} using Google Chrome
+\item Test Responsibility: Luis Retana
+\end{itemize}
+\begin{itemize}
+\item Item to test: CMP-TEST-2
+\item Test Description: Test every web page in \texttt{ConMan} using Mozilla Firefox
+\item Test Responsibility: Nick Otto
+\end{itemize}
 
 \subsection{Test Approach(es)}
-d
+CMP-TEST-1 and CMP-TEST-2:
+\begin{itemize}
+\item Prior to beginning tests, cookies must be enabled on both Firefox and Chrome 
+to allow \texttt{ConMan} to function properly.\newline \newline
+Both tests must be performed at the same time and at the same location. 
+The people responsible for each test shall perform the tests on computers that 
+are next to each other. Also, both tests must be testing the same page at any given 
+time. For example, if the people responsible for CMP-TEST-1 are testing the 
+TeamPage.aspx web page in Chrome, the people responsible for CMP-TEST-2 should test 
+TeampPage.aspx in Frefox.\newline \newline
+	These approaches intend to facilitate the behavior of \texttt{ConMan} across 
+different browsers by allowing both testing parties to compare how the behavior 
+of \texttt{ConMan} changes (if at all) when used on different broswers.
+\end{itemize}
 
-\subsection{Test Regularity / Mandate Criteria}
-e
 
 \subsection{Test Pass / Fail Criteria}
-f
+CMP-TEST-1 and CMP-TEST-2:
+\begin{itemize}
+\item Both Firefox and Chrome browsers must display all user interface elements 
+in accordance to how they are depicted in the Visual Studio Web Form Designer. This 
+also means that there should be no differences in how the user interface is displayed 
+in the two web browsers.
+\item All of a web pages functions (e.g., creating a new user, updating a team, etc.) must 
+function correctly.
+\item Intra-site navigation must correctly navigate to the desired screen.
+\end{itemize}
 
 \subsection{Test Entry / Exit Criteria}
-g
+Testing shall commence with every major and minor release of \texttt{ConMan}. Testing 
+will cease when all pages are tested within Chrome and Firefox.
 
 \subsection{Test Deliverables}
-h
+A report shall be delivered stating whether the tests passed or failed. If tests 
+failed, a SCR (Software Change Request) shall be created to allow the development 
+team to correct the issues. In addition, the report should include a list of any 
+SCRs generated for tests.
 
 \subsection{Test Suspension / Resumption Criteria}
-i
+Testing must be suspended if it is determined that the web broswers or computers 
+used in testing are not functioning properly. Testing can resume once the web 
+broswers and computers are determined to be fit for testing. 
 
 \subsection{Test Environmental / Staffing / Training Needs}
-j
+These tests require computers with Firefox and Chrome installed. These computers 
+must have access to \texttt{ConMan} on the local machine or on a test server. People 
+responsible for carrying out the tests must have knowledge of the user interface 
+requirements and the functionality that must be supported for each web page.
 
+\newpage
 \section{Conformance Testing}
 \subsection{Test Risks / Issues}
 k
@@ -157,118 +206,85 @@ r
 \subsection{Test Environmental / Staffing / Training Needs}
 s
 
-\section{Functional Testing}
+\newpage
+\section{Performance and Load Testing}
 \subsection{Test Risks / Issues}
-t
+Due to the nature of \texttt{ConMan}, no risks will manifest during peformance 
+and load testing. The sole issue concerns how to test the performance of \texttt{ConMan} 
+under an average load (e.g., 30 simutaneous users) with a small development and testing 
+team. To resolve this issue, performance and load testing will utilize "outside" 
+participants (i.e., people that are not affiliated with the 
+\texttt{ConMan} team) who will be instructed on how to carry out the tests.
 
 \subsection{Items to be Tested / Not Tested}
-u
+Each page that performs queries and transactions with the \texttt{ConMan} 
+database shall be tested.
+
+Tests:
+\begin{itemize}
+\item Item to test: PL-TEST-1
+\item Test Description: Test each database function while that same function is being 
+executed by all other testers. Ensure the database action's total elapsed time is 
+five seconds or less. 
+\item Test Responsibility: Group of 30 "outside" testers
+\end{itemize}
+\begin{itemize}
+\item Item to test: PL-TEST-2
+\item Test Description: Test each database function while that same function is being 
+executed by all other testers. Ensure the database action yields the expected results. 
+\item Test Responsibility: Group of 30 "outside" testers
+\end{itemize}
 
 \subsection{Test Approach(s)}
-v
-
-\subsection{Test Regulatory / Mandate Criteria}
-w
-
-\subsection{Test Pass / Fail Criteria}
-x
-
-\subsection{Test Entry / Exit Criteria}
-y
-
-\subsection{Test Deliverables}
-z
-
-\subsection{Test Suspension / Resumption Criteria}
-a
-
-\subsection{Test Environmental / Staffing / Training Needs}
-b
-
-\section{Load Testing}
-\subsection{Test Risks / Issues}
-c
-
-\subsection{Items to be Tested / Not Tested}
-d
-
-\subsection{Test Approach(s)}
-e
-
-\subsection{Test Regulatory / Mandate Criteria}
-f
+PL-TEST-1 and PL-TEST-2:
+\begin{itemize}
+\item Prior to testing, the testing team must gather 30 "outside" participants 
+and teach them how to perform tests and how to judge whether \texttt{ConMan} passes 
+or fails. During testing, a coordinator must instruct the testers to attempt to 
+perform a specific action that requires communication with the \texttt{ConMan} database. 
+Total elapsed time and result accuracy for each database action shall be recorded so 
+that \texttt{ConMan}'s performance under expected user load can be judged as passing 
+or failing.
+\end{itemize}
 
 \subsection{Test Pass / Fail Criteria}
-g
+PL-TEST-1:
+\begin{itemize}
+\item All database queries and transactions must have a total elapsed time of five 
+seconds or less.
+\end{itemize}
+PL-TEST-2:
+\begin{itemize}
+\item All database queries and transactions must produce the expected results. For example, 
+querying the database for all of a user's tasks should return all tasks's assigned to 
+the user and no tasks that are not assigned to the user.
+\end{itemize}
 
 \subsection{Test Entry / Exit Criteria}
-h
+Testing shall begin with every major change to the database schema and/or to database SELECT, 
+INSERT, DELETE, and UPDATE commands. Testing finishes once all database actions have been 
+tested. 
 
 \subsection{Test Deliverables}
-i
+A report shall be delivered stating whether the tests passed or failed. The report 
+must also include information about which database action(s) failed and why it failed (e.g., 
+query or transaction results were incorrect or total elapsed time was too long. If tests 
+failed, a SCR (Software Change Request) shall be created to allow the development 
+team to correct the issues. In addition, the report should include a list of any 
+SCRs generated for tests.
 
 \subsection{Test Suspension / Resumption Criteria}
-j
+Testing must be suspended if 30 "outside" testers are not available throughout the 
+testing. Once a total of 30 testers are grouped together, testing may resume.
 
 \subsection{Test Environmental / Staffing / Training Needs}
-k
+These tests require computers with Firefox and Chrome installed. These computers must
+have access to ConMan on the local machine or on a test server. People responsible for
+carrying out the tests must have knowledge of how to record that total elasped time 
+of a database action and how to judge whether or not the results of that action are 
+correct or not.
 
-\section{Performance Testing}
-\subsection{Test Risks / Issues}
-l
-
-\subsection{Items to be Tested / Not Tested}
-m
-
-\subsection{Test Approach(s)}
-n
-
-\subsection{Test Regulatory / Mandate Criteria}
-o
-
-\subsection{Test Pass / Fail Criteria}
-p
-
-\subsection{Test Entry / Exit Criteria}
-q
-
-\subsection{Test Deliverables}
-r
-
-\subsection{Test Suspension / Resumption Criteria}
-s
-
-\subsection{Test Environmental / Staffing / Training Needs}
-t
-
-\section{Regression Testing}
-\subsection{Test Risks / Issues}
-u
-
-\subsection{Items to be Tested / Not Tested}
-v
-
-\subsection{Test Approach(s)}
-w
-
-\subsection{Test Regulatory / Mandate Criteria}
-x
-
-\subsection{Test Pass / Fail Criteria}
-y
-
-\subsection{Test Entry / Exit Criteria}
-z
-
-\subsection{Test Deliverables}
-a
-
-\subsection{Test Suspension / Resumption Criteria}
-b
-
-\subsection{Test Environmental / Staffing / Training Needs}
-c
-
+\newpage
 \section{Stress Testing}
 \subsection{Test Risks / Issues}
 d
@@ -298,33 +314,10 @@ k
 l
 
 \section{System Testing}
-\subsection{Test Risks / Issues}
-m
+There is no need for system testing as \texttt{ConMan} is developed on top 
+of the .NET framework and web browsers.
 
-\subsection{Items to be Tested / Not Tested}
-n
-
-\subsection{Test Approach(s)}
-o
-
-\subsection{Test Regulatory / Mandate Criteria}
-p
-
-\subsection{Test Pass / Fail Criteria}
-q
-
-\subsection{Test Entry / Exit Criteria}
-r
-
-\subsection{Test Deliverables}
-s
-
-\subsection{Test Suspension / Resumption Criteria}
-t
-
-\subsection{Test Environmental / Staffing / Training Needs}
-u
-
+\newpage
 \section{Unit Testing}
 \subsection{Test Risks / Issues}
 v
@@ -353,33 +346,116 @@ c
 \subsection{Test Environmental / Staffing / Training Needs}
 d
 
-\section{User Acceptance Testing}
+\newpage
+\section{Security Testing}
 \subsection{Test Risks / Issues}
-e
+No risks and issues are associated with the execution of the security tests.
 
 \subsection{Items to be Tested / Not Tested}
-f
+Each action that a user can perform in \texttt{ConMan} must be tested.\newline
+
+Tests:
+\begin{itemize}
+\item Item to test: SEC-TEST-1
+\item Test description: Attempt to access any page in \texttt{ConMan} without 
+being signed-in
+\item Test responsibility: Angel DeCastro
+\end{itemize}
+\begin{itemize}
+\item Item to test: SEC-TEST-2
+\item Test description: Attempt to access any page in \texttt{ConMan} when 
+signed-in
+\item Test responsibility: Angel DeCastro
+\end{itemize}
+\begin{itemize}
+\item Item to test: SEC-TEST-3
+\item Test description: Attempt to update or delete a team that the user is 
+not the admin of
+\item Test responsibility: Chris Yip
+\end{itemize}
+\begin{itemize}
+\item Item to test: SEC-TEST-3
+\item Test description: Attempt to create, update or delete a task associate with 
+a team that the user is not the admin of
+\item Test responsibility: Chris Yip
+\end{itemize}
+\begin{itemize}
+\item Item to test: SEC-TEST-4
+\item Test description: Attempt to assign/unassign users from tasks associated 
+with a team that the user is not the admin of
+\item Test responsibility: Luis Retana
+\end{itemize}
+\begin{itemize}
+\item Item to test: SEC-TEST-5
+\item Test description: Attempt to create notes for tasks that the user 
+is not the admin of
+\item Test responsibility: Luis Retana
+\end{itemize}
 
 \subsection{Test Approach(s)}
-g
-
-\subsection{Test Regulatory / Mandate Criteria}
-h
+For all tests, ensure cookies are enabled on the web browser used which must be 
+either Firefox or Chrome.\newline \newline
+SEC-TEST-1:
+\begin{itemize}
+\item Do not sign-in into \texttt{ConMan}. Attempt to navigate to every page within 
+\texttt{ConMan} and record whether web application instead redirects the client 
+to the \texttt{ConMan} sign-in/registration page or allows the client to navigate 
+to the desired web page.
+\end{itemize}
+SEC-TEST-2:
+\begin{itemize}
+\item Sign-in into \texttt{ConMan}. Attempt to navigate to every page within 
+\texttt{ConMan} and record whether web application allows the client to access the 
+desired web page or not.
+\end{itemize}
+SEC-TEST-3, SEC-TEST-4, and SEC-TEST-5:
+\begin{itemize}
+\item Sign-in into \texttt{ConMan}. Navigate to the web page within \texttt{ConMan} 
+that performs the action described in the test description. Record whether or not 
+\texttt{ConMan} allows the action to be performed.
+\end{itemize}
 
 \subsection{Test Pass / Fail Criteria}
-i
+SEC-TEST-1:
+\begin{itemize}
+\item A client that is not signed-in should not be given access to any webpage 
+in \texttt{ConMan}. Only the sign-in/registration page should be accessible.
+\end{itemize}
+
+SEC-TEST-2:
+\begin{itemize}
+\item A client that is signed-in should be given access to any webpage 
+in \texttt{ConMan}.
+\end{itemize}
+
+SEC-TEST-3, SEC-TEST-4, and SEC-TEST-5:
+\begin{itemize}
+\item \texttt{ConMan} shoud not allow the user to perform the actions depicted in 
+the test description if the user does not have the neccessary admin priviliges. 
+in \texttt{ConMan}.
+\end{itemize}
 
 \subsection{Test Entry / Exit Criteria}
-j
+Tests shall begin with every major and minor release of the systems. Security testing 
+will also need to be used when user-authentication methods of been modified and/or 
+when the user permissions model changes. Testing should terminate when each security 
+test has been completed. 
 
 \subsection{Test Deliverables}
-k
+A report shall be delivered stating whether the tests passed or failed. If tests failed, a SCR
+(Software Change Request) shall be created to allow the development team to correct the
+issues. In addition, the report should include a list of any SCRs generated for failed 
+tests.
+
 
 \subsection{Test Suspension / Resumption Criteria}
-l
+There are no factors that would suspend security testing.
 
 \subsection{Test Environmental / Staffing / Training Needs}
-Last Line
+These tests require computers with Firefox and Chrome installed. These computers must
+have access to ConMan on the local machine or on a test server. People responsible for
+carrying out the tests must have knowledge of how to log into \texttt{ConMan} and how to 
+navigate to and through every web page in \texttt{ConMan}.
 
 
 \end{document}
