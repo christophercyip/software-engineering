@@ -1,0 +1,385 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+%\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1 in, bottom = 1 in ,left = 1.5 in, right = 1.5in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{12pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+
+\newcommand{\natnums}{{\mathbb N}}
+\newcommand{\algnums}{{\mathbb A}}
+\newcommand{\rationals}{{\mathbb Q}}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\unorm}[1]{{\left|\left|#1\right|\right|_u}}
+\newcommand{\scriptR}{\mathcal{R}}
+\newcommand{\scriptP}{\mathcal{P}}
+\newcommand{\taggedP}{\dot{\mathcal{P}}}
+\newcommand{\scriptQ}{\mathcal{Q}}
+\newcommand{\taggedQ}{\dot{\mathcal{Q}}}
+\newcommand{\conman}{\texttt{ConMan }}
+
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+%add code!
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=Octave,                 % the language of the code
+morekeywords={*,...},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\begin{document}
+\input{./title.tex}
+\normalsize
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+\subsection{Purpose of the Test Plan Document}
+a
+
+\section{Compatibility Testing}
+\subsection{Test Risks / Issues}
+b
+
+\subsection{Items to be tested / not tested}
+c
+
+\subsection{Test Approach(es)}
+d
+
+\subsection{Test Regularity / Mandate Criteria}
+e
+
+\subsection{Test Pass / Fail Criteria}
+f
+
+\subsection{Test Entry / Exit Criteria}
+g
+
+\subsection{Test Deliverables}
+h
+
+\subsection{Test Suspension / Resumption Criteria}
+i
+
+\subsection{Test Environmental / Staffing / Training Needs}
+j
+
+\section{Conformance Testing}
+\subsection{Test Risks / Issues}
+k
+
+\subsection{Items to be Tested / Not Tested}
+l 
+
+\subsection{Test Approach(s)}
+m 
+
+\subsection{Test Regulatory / Mandate Criteria}
+n
+
+\subsection{Test Pass / Fail Criteria}
+o
+
+\subsection{Test Entry / Exit Criteria}
+p
+
+\subsection{Test Deliverables}
+q
+
+\subsection{Test Suspension / Resumption Criteria}
+r
+
+\subsection{Test Environmental / Staffing / Training Needs}
+s
+
+\section{Functional Testing}
+\subsection{Test Risks / Issues}
+t
+
+\subsection{Items to be Tested / Not Tested}
+u
+
+\subsection{Test Approach(s)}
+v
+
+\subsection{Test Regulatory / Mandate Criteria}
+w
+
+\subsection{Test Pass / Fail Criteria}
+x
+
+\subsection{Test Entry / Exit Criteria}
+y
+
+\subsection{Test Deliverables}
+z
+
+\subsection{Test Suspension / Resumption Criteria}
+a
+
+\subsection{Test Environmental / Staffing / Training Needs}
+b
+
+\section{Load Testing}
+\subsection{Test Risks / Issues}
+c
+
+\subsection{Items to be Tested / Not Tested}
+d
+
+\subsection{Test Approach(s)}
+e
+
+\subsection{Test Regulatory / Mandate Criteria}
+f
+
+\subsection{Test Pass / Fail Criteria}
+g
+
+\subsection{Test Entry / Exit Criteria}
+h
+
+\subsection{Test Deliverables}
+i
+
+\subsection{Test Suspension / Resumption Criteria}
+j
+
+\subsection{Test Environmental / Staffing / Training Needs}
+k
+
+\section{Performance Testing}
+\subsection{Test Risks / Issues}
+l
+
+\subsection{Items to be Tested / Not Tested}
+m
+
+\subsection{Test Approach(s)}
+n
+
+\subsection{Test Regulatory / Mandate Criteria}
+o
+
+\subsection{Test Pass / Fail Criteria}
+p
+
+\subsection{Test Entry / Exit Criteria}
+q
+
+\subsection{Test Deliverables}
+r
+
+\subsection{Test Suspension / Resumption Criteria}
+s
+
+\subsection{Test Environmental / Staffing / Training Needs}
+t
+
+\section{Regression Testing}
+\subsection{Test Risks / Issues}
+u
+
+\subsection{Items to be Tested / Not Tested}
+v
+
+\subsection{Test Approach(s)}
+w
+
+\subsection{Test Regulatory / Mandate Criteria}
+x
+
+\subsection{Test Pass / Fail Criteria}
+y
+
+\subsection{Test Entry / Exit Criteria}
+z
+
+\subsection{Test Deliverables}
+a
+
+\subsection{Test Suspension / Resumption Criteria}
+b
+
+\subsection{Test Environmental / Staffing / Training Needs}
+c
+
+\section{Stress Testing}
+\subsection{Test Risks / Issues}
+d
+
+\subsection{Items to be Tested / Not Tested}
+e
+
+\subsection{Test Approach(s)}
+f
+
+\subsection{Test Regulatory / Mandate Criteria}
+g
+
+\subsection{Test Pass / Fail Criteria}
+h
+
+\subsection{Test Entry / Exit Criteria}
+i
+
+\subsection{Test Deliverables}
+j
+
+\subsection{Test Suspension / Resumption Criteria}
+k
+
+\subsection{Test Environmental / Staffing / Training Needs}
+l
+
+\section{System Testing}
+\subsection{Test Risks / Issues}
+m
+
+\subsection{Items to be Tested / Not Tested}
+n
+
+\subsection{Test Approach(s)}
+o
+
+\subsection{Test Regulatory / Mandate Criteria}
+p
+
+\subsection{Test Pass / Fail Criteria}
+q
+
+\subsection{Test Entry / Exit Criteria}
+r
+
+\subsection{Test Deliverables}
+s
+
+\subsection{Test Suspension / Resumption Criteria}
+t
+
+\subsection{Test Environmental / Staffing / Training Needs}
+u
+
+\section{Unit Testing}
+\subsection{Test Risks / Issues}
+v
+
+\subsection{Items to be Tested / Not Tested}
+w
+
+\subsection{Test Approach(s)}
+x
+
+\subsection{Test Regulatory / Mandate Criteria}
+y
+
+\subsection{Test Pass / Fail Criteria}
+z
+
+\subsection{Test Entry / Exit Criteria}
+a
+
+\subsection{Test Deliverables}
+b
+
+\subsection{Test Suspension / Resumption Criteria}
+c
+
+\subsection{Test Environmental / Staffing / Training Needs}
+d
+
+\section{User Acceptance Testing}
+\subsection{Test Risks / Issues}
+e
+
+\subsection{Items to be Tested / Not Tested}
+f
+
+\subsection{Test Approach(s)}
+g
+
+\subsection{Test Regulatory / Mandate Criteria}
+h
+
+\subsection{Test Pass / Fail Criteria}
+i
+
+\subsection{Test Entry / Exit Criteria}
+j
+
+\subsection{Test Deliverables}
+k
+
+\subsection{Test Suspension / Resumption Criteria}
+l
+
+\subsection{Test Environmental / Staffing / Training Needs}
+Last Line
+
+
+\end{document}
