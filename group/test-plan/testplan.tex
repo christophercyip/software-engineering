@@ -179,32 +179,24 @@ requirements and the functionality that must be supported for each web page.
 
 \newpage
 \section{Conformance Testing}
-\subsection{Test Risks / Issues}
-k
-
 \subsection{Items to be Tested / Not Tested}
-l 
+The following items will be tested:
+\begin{enumerate}
+\item User Interfaces
+\item Communication Interfaces
+\item Adding, Editing, and Deleting Tasks
+\item Creating, Deleting User Profiles
+\end{enumerate}
 
 \subsection{Test Approach(s)}
-m 
-
-\subsection{Test Regulatory / Mandate Criteria}
-n
+Conformance testing will be fulfilled by ensuring the functional tests pass.
 
 \subsection{Test Pass / Fail Criteria}
-o
-
-\subsection{Test Entry / Exit Criteria}
-p
+See section 7, Functional Testing, for test pass/fail criteria.
 
 \subsection{Test Deliverables}
-q
+See section 7, Functional Testing, for test deliverables.
 
-\subsection{Test Suspension / Resumption Criteria}
-r
-
-\subsection{Test Environmental / Staffing / Training Needs}
-s
 
 \newpage
 \section{Performance and Load Testing}
@@ -286,39 +278,16 @@ correct or not.
 
 \newpage
 \section{Stress Testing}
-\subsection{Test Risks / Issues}
-d
+Currently we only support a single user of the \texttt{ConMan} system at any given time, since the web-server is provided by a local-development machine.
+For this reason, stress testing will not be conducted as part of the \texttt{ConMan} testing plan.
 
-\subsection{Items to be Tested / Not Tested}
-e
-
-\subsection{Test Approach(s)}
-f
-
-\subsection{Test Regulatory / Mandate Criteria}
-g
-
-\subsection{Test Pass / Fail Criteria}
-h
-
-\subsection{Test Entry / Exit Criteria}
-i
-
-\subsection{Test Deliverables}
-j
-
-\subsection{Test Suspension / Resumption Criteria}
-k
-
-\subsection{Test Environmental / Staffing / Training Needs}
-l
-
+\newpage
 \section{System Testing}
 There is no need for system testing as \texttt{ConMan} is developed on top 
 of the .NET framework and web browsers.
 
 \newpage
-\section{Unit Testing}
+\section{Functional Testing}
 \subsection{Test Risks / Issues}
 No risks and issues are associated with the execution of the security tests.
 
@@ -415,8 +384,8 @@ the \texttt{ConMan} home page.
 \end{enumerate}
 
 \subsubsection{Create a new team}
-\textbf{Motivation} User A would like to create a new team, the
-"Task-buster Trio." He has two friends who make up the trio, user B 
+\textbf{Motivation} User Alice would like to create a new team, the
+"Task-buster Trio." She has two friends who make up the trio, user B 
 and user C.
 
 Potential cases:
@@ -424,8 +393,8 @@ Potential cases:
     \item Team e-mail field is incorrectly entered.
         \begin{itemize}
             \item Input: An improperly formatted e-mail.
-            \item Output: An error message prompts user A to check the
-formatting of his e-mail address.
+            \item Output: An error message prompts Alice to check the
+formatting of her e-mail address.
         \end{itemize}
     \item The password or e-mail fields are left blank.
         \begin{itemize}
@@ -437,25 +406,24 @@ fields.
         \begin{itemize}
             \item Input: A correctly formatted e-mail and all other fields are
 entered. The given password and e-mail for the Task-buster Trio does not need
-to be the same as the e-mail or password combo for user A.
-            \item Output: A new team is created and user A is
+to be the same as the e-mail or password combo for Alice.
+            \item Output: A new team is created and Alice is
 automatically added as the administrator.
-                User A can now switch between his team and personal
+                Alice can now switch between her team and personal
 contexts within the application.
         \end{itemize}
 \end{enumerate}
 
 \subsubsection{Add team members}
-\textbf{Motivation} Now that Mr. Ringleader has created the "Task-buster
-Trio," he would like to add his two friends, Mr. Fat-Fingers and Ms.
-Forgetful.
+\textbf{Motivation} Now that Alice has created the "Task-buster
+Trio," she would like to add her two friends, Bob and Charlie
 
 Potential cases:
 \begin{enumerate}
     \item E-mail field is incorrectly entered.
         \begin{itemize}
             \item Input: An improperly formatted e-mail.
-            \item Output: An error message prompts Mr. Ringleader to check the
+            \item Output: An error message prompts Alice to check the
 formatting of the e-mail address.
         \end{itemize}
     \item The e-mail field is valid but no user with that e-mail is associated
@@ -470,44 +438,35 @@ is not found within the database.
         \begin{itemize}
             \item Input: A correctly formatted e-mail and all other fields are
 entered.
-            \item Output: The users associated with the e-mail addresses (Mr.
-Fat-Fingers and Ms. Forgetful in this case) are added to the team member
-list.\\
-                Mr. Fat-Fingers and Ms. Forgetful can now see the "Task-buster
-Trio" context within their \texttt{ConMan} accounts.
+            \item Output: The users associated with the e-mail addresses (Bob and Charlie in this case) are added to the team member list.\\
+                Bob and Charlie can now see the "Task-buster Trio" context within their \texttt{ConMan} accounts.
         \end{itemize}
 \end{enumerate}
 
 \subsubsection{Add tasks}
-\textbf{Motivation} Ms. Forgetful cannot remember what she was supposed to do,
-except that she must add a task to her \texttt{ConMan} account.
-She opens the \texttt{ConMan} application and tries to add a task named
-"placeholder."
+\textbf{Motivation} Alice cannot remember what she was supposed to do, except that she must add a task to her \texttt{ConMan} account.
+She opens the \texttt{ConMan} application and tries to add a task named "placeholder."
 
 Potential cases:
 \begin{enumerate}
-    \item Ms. Forgetful is in her basic context when she clicks "add task."
+    \item Alice is in her basic context when she clicks "add task."
     \begin{enumerate}
-        \item Ms. Forgetful leaves a required field blank.
+        \item Alice leaves a required field blank.
             \begin{itemize}
                 \item Input: An task-creation entry with a blank required
 field.
-                \item Output: An error message prompts Ms. Forgetful to
-include all required fields.
+                \item Output: An error message prompts Alice to include all required fields.
             \end{itemize}
-        \item The date manually entered by Ms. Forgetful was for some point in
-the past.
+        \item The date manually entered by Alice was for some point in the past.
             \begin{itemize}
-                \item Input: A task creation request with an already expired
-due date.
-                \item Output: An error message appears telling her to pick a
-future date.
+                \item Input: A task creation request with an already expired due date.
+                \item Output: An error message appears telling her to pick a future date.
             \end{itemize}
         \item The e-mail field is valid and all other entries are included.
             \begin{itemize}
                 \item Input: A correctly formatted e-mail and all other fields
 are entered.
-                \item Output: A task that is only visible to Ms. Forgetful is
+                \item Output: A task that is only visible to Alice is
 created.
             \end{itemize}
     \end{enumerate}
