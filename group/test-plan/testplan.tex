@@ -96,10 +96,9 @@ title=\lstname                   % show the filename of files included with \lst
 \tableofcontents
 
 \newpage
-
 \section{Introduction}
 \subsection{Purpose of the Test Plan Document}
-The Test Plan document contains all information about various tests and 
+The test plan document contains all information about various tests and 
 how to implement various tests. The document's intended audience is the 
 \texttt{ConMan} project manager, development team, and testing team.
 
@@ -117,12 +116,12 @@ and Chrome.\newline
 
 Tests:
 \begin{itemize}
-\item Item to test: CMP-TEST-1
+\item Item to Test: CMP-TEST-1
 \item Test Description: Test every web page in \texttt{ConMan} using Google Chrome
 \item Test Responsibility: Luis Retana
 \end{itemize}
 \begin{itemize}
-\item Item to test: CMP-TEST-2
+\item Item to Test: CMP-TEST-2
 \item Test Description: Test every web page in \texttt{ConMan} using Mozilla Firefox
 \item Test Responsibility: Nick Otto
 \end{itemize}
@@ -137,10 +136,8 @@ The people responsible for each test shall perform the tests on computers that
 are next to each other. Also, both tests must be testing the same page at any given 
 time. For example, if the people responsible for CMP-TEST-1 are testing the 
 TeamPage.aspx web page in Chrome, the people responsible for CMP-TEST-2 should test 
-TeampPage.aspx in Frefox.\newline \newline
-	These approaches intend to facilitate the behavior of \texttt{ConMan} across 
-different browsers by allowing both testing parties to compare how the behavior 
-of \texttt{ConMan} changes (if at all) when used on different broswers.
+TeampPage.aspx in Firefox.\newline \newline
+	These approaches will aid testers in detecting discrepancies between the Firefox and Chrome representations of \texttt{ConMan}
 \end{itemize}
 
 
@@ -151,7 +148,7 @@ CMP-TEST-1 and CMP-TEST-2:
 in accordance to how they are depicted in the Visual Studio Web Form Designer. This 
 also means that there should be no differences in how the user interface is displayed 
 in the two web browsers.
-\item All of a web pages functions (e.g., creating a new user, updating a team, etc.) must 
+\item All of the web pages' functions (e.g., creating a new user, updating a team, etc.) must 
 function correctly.
 \item Intra-site navigation must correctly navigate to the desired screen.
 \end{itemize}
@@ -167,9 +164,9 @@ team to correct the issues. In addition, the report should include a list of any
 SCRs generated for tests.
 
 \subsection{Test Suspension / Resumption Criteria}
-Testing must be suspended if it is determined that the web broswers or computers 
+Testing must be suspended if it is determined that the web browsers or computers 
 used in testing are not functioning properly. Testing can resume once the web 
-broswers and computers are determined to be fit for testing. 
+browsers and computers are determined to be fit for testing. 
 
 \subsection{Test Environmental / Staffing / Training Needs}
 These tests require computers with Firefox and Chrome installed. These computers 
@@ -178,35 +175,17 @@ responsible for carrying out the tests must have knowledge of the user interface
 requirements and the functionality that must be supported for each web page.
 
 \newpage
-\section{Conformance Testing}
-\subsection{Items to be Tested / Not Tested}
-The following items will be tested:
-\begin{enumerate}
-\item User Interfaces
-\item Communication Interfaces
-\item Adding, Editing, and Deleting Tasks
-\item Creating, Deleting User Profiles
-\end{enumerate}
-
-\subsection{Test Approach(s)}
-Conformance testing will be fulfilled by ensuring the functional tests pass.
-
-\subsection{Test Pass / Fail Criteria}
-See section 7, Functional Testing, for test pass/fail criteria.
-
-\subsection{Test Deliverables}
-See section 7, Functional Testing, for test deliverables.
-
-
-\newpage
 \section{Performance and Load Testing}
 \subsection{Test Risks / Issues}
-Due to the nature of \texttt{ConMan}, no risks will manifest during peformance 
-and load testing. The sole issue concerns how to test the performance of \texttt{ConMan} 
-under an average load (e.g., 30 simutaneous users) with a small development and testing 
-team. To resolve this issue, performance and load testing will utilize "outside" 
+Due to the nature of \texttt{ConMan}, no risks will manifest during performance 
+and load testing. 
+One issue is concerned with how to test the performance of \texttt{ConMan} 
+under an average load (e.g., 30 simultaneous users) with a small development and testing team. 
+To resolve this issue, performance and load testing will utilize "outside" 
 participants (i.e., people that are not affiliated with the 
 \texttt{ConMan} team) who will be instructed on how to carry out the tests.
+
+The performance and load test will not be completed for the initial release of \texttt{ConMan} since the initial release only runs on a local-development machine.
 
 \subsection{Items to be Tested / Not Tested}
 Each page that performs queries and transactions with the \texttt{ConMan} 
@@ -214,14 +193,14 @@ database shall be tested.
 
 Tests:
 \begin{itemize}
-\item Item to test: PL-TEST-1
+\item Item to Test: PL-TEST-1
 \item Test Description: Test each database function while that same function is being 
 executed by all other testers. Ensure the database action's total elapsed time is 
 five seconds or less. 
 \item Test Responsibility: Group of 30 "outside" testers
 \end{itemize}
 \begin{itemize}
-\item Item to test: PL-TEST-2
+\item Item to Test: PL-TEST-2
 \item Test Description: Test each database function while that same function is being 
 executed by all other testers. Ensure the database action yields the expected results. 
 \item Test Responsibility: Group of 30 "outside" testers
@@ -248,7 +227,7 @@ seconds or less.
 PL-TEST-2:
 \begin{itemize}
 \item All database queries and transactions must produce the expected results. For example, 
-querying the database for all of a user's tasks should return all tasks's assigned to 
+querying the database for all of a user's tasks should return all tasks assigned to 
 the user and no tasks that are not assigned to the user.
 \end{itemize}
 
@@ -272,14 +251,19 @@ testing. Once a total of 30 testers are grouped together, testing may resume.
 \subsection{Test Environmental / Staffing / Training Needs}
 These tests require computers with Firefox and Chrome installed. These computers must
 have access to ConMan on the local machine or on a test server. People responsible for
-carrying out the tests must have knowledge of how to record that total elasped time 
+carrying out the tests must have knowledge of how to record that total elapsed time 
 of a database action and how to judge whether or not the results of that action are 
 correct or not.
 
 \newpage
 \section{Stress Testing}
-Currently we only support a single user of the \texttt{ConMan} system at any given time, since the web-server is provided by a local-development machine.
-For this reason, stress testing will not be conducted as part of the \texttt{ConMan} testing plan.
+Currently we only support a single user of the \texttt{ConMan} application at any given time, since the web-server is provided by a local-development machine.
+For this reason, stress testing will not be conducted as part of the initial \texttt{ConMan} testing plan.
+
+Future releases of \texttt{ConMan} will be deployed on an ASP.NET test server.
+At that time a more thorough stress test plan will be developed to ensure \texttt{ConMan} can handle multiple concurrent users.
+The new plan will include the same tests as in section 3, Performance and Load Testing. 
+Stress testing will be achieved by ensure the system behaves properly with up to 1000 concurrent users.
 
 \newpage
 \section{System Testing}
@@ -287,22 +271,40 @@ There is no need for system testing as \texttt{ConMan} is developed on top
 of the .NET framework and web browsers.
 
 \newpage
-\section{Functional Testing}
+\section{Conformance and Functional Testing}
 \subsection{Test Risks / Issues}
-No risks and issues are associated with the execution of the security tests.
+No risks or issues are associated with the execution of the functional tests.
 
 \subsection{Items to be Tested / Not Tested}
 The following items will be tested:
-\begin{enumerate}
-\item Account Creation
-\item Account Login
-\item Team Creation
-\item Add Team Members
-\item Add Tasks
-\end{enumerate}
+\begin{itemize}
+\item Item to Test: FUN-TST1 
+\item Test Description: Account creation
+\item Test Responsibility: Chris Yip 
+\end{itemize}
+\begin{itemize}
+\item Item to Test: FUN-TST2 
+\item Test Description: Account login 
+\item Test Responsibility: Chris Yip 
+\end{itemize}
+\begin{itemize}
+\item Item to Test: FUN-TST3 
+\item Test Description: Team creation 
+\item Test Responsibility: Chris Yip 
+\end{itemize}
+\begin{itemize}
+\item Item to Test: FUN-TST4
+\item Test Description: Add team members
+\item Test Responsibility: Chris Yip 
+\end{itemize}
+\begin{itemize}
+\item Item to Test: FUN-TST5
+\item Test Description: Add tasks
+\item Test Responsibility: Chris Yip 
+\end{itemize}
 
 \subsection{Test Approach(s)}
-For each of the test cases, a variety of incorrect inputs will be given to ensure the system correctly handles those cases.
+For each of the test cases, a variety of correct and incorrect inputs will be given to ensure the system correctly handles those cases.
 
 
 \subsection{Testing Cases and Expected Results}
@@ -470,17 +472,17 @@ are entered.
 created.
             \end{itemize}
     \end{enumerate}
-\item Ms. Forgetful is in her "Task-buster Trio" context when she clicks "add
+\item Alice is in her "Task-buster Trio" context when she clicks "add
 task."
      \begin{enumerate}
-        \item Ms. Forgetful leaves a required field blank.
+        \item Alice leaves a required field blank.
             \begin{itemize}
                 \item Input: An task-creation entry with a blank required
 field.
-                \item Output: An error message prompts Ms. Forgetful to
+                \item Output: An error message prompts Alice to
 include all required fields.
             \end{itemize}
-        \item The date manually entered by Ms. Forgetful was for some point in
+        \item The date manually entered by Alice was for some point in
 the past.
             \begin{itemize}
                 \item Input: A task creation request with an already expired
@@ -492,8 +494,7 @@ future date.
             \begin{itemize}
                 \item Input: A correctly formatted e-mail and all other fields
 are entered.
-                \item Output: A task that is visible and editable to Mr.
-Taskmaster and Mr. Fat-Fingers is created.
+                \item Output: A task that is visible and editable to the Task-buster Trio members is created.
             \end{itemize}
     \end{enumerate}
 \end{enumerate}
@@ -512,47 +513,45 @@ tests.
 \newpage
 \section{Security Testing}
 \subsection{Test Risks / Issues}
-No risks and issues are associated with the execution of the security tests.
+No risks or issues are associated with the execution of the security tests.
 
 \subsection{Items to be Tested / Not Tested}
 Each action that a user can perform in \texttt{ConMan} must be tested.\newline
 
 Tests:
 \begin{itemize}
-\item Item to test: SEC-TEST-1
-\item Test description: Attempt to access any page in \texttt{ConMan} without 
+\item Item to Test: SEC-TEST-1
+\item Test Description: Attempt to access any page in \texttt{ConMan} without 
 being signed-in
-\item Test responsibility: Angel DeCastro
+\item Test Responsibility: Angel DeCastro
 \end{itemize}
 \begin{itemize}
-\item Item to test: SEC-TEST-2
-\item Test description: Attempt to access any page in \texttt{ConMan} when 
+\item Item to Test: SEC-TEST-2
+\item Test Description: Attempt to access any page in \texttt{ConMan} when 
 signed-in
-\item Test responsibility: Angel DeCastro
+\item Test Responsibility: Angel DeCastro
 \end{itemize}
 \begin{itemize}
-\item Item to test: SEC-TEST-3
-\item Test description: Attempt to update or delete a team that the user is 
-not the admin of
-\item Test responsibility: Chris Yip
+\item Item to Test: SEC-TEST-3
+\item Test Description: Attempt to update or delete a team of which the user is not the administrator
+\item Test Responsibility: Chris Yip
 \end{itemize}
 \begin{itemize}
-\item Item to test: SEC-TEST-3
-\item Test description: Attempt to create, update or delete a task associate with 
-a team that the user is not the admin of
-\item Test responsibility: Chris Yip
+\item Item to Test: SEC-TEST-3
+\item Test Description: Attempt to create, update or delete a task associate with 
+a team that the user does not have administrator privileges.
+\item Test Responsibility: Chris Yip
 \end{itemize}
 \begin{itemize}
-\item Item to test: SEC-TEST-4
-\item Test description: Attempt to assign/unassign users from tasks associated 
-with a team that the user is not the admin of
-\item Test responsibility: Luis Retana
+\item Item to Test: SEC-TEST-4
+\item Test Description: Attempt to assign/unassign users from tasks associated 
+a team that the user does not have administrator privileges.
+\item Test Responsibility: Luis Retana
 \end{itemize}
 \begin{itemize}
-\item Item to test: SEC-TEST-5
-\item Test description: Attempt to create notes for tasks that the user 
-is not the admin of
-\item Test responsibility: Luis Retana
+\item Item to Test: SEC-TEST-5
+\item Test Description: Attempt to create notes for tasks that the user does not have administrator rights
+\item Test Responsibility: Luis Retana
 \end{itemize}
 
 \subsection{Test Approach(s)}
@@ -593,8 +592,8 @@ in \texttt{ConMan}.
 
 SEC-TEST-3, SEC-TEST-4, and SEC-TEST-5:
 \begin{itemize}
-\item \texttt{ConMan} shoud not allow the user to perform the actions depicted in 
-the test description if the user does not have the neccessary admin priviliges. 
+\item \texttt{ConMan} should not allow the user to perform the actions depicted in 
+the test description if the user does not have the necessary administrator privileges. 
 in \texttt{ConMan}.
 \end{itemize}
 
