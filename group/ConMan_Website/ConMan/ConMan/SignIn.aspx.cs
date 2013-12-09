@@ -48,7 +48,7 @@ namespace ConMan
             else
             {
                 lblResultsSignIn.ForeColor = Color.Red;
-                lblResultsSignIn.Text += " Email does not exist in ConMain database";
+                lblResultsSignIn.Text += " Email does not exist in ConMan database";
             }
         }
 

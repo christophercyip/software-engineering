@@ -1,10 +1,10 @@
-C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\bin\ConMan.dll
-C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\bin\ConMan.pdb
-C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ResolveAssemblyReference.cache
-C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ConMan.dll
-C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ConMan.pdb
 C:\Users\acer\Documents\GitHub\software-engineering\group\ConMan_Website\ConMan\ConMan\bin\ConMan.dll
 C:\Users\acer\Documents\GitHub\software-engineering\group\ConMan_Website\ConMan\ConMan\bin\ConMan.pdb
 C:\Users\acer\Documents\GitHub\software-engineering\group\ConMan_Website\ConMan\ConMan\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\acer\Documents\GitHub\software-engineering\group\ConMan_Website\ConMan\ConMan\obj\Debug\ConMan.dll
 C:\Users\acer\Documents\GitHub\software-engineering\group\ConMan_Website\ConMan\ConMan\obj\Debug\ConMan.pdb
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\bin\ConMan.dll
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\bin\ConMan.pdb
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ResolveAssemblyReference.cache
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ConMan.dll
+C:\LuisJr\USDSenior1\Software_Engineering\Practice\ConMan\ConMan\obj\Debug\ConMan.pdb

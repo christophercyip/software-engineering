@@ -211,6 +211,114 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.View ViewTaskView;
         
         /// <summary>
+        /// lblViewTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblViewTeam;
+        
+        /// <summary>
+        /// ddlViewTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlViewTeam;
+        
+        /// <summary>
+        /// lblViewTask control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblViewTask;
+        
+        /// <summary>
+        /// ddlViewTask control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlViewTask;
+        
+        /// <summary>
+        /// ViewTeamTasksDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ViewTeamTasksDataSource;
+        
+        /// <summary>
+        /// btnViewTask control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnViewTask;
+        
+        /// <summary>
+        /// lblViewTaskResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblViewTaskResults;
+        
+        /// <summary>
+        /// tbxViewTaskName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxViewTaskName;
+        
+        /// <summary>
+        /// tbxViewTaskDueDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxViewTaskDueDate;
+        
+        /// <summary>
+        /// tbxViewTaskDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxViewTaskDescription;
+        
+        /// <summary>
+        /// ViewTaskUsersDataList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList ViewTaskUsersDataList;
+        
+        /// <summary>
+        /// ViewTaskUsersDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ViewTaskUsersDataSource;
+        
+        /// <summary>
         /// UpdateTaskView control.
         /// </summary>
         /// <remarks>
@@ -238,6 +346,15 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.DropDownList ddlUpdateTeam;
         
         /// <summary>
+        /// UpdateTeamsDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource UpdateTeamsDataSource;
+        
+        /// <summary>
         /// lblUpdateTask control.
         /// </summary>
         /// <remarks>
@@ -254,6 +371,42 @@ namespace ConMan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUpdateTask;
+        
+        /// <summary>
+        /// UpdateTasksDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource UpdateTasksDataSource;
+        
+        /// <summary>
+        /// btnUpdateLoadTaskInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateLoadTaskInfo;
+        
+        /// <summary>
+        /// tbxUpdateOrigDueDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxUpdateOrigDueDate;
+        
+        /// <summary>
+        /// tbxUpdateOrigDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxUpdateOrigDescription;
         
         /// <summary>
         /// lblUpdateDate control.
@@ -319,6 +472,15 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
+        /// lblUpdateTaskResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUpdateTaskResults;
+        
+        /// <summary>
         /// MemberView control.
         /// </summary>
         /// <remarks>
@@ -364,13 +526,13 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.DropDownList ddlARMemTask;
         
         /// <summary>
-        /// ViewTeamTasksDataSource control.
+        /// ARMemTeamTasksDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ViewTeamTasksDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource ARMemTeamTasksDataSource;
         
         /// <summary>
         /// lblARMemEmail control.
@@ -400,6 +562,15 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.Button btnARMemAdd;
         
         /// <summary>
+        /// btnARMemDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnARMemDelete;
+        
+        /// <summary>
         /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>
@@ -409,40 +580,13 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// lblARMemDropDown control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblARMemDropDown;
-        
-        /// <summary>
-        /// ddlARMemTaskUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlARMemTaskUsers;
-        
-        /// <summary>
-        /// ListTaskUserDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ListTaskUserDataSource;
-        
-        /// <summary>
-        /// btnARMemDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnARMemDelete;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// lblARMemResults control.
@@ -499,6 +643,42 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.DropDownList ddlAddNoteTask;
         
         /// <summary>
+        /// AddNoteTasksDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource AddNoteTasksDataSource;
+        
+        /// <summary>
+        /// btnViewNotesRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnViewNotesRefresh;
+        
+        /// <summary>
+        /// NotesDataList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList NotesDataList;
+        
+        /// <summary>
+        /// ListTaskNotesDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ListTaskNotesDataSource;
+        
+        /// <summary>
         /// lblAddNoteNote control.
         /// </summary>
         /// <remarks>
@@ -535,6 +715,15 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.Button btnAddNoteButton;
         
         /// <summary>
+        /// lblAddNoteResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddNoteResults;
+        
+        /// <summary>
         /// DeleteTaskView control.
         /// </summary>
         /// <remarks>
@@ -542,5 +731,68 @@ namespace ConMan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View DeleteTaskView;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// ddlDeleteTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDeleteTeam;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// ddlDeleteTask control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDeleteTask;
+        
+        /// <summary>
+        /// DeleteListAllTasksDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DeleteListAllTasksDataSource;
+        
+        /// <summary>
+        /// btnDeleteTask control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteTask;
+        
+        /// <summary>
+        /// lblDeleteTaskResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeleteTaskResults;
     }
 }

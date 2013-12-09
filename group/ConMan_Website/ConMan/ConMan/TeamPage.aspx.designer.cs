@@ -193,6 +193,24 @@ namespace ConMan {
         protected global::System.Web.UI.WebControls.TextBox tbxViewTeamOwner;
         
         /// <summary>
+        /// TeamViewListMembersDataList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList TeamViewListMembersDataList;
+        
+        /// <summary>
+        /// TeamViewListMembersDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TeamViewListMembersDataSource;
+        
+        /// <summary>
         /// lblViewTeamResults control.
         /// </summary>
         /// <remarks>

@@ -46,7 +46,7 @@
                             ValidationGroup="CreateTeamGroup" onclick="btnCreateTeam_Click"/></td>
                 </tr>
             </table>
-            <asp:Label ID="lblCreateTeamResults" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblCreateTeamResults" runat="server" Text=""></asp:Label>
         </asp:View>
         <!-- Read View -->
         <asp:View ID="ReadView" runat="server">
@@ -77,6 +77,42 @@
                     <td>Team Owner: </td>
                     <td><asp:TextBox ID="tbxViewTeamOwner" runat="server" BackColor="#CCCCCC" 
                             ReadOnly="True" Width="200px"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Team Members: </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <asp:DataList ID="TeamViewListMembersDataList" runat="server" DataKeyField="id" 
+                            DataSourceID="TeamViewListMembersDataSource" CellPadding="4" 
+                            ForeColor="#333333">
+                            <AlternatingItemStyle BackColor="White" />
+                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <ItemStyle BackColor="#E3EAEB" />
+                            <ItemTemplate>
+                                Name:
+                                <asp:Label ID="first_nameLabel" runat="server" 
+                                    Text='<%# Eval("first_name") + " " + Eval("last_name") %>' />
+                                <br />
+                                Email:
+                                <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
+                                <br />
+                                <br />
+                            </ItemTemplate>
+                            <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                        </asp:DataList>
+                        <asp:SqlDataSource ID="TeamViewListMembersDataSource" runat="server" 
+                            ConnectionString="<%$ ConnectionStrings:SqlDatabaseConnString %>" 
+                            SelectCommand="SELECT UserInfo.id, UserInfo.first_name, UserInfo.last_name, UserInfo.email FROM TeamMember INNER JOIN UserInfo ON TeamMember.user_mem_id = UserInfo.id WHERE (TeamMember.team_mem_id = @team_id)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="ddlTeamsView" DefaultValue="0" Name="team_id" 
+                                    PropertyName="SelectedValue" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </td>
                 </tr>
             </table>
             <asp:Label ID="lblViewTeamResults" runat="server" Text=""></asp:Label>

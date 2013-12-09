@@ -126,9 +126,20 @@ namespace ConMan
         /// <param name="e"></param>
         protected void btnViewTeam_Click(object sender, EventArgs e)
         {
-            Team team = TeamDAL.GetTeamById( Convert.ToInt64(ddlTeamsView.SelectedValue) );
 
             lblViewTeamResults.Text = "";
+
+            // Make sure the user selected a team
+            if (ddlTeamsView.SelectedValue.Equals("") || ddlTeamsView.SelectedValue.Equals("0") || ddlTeamsView.SelectedValue == null)
+            {
+                lblViewTeamResults.ForeColor = Color.Red;
+                lblViewTeamResults.Text = "You must first select a team. ";
+                return;
+            }
+
+            Team team = TeamDAL.GetTeamById( Convert.ToInt64(ddlTeamsView.SelectedValue) );
+
+            
 
             if (team != null)
             {
@@ -149,6 +160,14 @@ namespace ConMan
         /// <param name="e"></param>
         protected void btnDeleteTeam_Click(object sender, EventArgs e)
         {
+            // Make the sure user selected a team
+            if (ddlTeamsDelete.SelectedValue.Equals("") || ddlTeamsDelete.Equals("0") || ddlTeamsDelete.SelectedValue == null)
+            {
+                lblDeleteTeamResults.ForeColor = Color.Red;
+                lblDeleteTeamResults.Text = "You must first select a team to delete. ";
+                return;
+            }
+
             // First make sure the current user is the admin of the selected team
             Team team = TeamDAL.GetTeamById( Convert.ToInt64(ddlTeamsDelete.SelectedValue) );
 
@@ -158,10 +177,22 @@ namespace ConMan
             if (currentUser.ID != team.TeamOwner)
             {
                 lblDeleteTeamResults.ForeColor = Color.Red;
-                lblDeleteTeamResults.Text += "Cannot delete a team that you are not the admin of. ";
+                lblDeleteTeamResults.Text = "Cannot delete a team that you are not the admin of. ";
+                return;
             }
-            // Else attempt to delete the team and its members
-            else if (TeamDAL.DeleteTeam(team.TeamID) && TeamMemberDAL.DeleteAllMembers(team.TeamID))
+            
+            // Attempt to delete all information about the tasks associated with the team
+            // to delete (task, task notes, and mappings to assigned users)
+            List<Int64> listOfTasksToDelete = TaskDAL.GetAllTeamTasks( team.TeamID);
+            foreach( Int64 taskID in listOfTasksToDelete)
+            {
+                TaskNotesDAL.DeleteAllTaskNotes(taskID);
+                UserTasksDAL.DeleteAllTaskUsers(taskID);
+                TaskDAL.DeleteTask(taskID);
+            }
+
+            // Atttempt to delete the team
+            if (TeamDAL.DeleteTeam(team.TeamID) && TeamMemberDAL.RemoveAllMembers(team.TeamID))
             {
                 lblDeleteTeamResults.ForeColor = Color.Blue;
                 lblDeleteTeamResults.Text = "Successfully deleted the team.";
@@ -185,6 +216,15 @@ namespace ConMan
             {
                 lblUpdateResults.Text = "";
 
+                // Make sure that the user selected a team
+                // Make the sure user selected a team
+                if (ddlTeamsUpdate.SelectedValue.Equals("") || ddlTeamsUpdate.Equals("0") || ddlTeamsUpdate.SelectedValue == null)
+                {
+                    lblUpdateResults.ForeColor = Color.Red;
+                    lblUpdateResults.Text = "You must first select a team to add a member to. ";
+                    return;
+                }
+
                 // First check if current user is the admin of the team before 
                 // he adds a member
                 Team teamToUpdate = TeamDAL.GetTeamById( Convert.ToInt64(ddlTeamsUpdate.SelectedValue));
@@ -200,6 +240,9 @@ namespace ConMan
                             {
                                 lblUpdateResults.ForeColor = Color.Blue;
                                 lblUpdateResults.Text += "Successfully added new team member (" + newMember.Email + "). ";
+
+                                // Reset the textbox text
+                                tbxUpdateNewMember.Text = "";
 
                                 // Make sure to force drop down list to update
                                 ddlUpdateRemoveMember.DataBind();
@@ -240,6 +283,14 @@ namespace ConMan
         /// <param name="e"></param>
         protected void btnUpdateRemoveMember_Click(object sender, EventArgs e)
         {
+            if (ddlTeamsUpdate.SelectedValue.Equals("") || ddlTeamsUpdate.SelectedValue.Equals("0") || ddlTeamsUpdate.SelectedValue == null
+                || ddlUpdateRemoveMember.SelectedValue.Equals("") || ddlUpdateRemoveMember.SelectedValue.Equals("0") || ddlUpdateRemoveMember.SelectedValue == null)
+            {
+                lblUpdateResults.ForeColor = Color.Red;
+                lblUpdateResults.Text = "You must first select a team and user to remove a user from a team. ";
+                return;
+            }
+
             if (Page.IsValid)
             {
                 lblUpdateResults.Text = "";
