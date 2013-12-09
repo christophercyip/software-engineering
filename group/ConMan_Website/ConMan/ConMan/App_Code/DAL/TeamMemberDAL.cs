@@ -62,7 +62,7 @@ namespace ConMan.App_Code.DAL
         /// </summary>
         /// <param name="teamID">ID of team which will have all its members deleted</param>
         /// <returns>True if successful, and false otherwise</returns>
-        public static bool DeleteAllMembers(Int64 teamID)
+        public static bool RemoveAllMembers(Int64 teamID)
         {
             bool wasAddSuccessful = false;
             String connString = ConfigurationManager.ConnectionStrings["SqlDatabaseConnString"].ConnectionString;

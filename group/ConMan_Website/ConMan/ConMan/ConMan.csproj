@@ -60,6 +60,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Images\banner.png" />
     <Content Include="SignIn.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -114,9 +115,11 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\DAL\TaskDAL.cs" />
+    <Compile Include="App_Code\DAL\TaskNotesDAL.cs" />
     <Compile Include="App_Code\DAL\TeamDAL.cs" />
     <Compile Include="App_Code\DAL\TeamMemberDAL.cs" />
     <Compile Include="App_Code\DAL\UserTasksDAL.cs" />
+    <Compile Include="App_Code\Entities\Task.cs" />
     <Compile Include="App_Code\Entities\Team.cs" />
     <Compile Include="App_Code\Entities\User.cs" />
     <Compile Include="Default.aspx.cs">
