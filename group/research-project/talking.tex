@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{12pt}
+\setlength{\textwidth}{17.2cm} \setlength{\textheight}{23cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\headsep}{1.6cm}
+\setlength{\evensidemargin}{-.8cm}
+\setlength{\oddsidemargin}{-.8cm}
+%\pagestyle{fancy}
+
+%set-up page dimentions
+\usepackage[top=1.5 in, bottom = 1.5 in ,left = 1.5 in, right = 1.5in]{geometry}
+
+\setlength{\parskip}{12pt}  % 12 pt = space between paragraphs
+\setlength{\parindent}{0pt} % 0 pt  = indentation
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{graphpap}
+\usepackage{setspace}
+\renewcommand{\P}{\text{P}}
+\newcommand{\C}{\text{C}}
+
+% Allows hyperlinks if compiled with pdflatex
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{ colorlinks,
+                linkcolor=darkblue,
+                filecolor=darkgreen,
+                urlcolor=darkblue,
+                citecolor=darkblue }
+%hyperlink example is: \href{http://www.google.com}{google}
+
+\begin{document}
+\section{Introduction}
+\subsection{Embedded Systems}
+\begin{enumerate}
+\item Embedded Systems are virtually everywhere
+\item Here are some examples
+\item Embedded systems are characterizes by interacting directly with hardware.  But, the biggest difference is.....:
+\end{enumerate}
+\subsection{Timing}
+\begin{enumerate}
+\item Timing!
+\item For embedded systems, how the system performs within timing constraints also determines its correctness.
+\item For that reason, embedded systems are often a subset of "real-time" software systems.
+\end{enumerate}
+\subsection{Definition}
+\begin{enumerate}
+\item Point out whatever you think is interesting about the definitions.
+\end{enumerate}
+\subsection{Differences}
+\begin{enumerate}
+\item Again, point out any of the interesting points.
+\end{enumerate}
+
+\newpage
+\section{Design}
+\subsection{Bottom Up}
+\begin{enumerate}
+\item Often, sometimes the hardware is being developed in concert with the software.
+\item Since timing is everything, low-level details must be considered early in the design process.
+\end{enumerate}
+\subsection{Stimulus-Response}
+\begin{enumerate}
+\item General approach is stimulus/response model.  Since embedded systems have to react to events in environment.
+\item Behavior defined by Stimulus (events in environment which causes system to act)
+\item Response (signal sent by SW to environment - say to actuators in response to a signal)
+\item real-time-systems must react to stimuli at any given time (both periodic and aperiodic)
+\item Aperiodic stimuli are often handled by interrupts.
+\end{enumerate}
+\subsection{Design Activities}
+\begin{enumerate}
+\item Platform selection depends on timing, power, costs, developer experience
+\end{enumerate}
+\subsection{Design Validation}
+\begin{enumerate}
+\item Need to check design (just like any other program)
+\item Have to ensure timing constraints are met as well.  Can do:
+\item Static analysis - prior knowledge or well defined system behavior required.
+\item Real-time system modelling (state models often used)
+\item Can now go into a bunch of stuff about state models
+\end{enumerate}
+
+\newpage
+\section{Real Time Programming}
+\subsection{Tools}
+\begin{enumerate}
+\item Programming real time systems is very difficult.
+\item Assembly is sometimes used, but is slow development, and few developers with enough expertise.
+\item C is good, but does not have native support for concurrancy.  System calls need to be well defined in order to rely on timing.
+\item OO languages have very high overhead.  Especially languages which have automatic garbage collection.  The real-time developer cannot have processes he is unaware of taking over timing.
+\end{enumerate}
+\subsection{Real-Time OS}
+\begin{enumerate}
+\item Bare metal systems require a development team to have a large array of system calls, can be cumbersome to larger the system.
+\item Real-time operating systems have been developed, RTOS for linux, windows has one, a number of other commercial systems are also in place.
+\end{enumerate}
+\subsection{Scheduling}
+\begin{enumerate}
+\item The times by which stimuli must be processed and some response produced by the systems.
+\item If the system does not meet a deadline, then that would be a failure for a hard RTOS.
+\item Frequency:  The number of times per second that a process must execute so that you are confident that it can always meet its deadlines.
+\item Execution time.  Time required to process a stimulus and produce a response.  Need to keep track of average and worst execution times.
+\item Now must develop a scheduling system that will ensure that a process will always be scheduled to meet its deadlines.  RTOS needs to support the scheduling algorithm developed.
+\end{enumerate}
+
+\end{document}
